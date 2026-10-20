@@ -1,6 +1,13 @@
 {
   "versions": [
     {
+      "version": "v0.1.1",
+      "date": "2026-10-20",
+      "kind": "fix",
+      "title": "the site pins api.send.sgit.ai v0.1.1, whose health check asks the route the hosted service serves",
+      "notes": "After the first deploy, Settings reported send.sgraph.ai as not answering: the v0.1.0 release asked /api/health, which the hosted service does not serve (its route is /api/info/health). The API's v0.1.1 fixes that; this version changes the pin and copies its manifest, and nothing else on the site. The same run measured that send.sgraph.ai allows requests from this origin with every header the release sends."
+    },
+    {
       "version": "v0.1.0",
       "date": "2026-10-20",
       "kind": "release",

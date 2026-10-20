@@ -2,7 +2,7 @@
 
 > Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
 
-*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.0 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -61,4 +61,4 @@ The link is built with the key after the `#`this browsernothing: browsers never 
 
 The link is drawn as a QR codethis browsernothing
 
-[How it works](/learn/) · [What the server sees](/learn/security/) · [Vaults and keys](/learn/vaults-and-keys/) · the code this page runs is [api.send.sgit.ai v0.1.0](https://api.send.sgit.ai/v0.1.0/README.md), pinned.
+[How it works](/learn/) · [What the server sees](/learn/security/) · [Vaults and keys](/learn/vaults-and-keys/) · the code this page runs is [api.send.sgit.ai v0.1.1](https://api.send.sgit.ai/v0.1.1/README.md), pinned.

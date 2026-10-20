@@ -1,57 +1,57 @@
 {
-  "release": "v0.1.0",
+  "release": "v0.1.1",
   "date": "2026-10-20",
   "files": 36,
-  "bytes": 274733,
+  "bytes": 276069,
   "note": "A complete, independent copy of the code. Never edited after publishing: a change is the next release.",
   "entries": {
     "README.md": {
       "bytes": 2075,
-      "sha256": "4e5dde1a23a0e243f420251f5e4626c20553a9d393cc25f146ee518c8717480b"
+      "sha256": "5f8b89db3cf3232b544d9b4d42cc91c19bcde1bdc734c44a73a9165414a306fe"
     },
     "send/send-api.js": {
       "bytes": 1125,
-      "sha256": "1b175d245dac542f322fcb37057f863f871792b24a6f55d2d6082eaa7b935149"
+      "sha256": "17f294e714dc81eb6a0a372e7080a2350c21c84c6b8200b350f149cb16982fbd"
     },
     "send/send-crypto.js": {
       "bytes": 5212,
-      "sha256": "f4ebaee9266418f77c53c510df8e0c918c9562fe58acddac3c0fb53c70e27d9a"
+      "sha256": "550a5614aa80205d749dd9ea39e183e267313081b72447688855feee0cd6eca2"
     },
     "send/send-envelope.js": {
       "bytes": 2240,
-      "sha256": "ae6b6d8e62299b81664480878c239efd8c1a070eb94e739509faf097d9837421"
+      "sha256": "f2703951a83f1710dcf268563c89c9f5339c7e53257a41f42eaa515803ded3f1"
     },
     "send/send-friendly.js": {
       "bytes": 2449,
-      "sha256": "2fe16bd021bf779a402f0add5d109f49ac5db239f31ade16b17be4bf272cb578"
+      "sha256": "d80478e1e08824eaf3746fefe2bffd1770c140c81de6c8fa5dfafe4a109dc49b"
     },
     "send/send-keyring.js": {
       "bytes": 4532,
-      "sha256": "b497e248d18b8a2c411f0be1bc3878918ab4ff493e8c695d1d947cd48fc9374a"
+      "sha256": "74163e399f6fde018a304c915322e5657a3067874174333ff6024d0695511489"
     },
     "send/send-link.js": {
       "bytes": 5374,
-      "sha256": "0262268ed052fe4d6f31bd60b179fb9e7d579216a2833543718f397cf255cb5d"
+      "sha256": "cf4596f550f35154047a0cf492de1dcad678ec40d8f5aa6c7ab53af68149baa9"
     },
     "send/send-qr.js": {
       "bytes": 2355,
-      "sha256": "4461078027e9b74d27426c35a8fbc1208ece8beeb59236cdaeea59acf6337812"
+      "sha256": "e662cc18a59e67c880c0e437ed8e7aacd332f3712ba217723928bea5df034e19"
     },
     "send/send-transfers.js": {
-      "bytes": 9588,
-      "sha256": "dc8fbabe10893ba3dd9cc9df41e883bc24c2c1720e8c0560f03689994601b407"
+      "bytes": 9950,
+      "sha256": "d865e747b40128105f1ed41bd249a150258e3ab773c3364a0770b8351acd87cf"
     },
     "send/send-vault-expose.js": {
       "bytes": 619,
-      "sha256": "631db9aa5fa857c0e1fb03d22742a03731f05bac65e0dac419716183cb2712e2"
+      "sha256": "c29bf87b2cd66ce945f00d2ab72bab0ae57f33b5a642fa7004cdf3c690aa93ca"
     },
     "send/send-vault.js": {
       "bytes": 9451,
-      "sha256": "8131d5b0874245f076b60c4a685ad42d3741e097968d0961a6b87534012ada91"
+      "sha256": "f8b4b4355f104a84e530dabcf0a00d82f214e8b4b523f4c3dd4e2af30659cb91"
     },
     "send/send-words.js": {
       "bytes": 3713,
-      "sha256": "b1d0e2623b40fe547e59dc12fc07a10de680d282d6d7310235af3882a6f6e201"
+      "sha256": "de985545440ca2927661b261c1d00dfeba86c26b724d59b0a4f3694c9c7676a6"
     },
     "tests/_lib.mjs": {
       "bytes": 1509,
@@ -59,7 +59,7 @@
     },
     "tests/browser.html": {
       "bytes": 3591,
-      "sha256": "f1d0b2cdda078ab2e8488ebda822da518a49393cfa5f8259cb2a183f36f5c76e"
+      "sha256": "e6f19c1b5c036bd64550b15cf9e201017eb430c198bdacdcaf196c4bd04da300"
     },
     "tests/crypto.test.mjs": {
       "bytes": 2930,
@@ -78,12 +78,12 @@
       "sha256": "007b3f99314b6ccfc295a7d62ddffc308b66707ce5f43f99d23415de731db71b"
     },
     "tests/server.mjs": {
-      "bytes": 14088,
-      "sha256": "1c7ae314179ffd03df37d1322ce419e8f30f82bf1c55f8ca52609e17e18375a8"
+      "bytes": 14663,
+      "sha256": "b418b516ed30418e5fe827c869ee3482519bb0e335307edc6ff54a74093774aa"
     },
     "tests/transfers.test.mjs": {
-      "bytes": 5580,
-      "sha256": "86732476d5652a476b7032f2994168dd08cffe233edee25af8bcf8967d76d6cf"
+      "bytes": 5979,
+      "sha256": "db3041e507bfabaf205680ced0fceded2b0f9e0975110de456e21f175f4f6ce3"
     },
     "tests/vault.test.mjs": {
       "bytes": 5384,

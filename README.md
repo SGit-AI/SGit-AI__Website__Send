@@ -3,7 +3,7 @@
 The repository for [send.sgit.ai](https://send.sgit.ai): send a file to anyone, encrypted in the browser before it
 leaves, the server never seeing the file, its name or the key; hand over the link as a QR code or a friendly token; or
 keep the files in a vault you can open again, update, share read-only and clone with sgit; and keep every key in a
-keyring on the device. It grew from [send.sgraph.ai](https://send.sgraph.ai) and keeps its formats. Current version v0.1.0.
+keyring on the device. It grew from [send.sgraph.ai](https://send.sgraph.ai) and keeps its formats. Current version v0.1.1.
 
 - **The app** is five pages, `/`, `/open/`, `/vaults/`, `/keys/`, `/settings/`, as small ES modules in
   `website/assets/app/` with no framework. They run one pinned release of

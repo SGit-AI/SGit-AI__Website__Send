@@ -5,7 +5,7 @@
  * never changes what other readers get. The endpoint (the SG/Send server) and the access token live in the keyring,
  * in this browser only.
  */
-export const PINNED   = 'https://api.send.sgit.ai/v0.1.0/send/send-api.js'
+export const PINNED   = 'https://api.send.sgit.ai/v0.1.1/send/send-api.js'
 export const API_BASE_KEY = 'send.sgit.ai.api-base'
 export const ENDPOINTS = [
     { id: 'prod',  label: 'send.sgraph.ai (the hosted service)', endpoint: 'https://send.sgraph.ai' },

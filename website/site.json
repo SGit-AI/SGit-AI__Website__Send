@@ -4,16 +4,16 @@
   "host": "https://send.sgit.ai",
   "cname": "send.sgit.ai",
   "description": "Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.",
-  "stage": "v0.1.0, beta",
+  "stage": "v0.1.1, beta",
   "source": "https://github.com/SGit-AI/SGit-AI__Website__Send",
   "parent": { "name": "sgit.ai", "href": "https://sgit.ai", "title": "sgit.ai: the parent project, git for encrypted vaults" },
   "theme_key": "sgit.send.ui.theme",
-  "footer": "Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href=\"https://api.send.sgit.ai\">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href=\"/about/reality/\">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.",
+  "footer": "Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href=\"https://api.send.sgit.ai\">api.send.sgit.ai</a> v0.1.1, pinned. Content <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href=\"/about/reality/\">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.",
   "network": "Part of the sgit.ai network: <a href=\"https://sgit.ai\">sgit.ai</a> · <a href=\"https://api.send.sgit.ai\">api.send.sgit.ai</a> (the code this site runs) · <a href=\"https://send.sgraph.ai\">send.sgraph.ai</a> (the service this one grew from) · <a href=\"https://secrets.sgit.ai\">secrets.sgit.ai</a> · <a href=\"https://newsroom.sgit.ai\">newsroom.sgit.ai</a> · <a href=\"https://sgit.ai/network/\">the full network</a>",
-  "llms_intro": "send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.0, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send",
+  "llms_intro": "send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.1, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send",
   "llms_extra": [
     "[The API this site runs, for agents](https://api.send.sgit.ai/agents/index.md)",
-    "[The pinned release's README](https://api.send.sgit.ai/v0.1.0/README.md)"
+    "[The pinned release's README](https://api.send.sgit.ai/v0.1.1/README.md)"
   ],
   "nav": [
     { "title": "Send", "href": "/", "items": [

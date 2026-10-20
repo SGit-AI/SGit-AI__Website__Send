@@ -2,7 +2,7 @@
 
 > The same transfer made three ways: from a page with the pinned API, from a shell with curl and openssl, and from Python for an agent; plus the server in memory for trying it on a laptop.
 
-*Source: <https://send.sgit.ai/use/> · send.sgit.ai v0.1.0 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -14,7 +14,7 @@ Everything here talks to the same server with the same formats, so a file sent o
 
 ```html
 <script type="module">
-  import * as send from 'https://api.send.sgit.ai/v0.1.0/send/send-api.js'
+  import * as send from 'https://api.send.sgit.ai/v0.1.1/send/send-api.js'
   const api = new send.SendTransfers({ endpoint: 'https://send.sgraph.ai', accessToken })
   const r   = await api.send({ bytes, filename: 'report.pdf', expiresAt: Date.now() + 7 * 86400e3 })
   const url = send.link.transferLink({ openUrl: 'https://send.sgit.ai/open/', transferId: r.transferId, key: r.keyString })
@@ -85,7 +85,7 @@ For an agent-facing link prefer `max_downloads=0` with a short `expires_ms`: a r
 
 ```
 git clone https://github.com/SGit-AI/SGit-AI__Website__Send__API
-node SGit-AI__Website__Send__API/releases/v0.1.0/tests/server.mjs 8787 local-dev-token
+node SGit-AI__Website__Send__API/releases/v0.1.1/tests/server.mjs 8787 local-dev-token
 ```
 
 Then in [Settings](/settings/) choose "a server on this machine" with the token `local-dev-token`. Every feature works, nothing leaves the machine, and it forgets everything when it stops. It is the same server the API's 43 tests run against.

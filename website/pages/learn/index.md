@@ -37,4 +37,4 @@ Steps 1 to 3 are the same, per file. Instead of one transfer, the files are comm
 
 ## What runs where
 
-The pages are this site's. The code they run is [api.send.sgit.ai](https://api.send.sgit.ai) v0.1.0, pinned by address, with a manifest of every file's hash copied into this repository and checked by the gate. The server is whichever SG/Send host you choose in [Settings](/settings/): the hosted one at `send.sgraph.ai`, your own, or [one in memory on your laptop](/use/#local).
+The pages are this site's. The code they run is [api.send.sgit.ai](https://api.send.sgit.ai) v0.1.1, pinned by address, with a manifest of every file's hash copied into this repository and checked by the gate. The server is whichever SG/Send host you choose in [Settings](/settings/): the hosted one at `send.sgraph.ai`, your own, or [one in memory on your laptop](/use/#local).

@@ -2,7 +2,7 @@
 
 > What happens to a file between the drop zone and the recipient, step by step, with what each party holds at every step.
 
-*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.0 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -40,4 +40,4 @@ Steps 1 to 3 are the same, per file. Instead of one transfer, the files are comm
 
 ## What runs where
 
-The pages are this site's. The code they run is [api.send.sgit.ai](https://api.send.sgit.ai) v0.1.0, pinned by address, with a manifest of every file's hash copied into this repository and checked by the gate. The server is whichever SG/Send host you choose in [Settings](/settings/): the hosted one at `send.sgraph.ai`, your own, or [one in memory on your laptop](/use/#local).
+The pages are this site's. The code they run is [api.send.sgit.ai](https://api.send.sgit.ai) v0.1.1, pinned by address, with a manifest of every file's hash copied into this repository and checked by the gate. The server is whichever SG/Send host you choose in [Settings](/settings/): the hosted one at `send.sgraph.ai`, your own, or [one in memory on your laptop](/use/#local).

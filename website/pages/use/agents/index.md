@@ -23,7 +23,7 @@ A vault is the right shape when the thing is read repeatedly, updated, or browse
 
 ## From a browser agent
 
-The pinned release runs in any page: `import('https://api.send.sgit.ai/v0.1.0/send/send-api.js')`, then `SendTransfers.send()` and `receive()`, or the `vault` namespace. Opening needs no token.
+The pinned release runs in any page: `import('https://api.send.sgit.ai/v0.1.1/send/send-api.js')`, then `SendTransfers.send()` and `receive()`, or the `vault` namespace. Opening needs no token.
 
 ## What to read first
 

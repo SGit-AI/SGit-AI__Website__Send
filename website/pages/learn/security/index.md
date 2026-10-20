@@ -19,7 +19,7 @@ The server is a capability-checked ciphertext store: every access decision it ma
 
 ## This site
 
-This site is static files on GitHub Pages: it has no way to receive a request body. The code the pages run comes from [api.send.sgit.ai](https://api.send.sgit.ai), pinned to one release whose every file is hashed in [the manifest](https://api.send.sgit.ai/v0.1.0/manifest.json) and checked by this repository's gate. No script, style or font is loaded from any other origin. Nothing is stored except what you can see on [Keys](/keys/) and the theme you picked.
+This site is static files on GitHub Pages: it has no way to receive a request body. The code the pages run comes from [api.send.sgit.ai](https://api.send.sgit.ai), pinned to one release whose every file is hashed in [the manifest](https://api.send.sgit.ai/v0.1.1/manifest.json) and checked by this repository's gate. No script, style or font is loaded from any other origin. Nothing is stored except what you can see on [Keys](/keys/) and the theme you picked.
 
 ## Two secrets that must not be confused
 

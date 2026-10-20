@@ -2,7 +2,7 @@
 
 > How an agent sends a result to a person or to another agent with these formats, what to put in the bundle, which secrets go where, and the pages to read first.
 
-*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.0 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -26,7 +26,7 @@ A vault is the right shape when the thing is read repeatedly, updated, or browse
 
 ## From a browser agent
 
-The pinned release runs in any page: `import('https://api.send.sgit.ai/v0.1.0/send/send-api.js')`, then `SendTransfers.send()` and `receive()`, or the `vault` namespace. Opening needs no token.
+The pinned release runs in any page: `import('https://api.send.sgit.ai/v0.1.1/send/send-api.js')`, then `SendTransfers.send()` and `receive()`, or the `vault` namespace. Opening needs no token.
 
 ## What to read first
 
