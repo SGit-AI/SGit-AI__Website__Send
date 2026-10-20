@@ -2,11 +2,13 @@
 
 > How an agent sends a result to a person or to another agent with these formats, what to put in the bundle, which secrets go where, and the pages to read first.
 
-*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # For agents
+
+*As a storyboard: [An agent hands over](/storyboards/an-agent-hands-over/).*
 
 You are reading the page for agents of send.sgit.ai. Every page here has a markdown twin at the same path with `.md` instead of `.html`; [`/llms.txt`](/llms.txt) lists them, and [`/llms-full.txt`](/llms-full.txt) is all of them in one request. The code this site runs has [its own agents page](https://api.send.sgit.ai/agents/).
 

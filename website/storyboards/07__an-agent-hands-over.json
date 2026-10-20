@@ -1,0 +1,289 @@
+{
+ "slug": "an-agent-hands-over",
+ "title": "An agent hands over",
+ "subtitle": "Pip finishes a job, sends the result once with an expiry, keeps the work in a vault, and never logs a key. 9 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "Under the hood",
+ "try_it": [
+  [
+   "For agents",
+   "/use/agents/"
+  ],
+  [
+   "The Python example",
+   "/use/"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "An agent hands over",
+   "subtitle": "Once by transfer. Repeatedly in a vault. Never a key in a transcript.",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "wave",
+     "mood": "happy"
+    },
+    {
+     "who": "maya",
+     "pose": "stand",
+     "mood": "happy"
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm"
+    }
+   ],
+   "note": "The agentic workflow the brief named as one of the reasons to move.",
+   "source": "use/agents/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Job done",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.2,
+     "says": "Report ready. Three files.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "terminal",
+     "x": 0.62,
+     "y": 880,
+     "lines": [
+      "$ python3 run.py",
+      "job done: 3 files, 1.2 MB",
+      "report.md  data.csv  manifest.json"
+     ]
+    }
+   ],
+   "note": "A session agent at the end of a job, with a result and nobody to hand it to.",
+   "source": "use/agents/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The token from the environment, in a header",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.18,
+     "says": "From the environment. Into a header. Nowhere else.",
+     "max": 18
+    }
+   ],
+   "props": [
+    {
+     "kind": "key",
+     "x": 0.52,
+     "y": 640,
+     "label": "SGRAPH_ACCESS_TOKEN",
+     "colour": "#b91c1c"
+    },
+    {
+     "kind": "board",
+     "x": 0.82,
+     "y": 900,
+     "scale": 0.8,
+     "lines": [
+      "x-sgraph-access-token: ****",
+      "never a URL, never a log"
+     ]
+    }
+   ],
+   "note": "The access token authorises the upload and must not land in a query string or a transcript.",
+   "source": "use/agents/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "One transfer, time-bound",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 0.16
+    }
+   ],
+   "props": [
+    {
+     "kind": "calendar",
+     "x": 0.46,
+     "y": 820,
+     "label": "expires in 7 days"
+    },
+    {
+     "kind": "board",
+     "x": 0.78,
+     "y": 900,
+     "scale": 0.8,
+     "lines": [
+      "max_downloads: 0",
+      "a retry is not a reader"
+     ]
+    }
+   ],
+   "note": "For a link another agent will open: a time bound rather than a download cap.",
+   "source": "use/agents/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The link, and nothing else, in the reply",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.18,
+     "says": "Here is the link. The key is in it. I logged neither.",
+     "max": 18
+    },
+    {
+     "who": "maya",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "props": [
+    {
+     "kind": "arrow",
+     "x": 0.4,
+     "y": 560,
+     "to": 0.76,
+     "label": "send.sgit.ai/open/#id/key"
+    }
+   ],
+   "note": "The decryption key lives in the link and nowhere else: not in node output, not in a result that is kept.",
+   "source": "use/agents/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The work stays in a vault",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.18,
+     "says": "Commit, push, hand over the read key.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "vault",
+     "x": 0.56,
+     "y": 880,
+     "label": "job-2026-10-20"
+    },
+    {
+     "kind": "key",
+     "x": 0.84,
+     "y": 640,
+     "label": "read key, to Maya",
+     "colour": "#2563eb"
+    }
+   ],
+   "note": "The thing that is read repeatedly goes in a vault; the read key is what travels.",
+   "source": "learn/vaults-and-keys/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "A bundle a reader can use",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 0.16
+    }
+   ],
+   "props": [
+    {
+     "kind": "record",
+     "x": 0.6,
+     "y": 880,
+     "lines": [
+      "manifest.json  what each file is",
+      "llms.txt       for the next agent",
+      "report.md",
+      "data.csv"
+     ],
+     "stamp": false,
+     "label": "the bundle"
+    }
+   ],
+   "note": "A manifest and an llms.txt cost nothing and are the difference between a payload that can be used and one that has to be opened by a person first.",
+   "source": "use/agents/index.md"
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "The key, in one place",
+   "evidence": {
+    "quote": "The decryption key is in the link, and nowhere else.",
+    "source": "use/agents/index.md"
+   },
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the agents page, word for word.",
+   "source": "use/agents/index.md"
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "Hand over once by transfer. Work repeatedly in a vault. Never paste a key.",
+   "cast": [
+    {
+     "who": "pip",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.14
+    },
+    {
+     "who": "maya",
+     "pose": "arms-up",
+     "mood": "happy",
+     "x": 0.36
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "The Python example on the use page is the whole hand-over in forty lines.",
+   "source": "use/index.md"
+  }
+ ]
+}

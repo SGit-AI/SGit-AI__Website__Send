@@ -1,0 +1,290 @@
+{
+ "slug": "what-can-go-wrong",
+ "title": "What can go wrong",
+ "subtitle": "Six ways a hand-over fails: a link in a public channel, expired, the wrong key, a vault key in a link, and what revocation does and does not do. 9 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "Under the hood",
+ "try_it": [
+  [
+   "Security: what the server sees",
+   "/learn/security/"
+  ],
+  [
+   "Keys",
+   "/keys/"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "What can go wrong",
+   "subtitle": "Expiry, caps and revocation limit the future. Nothing takes back the past.",
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "happy"
+    },
+    {
+     "who": "maya",
+     "pose": "think",
+     "mood": "worried"
+    },
+    {
+     "who": "ravi",
+     "pose": "stand",
+     "mood": "confused"
+    }
+   ],
+   "note": "The failures, each with what it costs and what the site does about it.",
+   "source": "learn/security/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The link in a public channel",
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.2,
+     "says": "A link is as private as where it went.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.64,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "#id/key, pasted in a group chat",
+      "= everyone in the chat has the file",
+      "",
+      "send the key by another channel"
+     ]
+    }
+   ],
+   "note": "The link-only option exists for exactly this: the id by one channel, the key by another.",
+   "source": "index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Expired, or spent",
+   "cast": [
+    {
+     "who": "ravi",
+     "pose": "think",
+     "mood": "confused",
+     "x": 0.18,
+     "says": "It worked yesterday.",
+     "max": 12
+    },
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.86,
+     "says": "Seven days. I'll send a new one.",
+     "flip": true,
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "mark",
+     "x": 0.52,
+     "y": 860,
+     "ok": false,
+     "label": "410: gone"
+    }
+   ],
+   "note": "410 is an end state, not an error to retry: expired or exhausted.",
+   "source": "open/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Wrong key",
+   "cast": [
+    {
+     "who": "hugo",
+     "pose": "think",
+     "mood": "worried",
+     "x": 0.2,
+     "says": "It says the key does not open it.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "mark",
+     "x": 0.56,
+     "y": 860,
+     "ok": false,
+     "label": "EDECRYPT"
+    },
+    {
+     "kind": "phone",
+     "x": 0.82,
+     "y": 860,
+     "scale": 1.6
+    }
+   ],
+   "note": "A wrong key fails cleanly; the bytes were never readable, so nothing is half-opened.",
+   "source": "open/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "A vault key in a link",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.16,
+     "says": "That was write access. New vault, copy the files, new read key.",
+     "max": 20
+    }
+   ],
+   "props": [
+    {
+     "kind": "key",
+     "x": 0.56,
+     "y": 640,
+     "label": "sgit_private_vault_…",
+     "private": true,
+     "colour": "#b91c1c"
+    },
+    {
+     "kind": "sign",
+     "x": 0.84,
+     "y": 820,
+     "label": "rotate it"
+    }
+   ],
+   "note": "The open page opens it, with a warning: a vault key should never have travelled in a link.",
+   "source": "open/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Revoke, from Keys",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.18,
+     "says": "Deleted on the server. The link opens nothing now.",
+     "max": 18
+    }
+   ],
+   "props": [
+    {
+     "kind": "record",
+     "x": 0.6,
+     "y": 880,
+     "lines": [
+      "photos.zip",
+      "revoke  ->  200",
+      "open    ->  404"
+     ],
+     "stamp": false,
+     "label": "Keys"
+    }
+   ],
+   "note": "A transfer sent from this device keeps its delete secret; revoking deletes it on the server.",
+   "source": "keys/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "What revocation does not do",
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "happy",
+     "x": 0.2,
+     "says": "I downloaded it on Tuesday.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.64,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "revocation is not retroactive",
+      "a read key, once out, is out",
+      "a copy fetched is a copy kept"
+     ]
+    }
+   ],
+   "note": "Rotating protects the future; nothing on the server reaches a copy already fetched.",
+   "source": "learn/vaults-and-keys/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "Not retroactive",
+   "evidence": {
+    "quote": "revocation is not retroactive, because anyone who fetched the objects keeps them.",
+    "source": "learn/vaults-and-keys/index.md"
+   },
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "thinking",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the vaults and keys page, word for word.",
+   "source": "learn/vaults-and-keys/index.md"
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "Expiry, caps and revocation limit the future. Nothing takes back the past.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.14
+    },
+    {
+     "who": "ravi",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 0.34
+    },
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "worried",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "The security page ends with what the site does not claim.",
+   "source": "learn/security/index.md"
+  }
+ ]
+}

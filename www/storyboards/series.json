@@ -1,0 +1,67 @@
+{
+ "slug": "send",
+ "title": "Send, as storyboards",
+ "tagline": "A file handed over, one panel at a time.",
+ "blurb": "How send.sgit.ai works, drawn: for everyone, the four things a person does (send a file, say a token aloud, keep files in a vault, keep the keys); under the hood, what the bytes look like, the two kinds of API, how an agent hands a result over, and what can go wrong. Each board links to the page where you can do it for real.",
+ "packs": [
+  "security"
+ ],
+ "start": "send-a-file",
+ "shelves": [
+  {
+   "title": "For everyone",
+   "note": "No cryptography required: what you do, what the other person sees, and what the server never sees.",
+   "boards": [
+    "send-a-file",
+    "say-it-aloud",
+    "a-folder-that-remembers",
+    "where-the-keys-live"
+   ]
+  },
+  {
+   "title": "Under the hood",
+   "note": "For the engineer and the agent: the bytes, the two APIs, a hand-over by an agent, and the six ways it fails.",
+   "boards": [
+    "the-envelope",
+    "two-kinds-of-api",
+    "an-agent-hands-over",
+    "what-can-go-wrong"
+   ]
+  }
+ ],
+ "stance": {
+  "maya": [
+   "point",
+   "happy"
+  ],
+  "hugo": [
+   "stand",
+   "happy"
+  ],
+  "ravi": [
+   "think",
+   "thinking"
+  ],
+  "ines": [
+   "point",
+   "determined"
+  ],
+  "eve": [
+   "shrug",
+   "thinking"
+  ],
+  "server": [
+   "stand",
+   "calm"
+  ],
+  "pip": [
+   "wave",
+   "happy"
+  ]
+ },
+ "quotes": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks against the page sources.",
+ "kit": {
+  "host": "https://api.storyboards.sgit.ai",
+  "pin": "tools/storyboards-api.json"
+ }
+}

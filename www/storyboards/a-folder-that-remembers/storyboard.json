@@ -1,0 +1,275 @@
+{
+ "slug": "a-folder-that-remembers",
+ "title": "A folder that remembers",
+ "subtitle": "Ravi gets a new version every week; Maya puts the files in a vault, shares the read key once, and every version stays. 9 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "For everyone",
+ "try_it": [
+  [
+   "Vaults",
+   "/vaults/"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "A folder that remembers",
+   "subtitle": "Files in a vault: versioned, updatable, shared once.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy"
+    },
+    {
+     "who": "ravi",
+     "pose": "think",
+     "mood": "thinking"
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm"
+    }
+   ],
+   "note": "The second thing the brief asked for: files kept in vaults, not one-shot transfers.",
+   "source": "learn/vaults-and-keys/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Which one is current?",
+   "cast": [
+    {
+     "who": "ravi",
+     "pose": "think",
+     "mood": "worried",
+     "x": 0.2,
+     "says": "Every week a new link. Which one is current?",
+     "max": 18
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.64,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "report-v1.pdf",
+      "report-v2.pdf",
+      "report-v2-final.pdf",
+      "report-v2-final-FINAL.pdf"
+     ]
+    }
+   ],
+   "note": "The problem a transfer cannot solve: there is no second version of a transfer.",
+   "source": "vaults/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Into a vault instead",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.2,
+     "says": "Into a vault. One place, every version.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "vault",
+     "x": 0.62,
+     "y": 880,
+     "label": "Project Q4"
+    }
+   ],
+   "note": "A vault is a folder of files, encrypted here, versioned like git.",
+   "source": "learn/vaults-and-keys/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Every change is a commit",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 0.18
+    }
+   ],
+   "props": [
+    {
+     "kind": "record",
+     "x": 0.58,
+     "y": 880,
+     "lines": [
+      "Add report.pdf",
+      "Update report.pdf",
+      "Add photos/",
+      "Update report.pdf"
+     ],
+     "stamp": false,
+     "label": "the history"
+    }
+   ],
+   "note": "Each write is one commit with a message; two devices merge with compare-and-swap.",
+   "source": "learn/vaults-and-keys/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Two keys",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.16,
+     "says": "The read key is the one I share.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "key",
+     "x": 0.5,
+     "y": 640,
+     "label": "vault key: read and write",
+     "private": true,
+     "colour": "#b91c1c"
+    },
+    {
+     "kind": "key",
+     "x": 0.82,
+     "y": 640,
+     "label": "read key: read only",
+     "colour": "#2563eb"
+    }
+   ],
+   "note": "The read key is derived one way from the vault key; it can never become write access.",
+   "source": "learn/vaults-and-keys/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Ravi always sees the latest",
+   "cast": [
+    {
+     "who": "ravi",
+     "pose": "arms-up",
+     "mood": "happy",
+     "x": 0.22,
+     "says": "Same link. New version.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "phoneqr",
+     "x": 0.56,
+     "y": 860,
+     "text": "send.sgit.ai/open/#sgit_public_read_…"
+    },
+    {
+     "kind": "mark",
+     "x": 0.82,
+     "y": 860,
+     "ok": true,
+     "label": "4 files, 4 commits"
+    }
+   ],
+   "note": "The read-key link opens every file and every version, read only.",
+   "source": "open/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "And on a laptop",
+   "cast": [
+    {
+     "who": "ravi",
+     "pose": "point",
+     "mood": "thinking",
+     "x": 0.18,
+     "says": "My laptop too?",
+     "max": 12
+    }
+   ],
+   "props": [
+    {
+     "kind": "terminal",
+     "x": 0.62,
+     "y": 880,
+     "lines": [
+      "$ sgit clone sgit_public_read_…:q4",
+      "cloning… 4 files, 4 commits",
+      "$ ls",
+      "report.pdf  photos/"
+     ]
+    }
+   ],
+   "note": "The browser and the CLI are two clones of one vault.",
+   "source": "learn/vaults-and-keys/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "Why the read key can be shared",
+   "evidence": {
+    "quote": "The read key is derived from the vault key one way, so a read key can never be turned back into write access.",
+    "source": "learn/vaults-and-keys/index.md"
+   },
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the vaults and keys page, word for word.",
+   "source": "learn/vaults-and-keys/index.md"
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "Share the read key once. Keep the vault key. Every version stays.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.14
+    },
+    {
+     "who": "ravi",
+     "pose": "arms-up",
+     "mood": "happy",
+     "x": 0.34
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "Create, add, publish, open by read key: driven by the browser test.",
+   "source": "tests/test_app.mjs"
+  }
+ ]
+}

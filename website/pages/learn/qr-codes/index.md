@@ -5,6 +5,8 @@ description: Why the link is drawn as a QR code, what the code carries and does 
 
 # QR codes and friendly tokens
 
+*As a storyboard: [A token you can say aloud](/storyboards/say-it-aloud/).*
+
 ## The QR code is the link
 
 Every share on this site comes with a QR code, drawn in your browser by the pinned release's QR module from the link itself. Nothing is sent to make it; it is an SVG of the same characters you can copy. A phone's camera opens the link, and the key in the fragment reaches the phone's browser and no server.

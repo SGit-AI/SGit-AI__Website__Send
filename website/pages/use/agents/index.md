@@ -5,6 +5,8 @@ description: How an agent sends a result to a person or to another agent with th
 
 # For agents
 
+*As a storyboard: [An agent hands over](/storyboards/an-agent-hands-over/).*
+
 You are reading the page for agents of send.sgit.ai. Every page here has a markdown twin at the same path with `.md` instead of `.html`; [`/llms.txt`](/llms.txt) lists them, and [`/llms-full.txt`](/llms-full.txt) is all of them in one request. The code this site runs has [its own agents page](https://api.send.sgit.ai/agents/).
 
 ## Handing a result over, once

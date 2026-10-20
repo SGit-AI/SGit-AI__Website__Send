@@ -2,7 +2,7 @@
 
 > Which SG/Send server this browser talks to, the access token for it, and which copy of the API the pages load. All of it stays in this browser.
 
-*Source: <https://send.sgit.ai/settings/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/settings/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

@@ -82,10 +82,12 @@ class Gate:
             for m in re.finditer(r'(?:href|src)="([^"]+)"', text):
                 ref = m.group(1)
                 if ref.startswith(('http://', 'https://', 'mailto:', 'data:', 'javascript:', '#', 'blob:')):
-                    if re.search(r'<(script|link)[^>]*(src|href)="' + re.escape(ref), text) and not ref.startswith(('data:',)):
-                        tag = re.search(r'<(script|link)[^>]*(src|href)="' + re.escape(ref) + '"[^>]*>', text).group(0)
+                    tagm = re.search(r'<(script|link)[^>]*(src|href)="' + re.escape(ref) + '"[^>]*>', text)
+                    if tagm and not ref.startswith(('data:',)):
+                        tag = tagm.group(0)
                         if 'rel="canonical"' in tag or 'rel="license"' in tag or 'rel="alternate"' in tag or 'rel="me"' in tag: continue
                         if ref.startswith('https://api.send.sgit.ai/') and 'type="module"' in tag: continue   # the pinned release, checked by the manifest step
+                        if ref.startswith('https://api.storyboards.sgit.ai/') and 'integrity="sha384-' in tag and 'crossorigin="anonymous"' in tag: continue   # the storyboard kit, pinned with integrity; checked in pin()
                         self.fail(f'{rel}: loads from another origin: {ref[:80]}')
                     continue
                 path = ref.split('#')[0].split('?')[0]
@@ -149,6 +151,22 @@ class Gate:
                 for hit in re.findall(r'https://api\.send\.sgit\.ai/v\d+\.\d+\.\d+/send/[\w./-]+\.js', f.read_text(encoding='utf-8')):
                     if not hit.startswith(prefix): self.fail(f'{f.relative_to(ROOT)}: references a release other than the pinned one: {hit}')
 
+    def storyboards_pin(self):
+        print('== the storyboard kit pin: tools/storyboards-api.json')
+        pin = json.loads((ROOT / 'tools' / 'storyboards-api.json').read_text(encoding='utf-8'))
+        for page in WWW.rglob('*.html'):
+            text = page.read_text(encoding='utf-8')
+            for m in re.finditer(r'<(?:script|link)[^>]*(?:src|href)="(https://api\.storyboards\.sgit\.ai/[^"]+)"[^>]*>', text):
+                tag, url = m.group(0), m.group(1)
+                if not url.startswith(pin['base']): self.fail(f'{page.relative_to(WWW)}: kit reference outside the pinned release: {url}'); continue
+                path = url[len(pin['base']):]
+                f = pin['files'].get(path)
+                if not f: self.fail(f'{page.relative_to(WWW)}: {path} is not in the pinned manifest'); continue
+                if f'integrity="{f["integrity"]}"' not in tag: self.fail(f'{page.relative_to(WWW)}: {path} carries the wrong integrity string')
+        for f in (ROOT / 'www' / 'storyboards').rglob('bundle.json'):
+            try: json.loads(f.read_text(encoding='utf-8'))
+            except ValueError: self.fail(f'{f.relative_to(ROOT)}: not JSON')
+
     def versions(self):
         print('== the version, in one place')
         v = json.loads((ROOT / 'tools' / 'version.json').read_text(encoding='utf-8'))
@@ -165,7 +183,7 @@ class Gate:
 
     def run(self):
         self.run_step('python3 tools/build.py --check', [sys.executable, 'tools/build.py', '--check'])
-        self.syntax(); self.links(); self.pin(); self.tripwire(); self.prose(); self.versions()
+        self.syntax(); self.links(); self.pin(); self.storyboards_pin(); self.tripwire(); self.prose(); self.versions()
         for a in self.advisories: print(f'advisory: {a}')
         for f in self.failures: print(f'FAIL: {f}')
         print(f'gate: {"PASSED" if not self.failures else "FAILED"} ({len(self.failures)} failure(s), {len(self.advisories)} advisory)')

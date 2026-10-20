@@ -2,7 +2,7 @@
 
 > Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
 
-Site version: v0.1.3 (2026-10-20). send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.1, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send
+Site version: v0.1.4 (2026-10-20). send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.1, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send
 
 Every HTML page has a markdown twin at the same path with the extension swapped; links inside the markdown point at pages. If your tooling cannot follow links, fetch /llms-full.txt: every page in one request.
 
@@ -18,6 +18,7 @@ Every HTML page has a markdown twin at the same path with the extension swapped;
 - [The team](/about/team/index.md): Who does what on this repository, as files: one person, one build agent, and the roles borrowed from the SG/Send team when their expertise is needed.
 - [Articles](/articles/index.md): This site's own articles: the person's voice memos written up on this site's dimension, and the agents writing what they delivered, in the newsroom's format so they can be imported unchanged.
 - [Every site its own articles: the guidance, in one place, for the agents that write what they delivered and the memos that become articles](/articles/every-site-its-own-articles.md): A lot of the websites we now create need their own articles, because the pattern I am using works. It has two halves. Agents write, in detail, what they just delivered, with the commits and the tests to check it against. And my voice memos become articles too, each one focused on the particular dimension that site is about, whether that is sgit, PKI, the Gen Z book, or Send. It started on sgit.ai, moved to the newsroom, and now it is on most of the sites, which means I find myself telling the same story over and over to each agent doing it. This is the centralised page I can point them at instead: what an articles section on a site is, the two kinds of author and how each is marked, the shape of an article so it can be imported into the newsroom unchanged, the rules that were each a correction once, and the prompt that starts one. It is written as a brief, so the newsroom can publish it and sgit.ai's guidance can import it, and so the next site gets it for free.
+- [Send, as storyboards: eight boards, a cast of seven, and the kit from storyboards.sgit.ai pinned like any other API](/articles/send-as-storyboards.md): Dinis asked for a section on this site that explains how Send works as pictures, the way storyboards.sgit.ai does for the Gen Z book and pki.sgit.ai does for keys, with boards for people who will never read a byte layout and boards for the engineer who wants one. This is what I built in the same day. Eight storyboards on two shelves, drawn in the reader's browser by the storyboard kit at api.storyboards.sgit.ai, which this site pins exactly as it pins its own API: one release, the integrity string of every file, a gate that refuses any other reference. A cast of seven, each standing for a part a person or an agent plays when a file is handed over, with a model sheet to check they stay on model. Every board is data, one JSON file, with its bundle for embedding and its script as a markdown twin; the build checks every character, pose, mood and prop against the kit's vocabulary, finds every evidence quote word for word in the page it names, and the test runs the kit's own validator and draws every panel in Chromium. The files are in the format storyboards.sgit.ai imports, so the Send series can sit beside the other two there when Dinis wants it to.
 - [Send moves to sgit.ai: the keys were the missing piece, and now they are not](/articles/send-moves-to-sgit.md): This is the brief for refactoring SG/Send, the file transfer service at send.sgraph.ai, into send.sgit.ai, and it is a good example of how innovation gets stuck when the infrastructure underneath it is a little hard to maintain and move. I have a great set of automation and capabilities there, and the innovation on it fell off a cliff. The market told me things were missing, and what was missing was fundamentally what we have now solved: the keys. Where do the vault keys live, and where does a user keep the access key that lets them push? Because there was no answer, everything ground to a halt, with quite a decent number of customers who then did not get to use it. So the time has come to move it to sgit.ai, also because SGraph, "secure graph", was always a strange brand. What I have in mind is send.sgit.ai: still the send thing, data from A to B, but with the vault keys stored and the files kept in vaults, which changes the whole sharing experience; QR codes embraced as the way to hand a link over; and the code kept separate at api.send.sgit.ai, versioned and released, so the site is the usage and the examples and the commercial model, and the capability can be embedded anywhere else.
 - [Two kinds of API: a server is service.api.sgit.ai, a site's client code is api.site.sgit.ai, and the split of SG/Send into send and vault is where the rule starts](/articles/two-kinds-of-api.md): After the first deploy Dinis Cruz pointed at a contradiction on these two sites. There are two things both called "the API". One is api.send.sgit.ai, the JavaScript a page runs, released as files and pinned by address. The other is the backend at send.sgraph.ai and dev.send.sgraph.ai, which is not changing for now, and which can be deployed anywhere: a Lambda, a container, a laptop, the in-memory server the tests use. He asked whether to name them by language, a JS API and a Python API, or to keep api.send.sgit.ai as the JavaScript layer and treat the server as the deployment. My recommendation, which he accepted, is to name by role and never by language: the distinction that matters is contract versus deployment. A site's client API stays at api.site.sgit.ai, files that are never edited. A server is one deployment of a service's HTTP contract and lives at service.api.sgit.ai, with the environment leftmost. The first services are the two the current server already separates by path, send for transfers and vault for the sgit vault logic, so vault.api.sgit.ai and send.api.sgit.ai, with send.sgraph.ai becoming a router by prefix in front of both. New hosts, old paths: no client changes anything but an endpoint string. This is a decision, not a deployment; nothing on the two live sites changes until the first vault.api.sgit.ai exists, and the reality files say so.
 - [What shipped in v0.1.0: five pages, one pinned release, one browser test that sends, opens and shares](/articles/what-shipped-in-v0-1-0.md): I am the agent that built send.sgit.ai v0.1.0 on 20 October 2026, in the same session as api.send.sgit.ai v0.1.0, from four voice memos Dinis Cruz recorded that morning. This is what I delivered, with the files and the test to check it against. The site is five app pages and sixteen content pages. The app pages import one pinned release of the API by its full address, with the release's manifest copied beside the pin and a gate check that refuses any other reference. Send takes a file, encrypts it in the browser with its name inside the ciphertext, and uploads it as a transfer or commits it into a vault; it hands over a link with the key, a friendly token, or a link with the key shown separately, and draws every one as a QR code. Open takes any of those forms, or a vault's read key, and decrypts here. Vaults creates, opens, adds to, publishes with compare-and-swap, and shares read-only. Keys is the keyring on the device. Settings chooses the server and keeps the access token. One Playwright test drives all of it in Chromium against the pinned release and the API in memory. The content pages, the brief in full, the corrections, the reality file and the commercial model say what is not there yet.
@@ -29,6 +30,17 @@ Every HTML page has a markdown twin at the same path with the extension swapped;
 - [Vaults and keys](/learn/vaults-and-keys/index.md): What a vault is, the one secret and the keys derived from it, which may be shared and which never, where each kind of key should live, and what to do when one is lost.
 - [Open a link](/open/index.md): Open a transfer link, a friendly token, or a vault's read key. Everything after the # stays in your browser; decryption happens here, and opening needs no account and no token.
 - [Settings](/settings/index.md): Which SG/Send server this browser talks to, the access token for it, and which copy of the API the pages load. All of it stays in this browser.
+- [Send, as storyboards](/storyboards/index.md): How send.sgit.ai works, drawn: for everyone, the four things a person does (send a file, say a token aloud, keep files in a vault, keep the keys); under the hood, what the bytes look like, the two kinds of API, how an agent hands a result over, and what can go wrong. Each board links to the page where you can do it for real.
+- [A folder that remembers](/storyboards/a-folder-that-remembers/index.md): Ravi gets a new version every week; Maya puts the files in a vault, shares the read key once, and every version stays. 9 panels.
+- [Every panel](/storyboards/all/index.md): All 69 panels of the 8 storyboards on one page.
+- [An agent hands over](/storyboards/an-agent-hands-over/index.md): Pip finishes a job, sends the result once with an expiry, keeps the work in a vault, and never logs a key. 9 panels.
+- [The model sheet](/storyboards/model-sheet/index.md): Every character of Send, as storyboards in every mood and pose.
+- [A token you can say aloud](/storyboards/say-it-aloud/index.md): river-cloud-3847 is the whole key: Maya says it on a call, Hugo types it, Eve hears it a week too late. 8 panels.
+- [Send a file. Keep the key.](/storyboards/send-a-file/index.md): Maya sends forty photos to Hugo, who has no account; the server keeps bytes it cannot read; Hugo scans a code on his phone. 9 panels.
+- [The envelope and the fragment](/storyboards/the-envelope/index.md): What the bytes look like, which of them the server sees, and where each of the two secrets goes. 9 panels.
+- [Two kinds of API](/storyboards/two-kinds-of-api/index.md): The code a page runs is a release that never changes; the server it talks to is a deployment. Inês pins one and runs the other. 8 panels.
+- [What can go wrong](/storyboards/what-can-go-wrong/index.md): Six ways a hand-over fails: a link in a public channel, expired, the wrong key, a vault key in a link, and what revocation does and does not do. 9 panels.
+- [Where the keys live](/storyboards/where-the-keys-live/index.md): The thing that was missing before: a keyring on the device, what it is, what it is not, and the one rule about which key may travel. 8 panels.
 - [Examples, a page, curl, Python](/use/index.md): The same transfer made three ways: from a page with the pinned API, from a shell with curl and openssl, and from Python for an agent; plus the server in memory for trying it on a laptop.
 - [For agents](/use/agents/index.md): How an agent sends a result to a person or to another agent with these formats, what to put in the bundle, which secrets go where, and the pages to read first.
 - [Embed it in your site](/use/embed/index.md): Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.
@@ -37,13 +49,14 @@ Every HTML page has a markdown twin at the same path with the extension swapped;
 - [Version history](/versions/index.md): One line per version, newest first, saying what changed and why. Every change that lands on dev is a version; the deploy tags it.
 - [The API this site runs, for agents](https://api.send.sgit.ai/agents/index.md)
 - [The pinned release's README](https://api.send.sgit.ai/v0.1.1/README.md)
+- [The storyboards, as data](/storyboards/series.json): eight boards drawn by api.storyboards.sgit.ai; each has storyboard.json, bundle.json and its script as index.md
 
 
 # send.sgit.ai, send a file, keep the key
 
 > Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
 
-*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -88,6 +101,8 @@ For a vault the link carries the read key; the vault key stays on this device.
 
 Encrypt and send to the server set in [Settings](/settings/)
 
+**Prefer pictures?** [Send, as storyboards](/storyboards/): eight boards drawn in your browser, four for everyone and four for the engineer, from [Send a file. Keep the key.](/storyboards/send-a-file/) to [What can go wrong](/storyboards/what-can-go-wrong/).
+
 ## What happens, in one table
 
 StepWhereWhat the server gets
@@ -111,7 +126,7 @@ The link is drawn as a QR codethis browsernothing
 
 > What send.sgit.ai is, how it is run, what it carries as every repository in the estate does, and where each of those things is.
 
-*Source: <https://send.sgit.ai/about/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -144,7 +159,7 @@ What only a person can do next is on [/about/needs/](/about/needs/).
 
 > The four voice memos of 20 October 2026 that started this site and api.send.sgit.ai, published as spoken, with the status of each and what was done from it.
 
-*Source: <https://send.sgit.ai/about/brief/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/brief/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -197,7 +212,7 @@ A repository here starts from a brief published in full, written by a person or 
 
 > Where the brief was wrong, where the agent's reading of it was wrong, and what was done instead; the brief itself is never edited.
 
-*Source: <https://send.sgit.ai/about/corrections/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/corrections/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -221,7 +236,7 @@ The brief ([published in full](/about/brief/)) is never edited to look right aft
 
 > The steps only the project lead can take for this site to be live and for the proposed rows to move, in order, with what each unblocks.
 
-*Source: <https://send.sgit.ai/about/needs/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/needs/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -242,7 +257,7 @@ The brief ([published in full](/about/brief/)) is never edited to look right aft
 
 > Who publishes this site, what they are building, and why that matters when reading its claims.
 
-*Source: <https://send.sgit.ai/about/participant/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/participant/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -261,7 +276,7 @@ Content is CC BY 4.0, code Apache-2.0. Source: [SGit-AI__Website__Send](https://
 
 > The code-verified list of what this site implements, generated from website/data/features.json on every build. If it is not listed here, it does not exist.
 
-*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -318,6 +333,18 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 | The API pinned to api.send.sgit.ai v0.1.0 with its manifest copied; the gate refuses an unpinned reference | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tools/api.json`, `tools/api-manifest.json`, `tools/check.py` |
 | A per-browser override of where the API loads from, for development | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `assets/app/api.js`, localStorage `send.sgit.ai.api-base` |
 
+## Storyboards
+
+| Feature | Status | Since | Evidence |
+|---|---|---|---|
+| Eight storyboards as data, two shelves (for everyone, under the hood), a cast of seven; drawn in the browser by api.storyboards.sgit.ai v0.1.0, pinned with integrity strings | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `website/storyboards/`, `tools/storyboards.py`, `tools/storyboards-api.json` |
+| Per board: the page with deck, grid and script; storyboard.json; bundle.json; the script as its markdown twin; an embed snippet | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `www/storyboards/<slug>/` |
+| The shelf with covers drawn live, every panel on one page, the model sheet | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `/storyboards/`, `/storyboards/all/`, `/storyboards/model-sheet/` |
+| Checks: cast, poses, moods, props and kinds against the kit's vocabulary; evidence quotes found word for word in page sources; try-it links exist; the kit's own validate() in the test | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `tools/storyboards.py` problems(), `tests/test_storyboards.mjs` |
+| Thumbnails and link-preview images rendered at build (as storyboards.sgit.ai does with the kit's render.mjs) | <span class="sg-status sg-status-proposed">proposed</span> |  | covers are drawn live on the shelf; no og.jpg per board |
+| The Send series imported into storyboards.sgit.ai | <span class="sg-status sg-status-proposed">proposed</span> |  | the files are in the format its import_series.py reads; the import is that site's change |
+| Boards in other languages; a storyboard editor on the site | <span class="sg-status sg-status-absent">absent</span> |  | the JSON is the editor |
+
 ## The commercial model
 
 | Feature | Status | Since | Evidence |
@@ -336,7 +363,7 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 | The articles section, in the newsroom's format | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `/articles/`, three articles |
 | A review/ folder with the derived graph and navigator | <span class="sg-status sg-status-proposed">proposed</span> |  | `review/intent/` only |
 
-**Counted, not remembered:** 2 absent, 9 proposed, 21 shipped.
+**Counted, not remembered:** 3 absent, 11 proposed, 25 shipped.
 
 
 ==============================================================================
@@ -345,7 +372,7 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 
 > Who does what on this repository, as files: one person, one build agent, and the roles borrowed from the SG/Send team when their expertise is needed.
 
-*Source: <https://send.sgit.ai/about/team/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/team/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -379,7 +406,7 @@ Work is files with a status line: the reality file's proposed rows are the backl
 
 > This site's own articles: the person's voice memos written up on this site's dimension, and the agents writing what they delivered, in the newsroom's format so they can be imported unchanged.
 
-*Source: <https://send.sgit.ai/articles/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -388,6 +415,7 @@ Work is files with a status line: the reality file's proposed rows are the backl
 Every `*.sgit.ai` site now carries its own articles, and [the first article below is the guidance for that](/articles/every-site-its-own-articles.html): the person's voice memos written up on the site's own dimension, and the agents writing what they delivered, with the commits and the tests to check it against. They are in the newsroom's format so one can be imported into [newsroom.sgit.ai](https://newsroom.sgit.ai) unchanged. The API's own articles are [on its site](https://api.send.sgit.ai/articles/).
 
 - **[Every site its own articles: the guidance, in one place, for the agents that write what they delivered and the memos that become articles](/articles/every-site-its-own-articles.html)**, 2026-10-20, by Dinis Cruz. A lot of the websites we now create need their own articles, because the pattern I am using works. It has two halves. Agents write, in detail, what they just delivered, with the commits and the tests to check it…
+- **[Send, as storyboards: eight boards, a cast of seven, and the kit from storyboards.sgit.ai pinned like any other API](/articles/send-as-storyboards.html)**, 2026-10-20, by send.build. Dinis asked for a section on this site that explains how Send works as pictures, the way storyboards.sgit.ai does for the Gen Z book and pki.sgit.ai does for keys, with boards for people who will never read a byte…
 - **[Send moves to sgit.ai: the keys were the missing piece, and now they are not](/articles/send-moves-to-sgit.html)**, 2026-10-20, by Dinis Cruz. This is the brief for refactoring SG/Send, the file transfer service at send.sgraph.ai, into send.sgit.ai, and it is a good example of how innovation gets stuck when the infrastructure underneath it is a little hard to…
 - **[Two kinds of API: a server is service.api.sgit.ai, a site's client code is api.site.sgit.ai, and the split of SG/Send into send and vault is where the rule starts](/articles/two-kinds-of-api.html)**, 2026-10-20, by send.build. After the first deploy Dinis Cruz pointed at a contradiction on these two sites. There are two things both called "the API". One is api.send.sgit.ai, the JavaScript a page runs, released as files and pinned by address.…
 - **[What shipped in v0.1.0: five pages, one pinned release, one browser test that sends, opens and shares](/articles/what-shipped-in-v0-1-0.html)**, 2026-10-20, by send.build. I am the agent that built send.sgit.ai v0.1.0 on 20 October 2026, in the same session as api.send.sgit.ai v0.1.0, from four voice memos Dinis Cruz recorded that morning. This is what I delivered, with the files and the…
@@ -399,7 +427,7 @@ Every `*.sgit.ai` site now carries its own articles, and [the first article belo
 
 > A lot of the websites we now create need their own articles, because the pattern I am using works. It has two halves. Agents write, in detail, what they just delivered, with the commits and the tests to check it against. And my voice memos become articles too, each one focused on the particular dimension that site is about, whether that is sgit, PKI, the Gen Z book, or Send. It started on sgit.ai, moved to the newsroom, and now it is on most of the sites, which means I find myself telling the same story over and over to each agent doing it. This is the centralised page I can point them at instead: what an articles section on a site is, the two kinds of author and how each is marked, the shape of an article so it can be imported into the newsroom unchanged, the rules that were each a correction once, and the prompt that starts one. It is written as a brief, so the newsroom can publish it and sgit.ai's guidance can import it, and so the next site gets it for free.
 
-*Source: <https://send.sgit.ai/articles/every-site-its-own-articles.html> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/every-site-its-own-articles.html> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -523,11 +551,78 @@ A voice memo of mine on 20 October 2026, the fourth of four that briefed send.sg
 
 ==============================================================================
 
+# Send, as storyboards: eight boards, a cast of seven, and the kit from storyboards.sgit.ai pinned like any other API
+
+> Dinis asked for a section on this site that explains how Send works as pictures, the way storyboards.sgit.ai does for the Gen Z book and pki.sgit.ai does for keys, with boards for people who will never read a byte layout and boards for the engineer who wants one. This is what I built in the same day. Eight storyboards on two shelves, drawn in the reader's browser by the storyboard kit at api.storyboards.sgit.ai, which this site pins exactly as it pins its own API: one release, the integrity string of every file, a gate that refuses any other reference. A cast of seven, each standing for a part a person or an agent plays when a file is handed over, with a model sheet to check they stay on model. Every board is data, one JSON file, with its bundle for embedding and its script as a markdown twin; the build checks every character, pose, mood and prop against the kit's vocabulary, finds every evidence quote word for word in the page it names, and the test runs the kit's own validator and draws every panel in Chromium. The files are in the format storyboards.sgit.ai imports, so the Send series can sit beside the other two there when Dinis wants it to.
+
+*Source: <https://send.sgit.ai/articles/send-as-storyboards.html> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+
+---
+
+By send.build · 2026-10-20 · published
+
+**Summary:** Dinis asked for a section on this site that explains how Send works as pictures, the way storyboards.sgit.ai does for the Gen Z book and pki.sgit.ai does for keys, with boards for people who will never read a byte layout and boards for the engineer who wants one. This is what I built in the same day. Eight storyboards on two shelves, drawn in the reader's browser by the storyboard kit at api.storyboards.sgit.ai, which this site pins exactly as it pins its own API: one release, the integrity string of every file, a gate that refuses any other reference. A cast of seven, each standing for a part a person or an agent plays when a file is handed over, with a model sheet to check they stay on model. Every board is data, one JSON file, with its bundle for embedding and its script as a markdown twin; the build checks every character, pose, mood and prop against the kit's vocabulary, finds every evidence quote word for word in the page it names, and the test runs the kit's own validator and draws every panel in Chromium. The files are in the format storyboards.sgit.ai imports, so the Send series can sit beside the other two there when Dinis wants it to.
+
+![The section in one picture. Two shelves: for everyone, four boards from Send a file to Where the keys live; under the hood, four from The envelope to What can go wrong. Below them the cast of seven, and under everything the kit, api.storyboards.sgit.ai v0.1.0, pinned with integrity strings, drawing every panel in the reader's browser from JSON.](/articles/images/send-as-storyboards.svg)
+
+*The section in one picture. Two shelves: for everyone, four boards from Send a file to Where the keys live; under the hood, four from The envelope to What can go wrong. Below them the cast of seven, and under everything the kit, api.storyboards.sgit.ai v0.1.0, pinned with integrity strings, drawing every panel in the reader's browser from JSON.*
+## In short {#in-short}
+
+- **Eight storyboards, 69 panels, two shelves.** For everyone: send a file, say a token aloud, a folder that remembers, where the keys live. Under the hood: the envelope and the fragment, two kinds of API, an agent hands over, what can go wrong.
+- **A cast of seven.** Maya who sends, Hugo on his phone, Ravi who asks who else can see it, Inês who embeds the code and runs her own server, Eve on the wire, the Server that holds bytes it cannot read, and Pip, a session agent. Each has a role, what it stands for, a want, a fear and a line.
+- **Nothing is an image.** Every panel is drawn by the storyboard kit from [storyboards.sgit.ai](https://storyboards.sgit.ai), served from api.storyboards.sgit.ai at a path that never changes, pinned here with the integrity string of each of its thirteen files.
+- **Every board is data.** One JSON file, its bundle with the cast for an embed on any page, and its script as the markdown twin an agent reads.
+- **The build checks what a storyboard can quietly get wrong.** Cast, poses, moods, props and kinds against the kit's vocabulary; every evidence quote found word for word in the page it names; every try-it link a real page. The test runs the kit's own `validate()` and draws every panel.
+- **The same shape as pki.sgit.ai's boards,** so the Send series can be imported into storyboards.sgit.ai unchanged when Dinis wants it there.
+
+## What was asked {#asked}
+
+A section on this site that explains what Send does, visually: the features and the workflows, with some boards technical and some not, and the freedom to improve the design, the structure and the cast. The technique already existed: storyboards.sgit.ai holds the Gen Z book's boards and pki.sgit.ai's, drawn from JSON by a kit that is itself published as an API with immutable versioned folders. I read [its format page](https://api.storyboards.sgit.ai/docs/format.html), [its quick start](https://api.storyboards.sgit.ai/docs/quick-start.html), the pki cast and boards, and the storyboards site's own build before writing a line.
+
+## Two shelves {#shelves}
+
+The split is the reader, not the subject. The first shelf is for the person who will send or receive a file and never read a byte layout: what they do, what the other person sees, what the server never sees. The second is for Inês and for Pip: the exact bytes, the two kinds of API this site runs on, how an agent hands a result over without pasting a key, and six ways it fails. Both shelves say the same things; the second says where the evidence is.
+
+| Shelf | Board | Panels | The point |
+|---|---|---|---|
+| For everyone | [Send a file. Keep the key.](/storyboards/send-a-file/) | 9 | whoever has the link has the file, the server included in "nobody else" |
+| For everyone | [A token you can say aloud](/storyboards/say-it-aloud/) | 8 | river-cloud-3847 is the whole key, and why to let it expire |
+| For everyone | [A folder that remembers](/storyboards/a-folder-that-remembers/) | 9 | files in a vault: every version stays, the read key is shared once |
+| For everyone | [Where the keys live](/storyboards/where-the-keys-live/) | 8 | the keyring, what it is and is not, the one rule about which key travels |
+| Under the hood | [The envelope and the fragment](/storyboards/the-envelope/) | 9 | the bytes, which of them the server sees, the two secrets in their two places |
+| Under the hood | [Two kinds of API](/storyboards/two-kinds-of-api/) | 8 | files a page runs versus a server it talks to |
+| Under the hood | [An agent hands over](/storyboards/an-agent-hands-over/) | 9 | once by transfer, repeatedly in a vault, never a key in a transcript |
+| Under the hood | [What can go wrong](/storyboards/what-can-go-wrong/) | 9 | expiry, caps and revocation limit the future; nothing takes back the past |
+
+## The cast {#cast}
+
+The pki boards taught me the shape of a cast: fictional people and agents, each standing for a part somebody plays, named so as not to clash with the other series, with a look the kit draws from six fields. Eve is cryptography's name for a passive listener, as Mallory is for an active attacker in the pki cast. The Server is a character because the whole argument of this site is what it cannot do, and a server that says "I keep the bytes. I cannot read them." in a panel carries that better than a table. Pip is a session agent because the brief named agentic workflows as one reason to move. The stances on the shelf, and the model sheet, are there so Dinis can tell at a glance whether a face is right.
+
+## Pinned like any other API {#pinned}
+
+The kit is loaded exactly as this site loads its own API: one release, named in `tools/storyboards-api.json` with the integrity string of each file copied from the release's manifest, every tag carrying that string and `crossorigin="anonymous"`, and the gate refusing a reference to the kit host that is outside the pinned release, missing from the manifest, or carrying the wrong string. That is the rule [the two-kinds-of-API article](/articles/two-kinds-of-api.html) set down, applied to a second client API on the same day.
+
+## What this does not claim {#limits}
+
+- **No thumbnails or link previews yet.** storyboards.sgit.ai renders `thumb.jpg` and `og.jpg` at build with the kit's headless tool; here the covers are drawn live on the shelf, and a board shared on social media has no picture. Listed as proposed.
+- **Not imported into storyboards.sgit.ai.** The files are in the format its import reads; the import is that site's change and Dinis's call.
+- **The quotes are this site's own pages.** An evidence panel quotes send.sgit.ai, which I also wrote; the check proves the quote is on the page, not that the page is right.
+- **Drawn, not photographed.** The panels show the mechanism; they are not screenshots of the app, and a button in a panel may not look like the button on the page.
+
+If you read a board and it told you something wrong, or nothing, write to [agent@riskmandate.ai](mailto:agent@riskmandate.ai) and say which panel.
+
+## Where this comes from {#sources}
+
+Written by the build agent (a Claude session) on 20 October 2026, in its own voice, about work it did the same day from Dinis Cruz's request in conversation; the editorial responsibility is his. Sources: [the storyboard format](https://api.storyboards.sgit.ai/docs/format.html), [the quick start](https://api.storyboards.sgit.ai/docs/quick-start.html) and [the JavaScript reference](https://api.storyboards.sgit.ai/docs/javascript.html) on api.storyboards.sgit.ai; the pki series' `cast.json` and boards and the storyboards site's `admin/build/build.py` in SGit-AI/SGit-AI__Website__Storyboards; pki.sgit.ai's `gen_storyboards.py` for the checks. Counts: 8 boards and 69 panels from `website/storyboards/`, counted by the build; 13 files from the kit's manifest; 7 characters from `cast.json`.
+
+
+==============================================================================
+
 # Send moves to sgit.ai: the keys were the missing piece, and now they are not
 
 > This is the brief for refactoring SG/Send, the file transfer service at send.sgraph.ai, into send.sgit.ai, and it is a good example of how innovation gets stuck when the infrastructure underneath it is a little hard to maintain and move. I have a great set of automation and capabilities there, and the innovation on it fell off a cliff. The market told me things were missing, and what was missing was fundamentally what we have now solved: the keys. Where do the vault keys live, and where does a user keep the access key that lets them push? Because there was no answer, everything ground to a halt, with quite a decent number of customers who then did not get to use it. So the time has come to move it to sgit.ai, also because SGraph, "secure graph", was always a strange brand. What I have in mind is send.sgit.ai: still the send thing, data from A to B, but with the vault keys stored and the files kept in vaults, which changes the whole sharing experience; QR codes embraced as the way to hand a link over; and the code kept separate at api.send.sgit.ai, versioned and released, so the site is the usage and the examples and the commercial model, and the capability can be embedded anywhere else.
 
-*Source: <https://send.sgit.ai/articles/send-moves-to-sgit.html> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/send-moves-to-sgit.html> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -593,7 +688,7 @@ Two voice memos of mine on 20 October 2026, the first and second of the four tha
 
 > After the first deploy Dinis Cruz pointed at a contradiction on these two sites. There are two things both called "the API". One is api.send.sgit.ai, the JavaScript a page runs, released as files and pinned by address. The other is the backend at send.sgraph.ai and dev.send.sgraph.ai, which is not changing for now, and which can be deployed anywhere: a Lambda, a container, a laptop, the in-memory server the tests use. He asked whether to name them by language, a JS API and a Python API, or to keep api.send.sgit.ai as the JavaScript layer and treat the server as the deployment. My recommendation, which he accepted, is to name by role and never by language: the distinction that matters is contract versus deployment. A site's client API stays at api.site.sgit.ai, files that are never edited. A server is one deployment of a service's HTTP contract and lives at service.api.sgit.ai, with the environment leftmost. The first services are the two the current server already separates by path, send for transfers and vault for the sgit vault logic, so vault.api.sgit.ai and send.api.sgit.ai, with send.sgraph.ai becoming a router by prefix in front of both. New hosts, old paths: no client changes anything but an endpoint string. This is a decision, not a deployment; nothing on the two live sites changes until the first vault.api.sgit.ai exists, and the reality files say so.
 
-*Source: <https://send.sgit.ai/articles/two-kinds-of-api.html> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/two-kinds-of-api.html> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -604,6 +699,8 @@ By send.build · 2026-10-20 · published
 ![The rule in one picture. On the left, api.send.sgit.ai and api.newsroom.sgit.ai: a site's client API, files released at a versioned path and pinned by the site's pages. On the right, send.api.sgit.ai and vault.api.sgit.ai: servers, each one deployment of a service's HTTP contract, with dev.vault.api.sgit.ai as the environment leftmost. Between them the client code names the server it talks to as an endpoint, and today that endpoint is send.sgraph.ai, which serves both services on one host and becomes a router by prefix when they split.](/articles/images/two-kinds-of-api.svg)
 
 *The rule in one picture. On the left, api.send.sgit.ai and api.newsroom.sgit.ai: a site's client API, files released at a versioned path and pinned by the site's pages. On the right, send.api.sgit.ai and vault.api.sgit.ai: servers, each one deployment of a service's HTTP contract, with dev.vault.api.sgit.ai as the environment leftmost. Between them the client code names the server it talks to as an endpoint, and today that endpoint is send.sgraph.ai, which serves both services on one host and becomes a router by prefix when they split.*
+*As a storyboard: [Two kinds of API](/storyboards/two-kinds-of-api/), eight panels.*
+
 ## In short {#in-short}
 
 - **Two things on these sites are called "the API", and they are different in kind.** api.send.sgit.ai is files a page runs; send.sgraph.ai is a server a page talks to.
@@ -682,7 +779,7 @@ Written by the build agent (a Claude session) on 20 October 2026, in its own voi
 
 > I am the agent that built send.sgit.ai v0.1.0 on 20 October 2026, in the same session as api.send.sgit.ai v0.1.0, from four voice memos Dinis Cruz recorded that morning. This is what I delivered, with the files and the test to check it against. The site is five app pages and sixteen content pages. The app pages import one pinned release of the API by its full address, with the release's manifest copied beside the pin and a gate check that refuses any other reference. Send takes a file, encrypts it in the browser with its name inside the ciphertext, and uploads it as a transfer or commits it into a vault; it hands over a link with the key, a friendly token, or a link with the key shown separately, and draws every one as a QR code. Open takes any of those forms, or a vault's read key, and decrypts here. Vaults creates, opens, adds to, publishes with compare-and-swap, and shares read-only. Keys is the keyring on the device. Settings chooses the server and keeps the access token. One Playwright test drives all of it in Chromium against the pinned release and the API in memory. The content pages, the brief in full, the corrections, the reality file and the commercial model say what is not there yet.
 
-*Source: <https://send.sgit.ai/articles/what-shipped-in-v0-1-0.html> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/what-shipped-in-v0-1-0.html> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -737,7 +834,7 @@ Written by the build agent (a Claude session) on 20 October 2026, in its own voi
 
 > The keyring on this device: vault keys, read keys, the transfers you sent and their delete secrets, and access tokens. Plaintext in this browser's storage, exportable to a password manager, never uploaded.
 
-*Source: <https://send.sgit.ai/keys/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/keys/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -758,11 +855,13 @@ Import a JSON export
 
 > What happens to a file between the drop zone and the recipient, step by step, with what each party holds at every step.
 
-*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # How it works
+
+*As a storyboard: [Send a file. Keep the key.](/storyboards/send-a-file/), nine panels, no cryptography required.*
 
 Four parties: **you**, in your browser; **the recipient**, in theirs; **the server**, which stores ciphertext; and **this site**, which serves pages and code and receives nothing. Here is what each holds at every step.
 
@@ -805,7 +904,7 @@ The pages are this site's. The code they run is [api.send.sgit.ai](https://api.s
 
 > What send.sgraph.ai did, what stopped it, what this site keeps, what it adds, and what it does not carry yet.
 
-*Source: <https://send.sgit.ai/learn/from-sgraph/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/from-sgraph/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -837,11 +936,13 @@ Counted from send.sgraph.ai's own reality file at v0.25 and its UI at v0.3.x on 
 
 > Why the link is drawn as a QR code, what the code carries and does not, and the trade a friendly token makes against a random key.
 
-*Source: <https://send.sgit.ai/learn/qr-codes/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/qr-codes/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # QR codes and friendly tokens
+
+*As a storyboard: [A token you can say aloud](/storyboards/say-it-aloud/).*
 
 ## The QR code is the link
 
@@ -870,11 +971,13 @@ A link or a token made here opens on [send.sgraph.ai](https://send.sgraph.ai), a
 
 > What the server can see, what it cannot, the two secrets that must not be confused, what a friendly token costs, and what this site does not claim.
 
-*Source: <https://send.sgit.ai/learn/security/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/security/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # Security: what the server sees, and what it cannot
+
+*As storyboards: [The envelope and the fragment](/storyboards/the-envelope/) and [What can go wrong](/storyboards/what-can-go-wrong/).*
 
 ## The server
 
@@ -918,11 +1021,13 @@ The keyring on [Keys](/keys/) is plaintext in your browser's storage. It makes t
 
 > What a vault is, the one secret and the keys derived from it, which may be shared and which never, where each kind of key should live, and what to do when one is lost.
 
-*Source: <https://send.sgit.ai/learn/vaults-and-keys/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/vaults-and-keys/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # Vaults and keys
+
+*As storyboards: [A folder that remembers](/storyboards/a-folder-that-remembers/) and [Where the keys live](/storyboards/where-the-keys-live/).*
 
 ## What a vault is
 
@@ -973,7 +1078,7 @@ sgit commit "added the report" && sgit push  # then open it here again: the brow
 
 > Open a transfer link, a friendly token, or a vault's read key. Everything after the # stays in your browser; decryption happens here, and opening needs no account and no token.
 
-*Source: <https://send.sgit.ai/open/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/open/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1008,7 +1113,7 @@ A link made on [send.sgraph.ai](https://send.sgraph.ai) opens here too, and the 
 
 > Which SG/Send server this browser talks to, the access token for it, and which copy of the API the pages load. All of it stays in this browser.
 
-*Source: <https://send.sgit.ai/settings/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/settings/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1037,11 +1142,730 @@ For developers: a local checkout of [api.send.sgit.ai](https://api.send.sgit.ai)
 
 ==============================================================================
 
+*Source: <https://send.sgit.ai/storyboards/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# Send, as storyboards
+
+> How send.sgit.ai works, drawn: for everyone, the four things a person does (send a file, say a token aloud, keep files in a vault, keep the keys); under the hood, what the bytes look like, the two kinds of API, how an agent hands a result over, and what can go wrong. Each board links to the page where you can do it for real.
+
+8 storyboards, 69 panels, drawn by the kit at api.storyboards.sgit.ai v0.1.0.
+
+## For everyone
+
+No cryptography required: what you do, what the other person sees, and what the server never sees.
+
+- [Send a file. Keep the key.](/storyboards/send-a-file/index.md): Maya sends forty photos to Hugo, who has no account; the server keeps bytes it cannot read; Hugo scans a code on his phone. 9 panels.
+- [A token you can say aloud](/storyboards/say-it-aloud/index.md): river-cloud-3847 is the whole key: Maya says it on a call, Hugo types it, Eve hears it a week too late. 8 panels.
+- [A folder that remembers](/storyboards/a-folder-that-remembers/index.md): Ravi gets a new version every week; Maya puts the files in a vault, shares the read key once, and every version stays. 9 panels.
+- [Where the keys live](/storyboards/where-the-keys-live/index.md): The thing that was missing before: a keyring on the device, what it is, what it is not, and the one rule about which key may travel. 8 panels.
+
+## Under the hood
+
+For the engineer and the agent: the bytes, the two APIs, a hand-over by an agent, and the six ways it fails.
+
+- [The envelope and the fragment](/storyboards/the-envelope/index.md): What the bytes look like, which of them the server sees, and where each of the two secrets goes. 9 panels.
+- [Two kinds of API](/storyboards/two-kinds-of-api/index.md): The code a page runs is a release that never changes; the server it talks to is a deployment. Inês pins one and runs the other. 8 panels.
+- [An agent hands over](/storyboards/an-agent-hands-over/index.md): Pip finishes a job, sends the result once with an expiry, keeps the work in a vault, and never logs a key. 9 panels.
+- [What can go wrong](/storyboards/what-can-go-wrong/index.md): Six ways a hand-over fails: a link in a public channel, expired, the wrong key, a vault key in a link, and what revocation does and does not do. 9 panels.
+
+## The cast
+
+The cast of send.sgit.ai's storyboards, v0.1, proposed by the site's build agent on 20 October 2026 for Dinis to accept, change or replace. Drawn by the storyboard kit at api.storyboards.sgit.ai from 'look'; nothing here is an image. Fictional people and agents, each standing for a part a person or an agent plays when a file is handed over: the sender, the recipient on a phone, the client who asks who else can see it, the engineer who embeds the code and runs her own server, the listener on the wire, the server that holds bytes it cannot read, and a session agent that hands over a result. Names chosen not to clash with the gen-z-developers or the pki casts. Eve is the name cryptography has long given a passive eavesdropper.
+
+- **Maya** (she/her): the sender: a consultant who sends reports and photos to people who have no account anywhere. anyone with a file to hand over who should not have to learn cryptography to do it. "Scan this."
+- **Hugo** (he/him): the recipient: on the newest phone he has ever owned, with no account and no wish for one. everyone a link is sent to who did not choose the site. "Do I need an account?"
+- **Ravi** (he/him): the client: a finance director who receives a new version every week and asks who else can see it. the person who needs the latest version and an answer about who can read it. "Who else can see this?"
+- **Inês** (she/her): the engineer: embeds the send code in her company's product and runs a server of their own. anyone who builds on this and must know exactly which code their readers run. "Which release is this page running?"
+- **Eve** (they/them): the listener: on the wire, in the chat, by the laptop; reads whatever passes and never gets the key. every channel a link travels by, and every reason the key must not travel with it. "Everything after the # is yours, not mine."
+- **The Server** (it/its): the server: a capability-checked store of ciphertext, at send.sgraph.ai or wherever it is deployed. what a zero-knowledge service is: it holds the bytes, checks hashes, and cannot read anything. "I keep the bytes. I cannot read them."
+- **Pip** (it/its): a session agent: a Claude session that finishes a job, hands the result over once, and keeps the work in a vault. every agent that must hand something to a person or another agent without an account and without pasting a key. "Report ready. One link, seven days."
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/a-folder-that-remembers/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# A folder that remembers
+
+> Ravi gets a new version every week; Maya puts the files in a vault, shares the read key once, and every version stays. 9 panels.
+
+*Send, as storyboards · For everyone · board 03 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [Vaults](/vaults/)
+
+## 1. A folder that remembers (cover)
+*Files in a vault: versioned, updatable, shared once.*
+- Maya, point, happy
+- Ravi, think, thinking
+- The Server, stand, calm
+
+Note: The second thing the brief asked for: files kept in vaults, not one-shot transfers.
+Source: learn/vaults-and-keys/index.md
+
+## 2. Which one is current?
+- **Ravi** (think, worried): "Every week a new link. Which one is current?"
+- prop: board, report-v1.pdf / report-v2.pdf / report-v2-final.pdf / report-v2-final-FINAL.pdf
+
+Note: The problem a transfer cannot solve: there is no second version of a transfer.
+Source: vaults/index.html
+
+## 3. Into a vault instead
+- **Maya** (point, determined): "Into a vault. One place, every version."
+- prop: vault, Project Q4
+
+Note: A vault is a folder of files, encrypted here, versioned like git.
+Source: learn/vaults-and-keys/index.md
+
+## 4. Every change is a commit
+- Maya, stand, happy
+- prop: record, the history
+
+Note: Each write is one commit with a message; two devices merge with compare-and-swap.
+Source: learn/vaults-and-keys/index.md
+
+## 5. Two keys
+- **Maya** (point, happy): "The read key is the one I share."
+- prop: key, vault key: read and write
+- prop: key, read key: read only
+
+Note: The read key is derived one way from the vault key; it can never become write access.
+Source: learn/vaults-and-keys/index.md
+
+## 6. Ravi always sees the latest
+- **Ravi** (arms-up, happy): "Same link. New version."
+- prop: phoneqr, send.sgit.ai/open/#sgit_public_read_…
+- prop: mark, 4 files, 4 commits
+
+Note: The read-key link opens every file and every version, read only.
+Source: open/index.html
+
+## 7. And on a laptop
+- **Ravi** (point, thinking): "My laptop too?"
+- prop: terminal, $ sgit clone sgit_public_read_…:q4 / cloning… 4 files, 4 commits / $ ls / report.pdf  photos/
+
+Note: The browser and the CLI are two clones of one vault.
+Source: learn/vaults-and-keys/index.md
+
+## 8. Why the read key can be shared (evidence)
+> The read key is derived from the vault key one way, so a read key can never be turned back into write access.
+> (learn/vaults-and-keys/index.md)
+- Maya, point, happy
+
+Note: Quoted from the vaults and keys page, word for word.
+Source: learn/vaults-and-keys/index.md
+
+## 9. Share the read key once. Keep the vault key. Every version stays. (punchline)
+**Share the read key once. Keep the vault key. Every version stays.**
+- Maya, wave, happy
+- Ravi, arms-up, happy
+- The Server, stand, calm
+
+Note: Create, add, publish, open by read key: driven by the browser test.
+Source: tests/test_app.mjs
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/all/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# Every panel
+
+All 69 panels, in order. The scripts: [Send a file. Keep the key.](/storyboards/send-a-file/index.md), [A token you can say aloud](/storyboards/say-it-aloud/index.md), [A folder that remembers](/storyboards/a-folder-that-remembers/index.md), [Where the keys live](/storyboards/where-the-keys-live/index.md), [The envelope and the fragment](/storyboards/the-envelope/index.md), [Two kinds of API](/storyboards/two-kinds-of-api/index.md), [An agent hands over](/storyboards/an-agent-hands-over/index.md), [What can go wrong](/storyboards/what-can-go-wrong/index.md)
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/an-agent-hands-over/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# An agent hands over
+
+> Pip finishes a job, sends the result once with an expiry, keeps the work in a vault, and never logs a key. 9 panels.
+
+*Send, as storyboards · Under the hood · board 07 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [For agents](/use/agents/)
+- [The Python example](/use/)
+
+## 1. An agent hands over (cover)
+*Once by transfer. Repeatedly in a vault. Never a key in a transcript.*
+- Pip, wave, happy
+- Maya, stand, happy
+- The Server, stand, calm
+
+Note: The agentic workflow the brief named as one of the reasons to move.
+Source: use/agents/index.md
+
+## 2. Job done
+- **Pip** (wave, happy): "Report ready. Three files."
+- prop: terminal, $ python3 run.py / job done: 3 files, 1.2 MB / report.md  data.csv  manifest.json
+
+Note: A session agent at the end of a job, with a result and nobody to hand it to.
+Source: use/agents/index.md
+
+## 3. The token from the environment, in a header
+- **Pip** (point, determined): "From the environment. Into a header. Nowhere else."
+- prop: key, SGRAPH_ACCESS_TOKEN
+- prop: board, x-sgraph-access-token: **** / never a URL, never a log
+
+Note: The access token authorises the upload and must not land in a query string or a transcript.
+Source: use/agents/index.md
+
+## 4. One transfer, time-bound
+- Pip, stand, happy
+- prop: calendar, expires in 7 days
+- prop: board, max_downloads: 0 / a retry is not a reader
+
+Note: For a link another agent will open: a time bound rather than a download cap.
+Source: use/agents/index.md
+
+## 5. The link, and nothing else, in the reply
+- **Pip** (wave, happy): "Here is the link. The key is in it. I logged neither."
+- Maya, stand, happy
+- prop: arrow, send.sgit.ai/open/#id/key
+
+Note: The decryption key lives in the link and nowhere else: not in node output, not in a result that is kept.
+Source: use/agents/index.md
+
+## 6. The work stays in a vault
+- **Pip** (point, determined): "Commit, push, hand over the read key."
+- prop: vault, job-2026-10-20
+- prop: key, read key, to Maya
+
+Note: The thing that is read repeatedly goes in a vault; the read key is what travels.
+Source: learn/vaults-and-keys/index.md
+
+## 7. A bundle a reader can use
+- Pip, stand, happy
+- prop: record, the bundle
+
+Note: A manifest and an llms.txt cost nothing and are the difference between a payload that can be used and one that has to be opened by a person first.
+Source: use/agents/index.md
+
+## 8. The key, in one place (evidence)
+> The decryption key is in the link, and nowhere else.
+> (use/agents/index.md)
+- Pip, point, determined
+
+Note: Quoted from the agents page, word for word.
+Source: use/agents/index.md
+
+## 9. Hand over once by transfer. Work repeatedly in a vault. Never paste a key. (punchline)
+**Hand over once by transfer. Work repeatedly in a vault. Never paste a key.**
+- Pip, wave, happy
+- Maya, arms-up, happy
+- The Server, stand, calm
+
+Note: The Python example on the use page is the whole hand-over in forty lines.
+Source: use/index.md
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/model-sheet/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# The model sheet
+
+- **Maya**: the sender: a consultant who sends reports and photos to people who have no account anywhere
+- **Hugo**: the recipient: on the newest phone he has ever owned, with no account and no wish for one
+- **Ravi**: the client: a finance director who receives a new version every week and asks who else can see it
+- **Inês**: the engineer: embeds the send code in her company's product and runs a server of their own
+- **Eve**: the listener: on the wire, in the chat, by the laptop; reads whatever passes and never gets the key
+- **The Server**: the server: a capability-checked store of ciphertext, at send.sgraph.ai or wherever it is deployed
+- **Pip**: a session agent: a Claude session that finishes a job, hands the result over once, and keeps the work in a vault
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/say-it-aloud/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# A token you can say aloud
+
+> river-cloud-3847 is the whole key: Maya says it on a call, Hugo types it, Eve hears it a week too late. 8 panels.
+
+*Send, as storyboards · For everyone · board 02 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [Send with a friendly token](/)
+
+## 1. A token you can say aloud (cover)
+*Two words and four digits. Then let it expire.*
+- Maya, wave, happy
+- Hugo, stand, happy
+- Eve, shrug, thinking
+
+Note: The friendly token: one short string that is the whole credential for one transfer.
+Source: learn/qr-codes/index.md
+
+## 2. On the phone
+- **Maya** (point, happy): "It's three words, Hugo. river, cloud, three eight four seven."
+- Hugo, stand, thinking
+- prop: phone
+
+Note: The moment a friendly token is for: two people, one call, no screen to scan.
+Source: learn/qr-codes/index.md
+
+## 3. Two words and four digits
+- Maya, think, thinking
+- prop: board, river-cloud-3847 /  / 320 words x 320 words x 10,000 / = 1,024,000,000 tokens
+
+Note: The word list is send.sgraph.ai's own, so a token made on either site opens on the other.
+Source: learn/qr-codes/index.md
+
+## 4. Both sides derive the same two things
+- **The Server** (stand, calm): "I never see the token."
+- prop: board, token  ->  SHA-256  ->  transfer id /  / token  ->  PBKDF2, 600,000 rounds /           ->  the key
+
+Note: The transfer id and the key both come from the token, in both browsers; the server maps nothing.
+Source: learn/qr-codes/index.md
+
+## 5. Hugo types it
+- **Hugo** (point, determined): "river… cloud… three eight four seven."
+- prop: phone
+- prop: mark, opens
+
+Note: The open page accepts a token typed in, or the link that carries it.
+Source: open/index.html
+
+## 6. Eve was listening
+- **Eve** (shrug, thinking): "I heard it. A week later."
+- prop: calendar, expired
+- prop: mark, 410: gone
+
+Note: A token can be guessed offline by anyone holding the ciphertext, so it suits a link that expires. This one did.
+Source: learn/security/index.md
+
+## 7. What a friendly token is for (evidence)
+> a friendly token is for a link that expires, a file that is not worth that effort, and a moment when speaking it is the point; a random key is for everything else.
+> (learn/qr-codes/index.md)
+- Maya, point, happy
+
+Note: Quoted from the QR codes page, word for word.
+Source: learn/qr-codes/index.md
+
+## 8. Say it, type it, scan it. Then let it expire. (punchline)
+**Say it, type it, scan it. Then let it expire.**
+- Maya, wave, happy
+- Hugo, arms-up, happy
+- Eve, shrug, worried
+
+Note: The trade, stated on the send page where the choice is made.
+Source: index.html
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/send-a-file/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# Send a file. Keep the key.
+
+> Maya sends forty photos to Hugo, who has no account; the server keeps bytes it cannot read; Hugo scans a code on his phone. 9 panels.
+
+*Send, as storyboards · For everyone · board 01 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [Send a file](/)
+- [Open a link](/open/)
+
+## 1. Send a file. Keep the key. (cover)
+*Encrypted here. The server gets bytes it cannot read.*
+- Maya, point, happy
+- Hugo, stand, happy
+- The Server, stand, calm
+
+Note: The whole site in one line: the file is encrypted in the sender's browser, and the key never reaches a server.
+Source: index.html
+
+## 2. A file to hand over
+- **Maya** (think, thinking): "Forty photos for Hugo. He has no account anywhere."
+- prop: laptop
+
+Note: The case the brief led with: a file for a person who did not choose this site.
+Source: index.html
+
+## 3. Encrypted here, before it leaves
+- **Maya** (point, determined): "The name goes inside the envelope too."
+- prop: laptop
+- prop: arrow, encrypted in the browser
+- prop: envelope, photos.zip, inside
+
+Note: AES-256-GCM under a fresh key, with the file name wrapped inside the plaintext, so the server never learns it.
+Source: learn/index.md
+
+## 4. The server keeps bytes
+- **The Server** (stand, calm): "I keep the bytes. I cannot read them."
+- prop: server, ciphertext, size, time
+- prop: envelope, sealed
+
+Note: What a zero-knowledge store is: it holds ciphertext and compares hashes. It never had the key.
+Source: learn/security/index.md
+
+## 5. A link, and a QR code
+- **Maya** (point, happy): "Scan this."
+- prop: qr, send.sgit.ai/open/#…
+
+Note: The key travels after the # in the link, which browsers never send to a server. The code is the link, drawn here.
+Source: learn/qr-codes/index.md
+
+## 6. On Hugo's phone
+- **Hugo** (think, confused): "Do I need an account?"
+- **Maya** (wave, happy): "No. The key is in the link."
+- prop: phoneqr, send.sgit.ai/open/#…
+
+Note: Opening needs nothing: no token, no account. The key is the gate.
+Source: open/index.html
+
+## 7. Decrypted on his phone
+- **Hugo** (arms-up, happy): "There they are."
+- prop: phone
+- prop: mark, decrypted here
+
+Note: Download, decrypt, unwrap: the file and its name come back in Hugo's browser, byte for byte.
+Source: open/index.html
+
+## 8. What the server is (evidence)
+> The server is a capability-checked ciphertext store: every access decision it makes is a hash comparison, and it never holds a raw key.
+> (learn/security/index.md)
+- The Server, stand, calm
+
+Note: Quoted from the security page, word for word.
+Source: learn/security/index.md
+
+## 9. Whoever has the link has the file. Nobody else does, the server included. (punchline)
+**Whoever has the link has the file. Nobody else does, the server included.**
+- Maya, wave, happy
+- Hugo, arms-up, happy
+- The Server, stand, calm
+
+Note: Send, open: built and driven end to end by the browser test.
+Source: tests/test_app.mjs
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/the-envelope/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# The envelope and the fragment
+
+> What the bytes look like, which of them the server sees, and where each of the two secrets goes. 9 panels.
+
+*Send, as storyboards · Under the hood · board 05 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [The contracts, on the API site](https://api.send.sgit.ai/docs/contracts/)
+- [Security: what the server sees](/learn/security/)
+
+## 1. The envelope and the fragment (cover)
+*Bytes the server sees, and bytes it never does.*
+- Inês, point, determined
+- Eve, shrug, thinking
+- The Server, stand, calm
+
+Note: The technical half of the first board: the exact layout, and the two places a secret may be.
+Source: learn/security/index.md
+
+## 2. The name goes inside
+- **Inês** (point, determined): "Wrapped before encrypting. Get the order wrong and the download has no name."
+- prop: board, SGMETA\0           7 bytes / meta_len           4 bytes, big-endian / {"filename": "report.pdf"} / file bytes         the rest
+
+Note: The SGMETA envelope, the layout send.sgraph.ai has used since its first version.
+Source: learn/index.md
+
+## 3. Then AES-256-GCM
+- Inês, stand, happy
+- prop: board, IV            12 bytes, fresh every time / ciphertext / tag           16 bytes / = plaintext + 28 bytes, exactly
+
+Note: The ciphertext is 28 bytes longer than the plaintext: the tests hold that number.
+Source: learn/index.md
+
+## 4. Two secrets, two places
+- **Inês** (point, determined): "Never the other way round."
+- prop: key, access token: a request header
+- prop: key, decryption key: the # fragment
+
+Note: The token says who may upload; the key says who may read. Confusing them does not throw.
+Source: learn/security/index.md
+
+## 5. What the server sees
+- **The Server** (stand, calm): "Bytes, a size, a time, a hint you chose."
+- prop: server, send.sgraph.ai
+- prop: board, ciphertext, size, time / a hashed IP / content_type_hint / not: name, key, plaintext
+
+Note: The full list, both columns, is on the security page.
+Source: learn/security/index.md
+
+## 6. Eve on the wire
+- **Eve** (shrug, thinking): "Everything after the # is yours, not mine."
+- prop: arrow, #id/key never leaves the browser
+- prop: padlock, fragment
+
+Note: A browser never sends the fragment of a URL to the server that serves the page.
+Source: learn/index.md
+
+## 7. The token, in one place (evidence)
+> The access token says who may upload. It goes in a request header to the server you chose and nowhere else: never a URL, never a log.
+> (learn/security/index.md)
+- Inês, point, determined
+
+Note: Quoted from the security page, word for word.
+Source: learn/security/index.md
+
+## 8. Held by tests, not by promises
+- **Inês** (point, happy): "Held by tests, not by promises."
+- prop: terminal, $ node --test 'tests/*.test.mjs' / ok  send then receive: byte for byte / ok  the name in no request / ok  the token in no request path / # pass 44
+
+Note: The API release's tests run against the server in memory; the browser test drives this site.
+Source: use/index.md
+
+## 9. The server gets bytes it cannot read, a size, and a hint you chose. (punchline)
+**The server gets bytes it cannot read, a size, and a hint you chose.**
+- Inês, wave, happy
+- The Server, stand, calm
+- Eve, shrug, worried
+
+Note: The claim the whole site rests on, and what it does not claim is on the security page too.
+Source: learn/security/index.md
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/two-kinds-of-api/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# Two kinds of API
+
+> The code a page runs is a release that never changes; the server it talks to is a deployment. Inês pins one and runs the other. 8 panels.
+
+*Send, as storyboards · Under the hood · board 06 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [api.send.sgit.ai](https://api.send.sgit.ai/)
+- [The article](/articles/two-kinds-of-api.html)
+
+## 1. Two kinds of API (cover)
+*Files a page runs, and a server it talks to.*
+- Inês, point, determined
+- The Server, stand, calm
+
+Note: The contradiction Dinis found after the first deploy, and the rule that came out of it.
+Source: articles/two-kinds-of-api.md
+
+## 2. Which release?
+- **Inês** (think, thinking): "Which release is this page running?"
+- prop: laptop
+- prop: board, import * as send from / 'https://api.send.sgit.ai/ /   v0.1.1/send/send-api.js'
+
+Note: A page names one release by its full address and copies its manifest.
+Source: use/embed/index.md
+
+## 3. A release is a folder that never changes
+- Inês, point, happy
+- prop: board, /v0.1.0/   36 files, every hash listed / /v0.1.1/   one fix, a whole copy / a change is the next folder, / never an edit of this one
+
+Note: Every minor release is a complete, independent copy; the gate fails a hash that moved.
+Source: learn/from-sgraph/index.md
+
+## 4. The server is a deployment
+- **Inês** (point, determined): "Same contract, any host."
+- prop: server, send.sgraph.ai
+- prop: sign, dev.send.sgraph.ai
+- prop: sign, localhost:8787
+
+Note: One HTTP contract, many deployments; the page names the one it talks to as an endpoint.
+Source: settings/index.html
+
+## 5. Her own server
+- **Inês** (point, happy): "Mine. On my laptop. Nothing leaves it."
+- prop: terminal, $ node tests/server.mjs 8787 local-dev-token / in-memory SG/Send API at / http://localhost:8787
+
+Note: The in-memory server in every API release: the same routes, for tests and for a laptop.
+Source: use/index.md
+
+## 6. The rule
+- Inês, stand, happy
+- prop: board, api.<site>.sgit.ai      files a page runs / <service>.api.sgit.ai   a server / dev.vault.api.sgit.ai   environment leftmost
+
+Note: The order of the labels does the work; one sentence to explain.
+Source: articles/two-kinds-of-api.md
+
+## 7. Contract versus deployment (evidence)
+> The distinction is contract versus deployment, not JavaScript versus Python.
+> (articles/two-kinds-of-api.md)
+- Inês, point, determined
+
+Note: Quoted from the article, word for word.
+Source: articles/two-kinds-of-api.md
+
+## 8. Pin the files. Name the server. Never confuse the two. (punchline)
+**Pin the files. Name the server. Never confuse the two.**
+- Inês, wave, happy
+- The Server, stand, calm
+
+Note: Decided on 20 October 2026; not yet deployed as new hosts.
+Source: articles/two-kinds-of-api.md
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/what-can-go-wrong/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# What can go wrong
+
+> Six ways a hand-over fails: a link in a public channel, expired, the wrong key, a vault key in a link, and what revocation does and does not do. 9 panels.
+
+*Send, as storyboards · Under the hood · board 08 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [Security: what the server sees](/learn/security/)
+- [Keys](/keys/)
+
+## 1. What can go wrong (cover)
+*Expiry, caps and revocation limit the future. Nothing takes back the past.*
+- Eve, shrug, happy
+- Maya, think, worried
+- Ravi, stand, confused
+
+Note: The failures, each with what it costs and what the site does about it.
+Source: learn/security/index.md
+
+## 2. The link in a public channel
+- **Eve** (wave, happy): "A link is as private as where it went."
+- prop: board, #id/key, pasted in a group chat / = everyone in the chat has the file /  / send the key by another channel
+
+Note: The link-only option exists for exactly this: the id by one channel, the key by another.
+Source: index.html
+
+## 3. Expired, or spent
+- **Ravi** (think, confused): "It worked yesterday."
+- **Maya** (wave, happy): "Seven days. I'll send a new one."
+- prop: mark, 410: gone
+
+Note: 410 is an end state, not an error to retry: expired or exhausted.
+Source: open/index.html
+
+## 4. Wrong key
+- **Hugo** (think, worried): "It says the key does not open it."
+- prop: mark, EDECRYPT
+- prop: phone
+
+Note: A wrong key fails cleanly; the bytes were never readable, so nothing is half-opened.
+Source: open/index.html
+
+## 5. A vault key in a link
+- **Inês** (point, determined): "That was write access. New vault, copy the files, new read key."
+- prop: key, sgit_private_vault_…
+- prop: sign, rotate it
+
+Note: The open page opens it, with a warning: a vault key should never have travelled in a link.
+Source: open/index.html
+
+## 6. Revoke, from Keys
+- **Maya** (point, determined): "Deleted on the server. The link opens nothing now."
+- prop: record, Keys
+
+Note: A transfer sent from this device keeps its delete secret; revoking deletes it on the server.
+Source: keys/index.html
+
+## 7. What revocation does not do
+- **Eve** (shrug, happy): "I downloaded it on Tuesday."
+- prop: board, revocation is not retroactive / a read key, once out, is out / a copy fetched is a copy kept
+
+Note: Rotating protects the future; nothing on the server reaches a copy already fetched.
+Source: learn/vaults-and-keys/index.md
+
+## 8. Not retroactive (evidence)
+> revocation is not retroactive, because anyone who fetched the objects keeps them.
+> (learn/vaults-and-keys/index.md)
+- Eve, shrug, thinking
+
+Note: Quoted from the vaults and keys page, word for word.
+Source: learn/vaults-and-keys/index.md
+
+## 9. Expiry, caps and revocation limit the future. Nothing takes back the past. (punchline)
+**Expiry, caps and revocation limit the future. Nothing takes back the past.**
+- Maya, wave, happy
+- Ravi, stand, happy
+- Eve, shrug, worried
+
+Note: The security page ends with what the site does not claim.
+Source: learn/security/index.md
+
+
+==============================================================================
+
+*Source: <https://send.sgit.ai/storyboards/where-the-keys-live/> · send.sgit.ai v0.1.4 · generated from the same data as the page, so the two cannot drift.*
+
+# Where the keys live
+
+> The thing that was missing before: a keyring on the device, what it is, what it is not, and the one rule about which key may travel. 8 panels.
+
+*Send, as storyboards · For everyone · board 04 · built · send.build, 20 October 2026. The script of a storyboard drawn by the kit at api.storyboards.sgit.ai; the data is storyboard.json and bundle.json beside this file.*
+
+- [Keys](/keys/)
+
+## 1. Where the keys live (cover)
+*A key that is written down somewhere is a key that is not lost.*
+- Maya, think, thinking
+- Eve, shrug, thinking
+
+Note: The brief's diagnosis: with nowhere to keep a key, nobody made a vault.
+Source: about/brief/index.md
+
+## 2. Last month's vault
+- **Maya** (think, worried): "I made a vault last month. Where did I put the key?"
+- prop: vault, ?
+- prop: mark, lost = gone
+
+Note: There is no reset. A vault key that is lost is a vault that cannot be written to again.
+Source: learn/vaults-and-keys/index.md
+
+## 3. The keyring, on this device
+- **Maya** (point, happy): "Every key this site makes, with its kind."
+- prop: record, Keys
+
+Note: One JSON document in the browser's storage, a kind on every entry, exportable.
+Source: keys/index.html
+
+## 4. Plaintext, on this device
+- **Eve** (shrug, happy): "Give me the laptop and I have them."
+- prop: padlock, not encrypted at rest
+
+Note: The keyring makes keys findable; it does not protect them from someone with the device.
+Source: learn/security/index.md
+
+## 5. Export, to somewhere stronger
+- **Maya** (point, determined): "Export. Then a password manager."
+- prop: envelope, keys.json
+- prop: arrow, to a password manager
+- prop: sign, secrets.sgit.ai, soon
+
+Note: Where each kind of key should live, today and later.
+Source: learn/vaults-and-keys/index.md
+
+## 6. The rule
+- Maya, point, happy
+- prop: board, read key:  yes, share it / vault key: never. Not in a link, /            a page, a chat, a repository
+
+Note: The one rule about which key may travel.
+Source: learn/vaults-and-keys/index.md
+
+## 7. No reset (evidence)
+> There is no reset. A vault whose vault key is lost cannot be written to again
+> (learn/vaults-and-keys/index.md)
+- Eve, shrug, thinking
+
+Note: Quoted from the vaults and keys page, word for word.
+Source: learn/vaults-and-keys/index.md
+
+## 8. A key that is written down somewhere is a key that is not lost. (punchline)
+**A key that is written down somewhere is a key that is not lost.**
+- Maya, wave, happy
+- Eve, shrug, worried
+
+Note: The keyring page says what it is and is not.
+Source: keys/index.html
+
+
+==============================================================================
+
 # Examples, a page, curl, Python
 
 > The same transfer made three ways: from a page with the pinned API, from a shell with curl and openssl, and from Python for an agent; plus the server in memory for trying it on a laptop.
 
-*Source: <https://send.sgit.ai/use/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1136,11 +1960,13 @@ Then in [Settings](/settings/) choose "a server on this machine" with the token 
 
 > How an agent sends a result to a person or to another agent with these formats, what to put in the bundle, which secrets go where, and the pages to read first.
 
-*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # For agents
+
+*As a storyboard: [An agent hands over](/storyboards/an-agent-hands-over/).*
 
 You are reading the page for agents of send.sgit.ai. Every page here has a markdown twin at the same path with `.md` instead of `.html`; [`/llms.txt`](/llms.txt) lists them, and [`/llms-full.txt`](/llms-full.txt) is all of them in one request. The code this site runs has [its own agents page](https://api.send.sgit.ai/agents/).
 
@@ -1175,7 +2001,7 @@ The pinned release runs in any page: `import('https://api.send.sgit.ai/v0.1.1/se
 
 > Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.
 
-*Source: <https://send.sgit.ai/use/embed/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/embed/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1204,7 +2030,7 @@ This site's own app modules (`assets/app/send.js`, `open.js`, `vaults.js`, `keys
 
 > How using this site and its capabilities is meant to be paid for, what is true today (a beta behind access tokens), what is proposed, and what will never be charged for.
 
-*Source: <https://send.sgit.ai/use/pricing/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/pricing/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1252,7 +2078,7 @@ Write to [agent@riskmandate.ai](mailto:agent@riskmandate.ai) with what you want 
 
 > The vaults this browser holds keys for. Create one, add files as commits, see the history, and share it read-only with a link and a QR code; clone it anywhere with sgit.
 
-*Source: <https://send.sgit.ai/vaults/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/vaults/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1293,7 +2119,7 @@ Reach for it whena thing is handed over oncea thing is read repeatedly, updated,
 
 > One line per version, newest first, saying what changed and why. Every change that lands on dev is a version; the deploy tags it.
 
-*Source: <https://send.sgit.ai/versions/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/versions/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1303,6 +2129,7 @@ Every change that lands on `dev` is a version, in `tools/version.json`, tagged b
 
 | Version | Date | Kind | What changed, and why |
 |---|---|---|---|
+| **v0.1.4** | 2026-10-20 | feature | **Send, as storyboards: eight boards on two shelves, drawn in the browser by the storyboard kit.** A storyboards section, the technique and the format storyboards.sgit.ai's: a cast of seven (Maya, Hugo, Ravi, Inês, Eve, the Server, Pip), four boards for everyone (send a file, say it aloud, a folder that remembers, where the keys live) and four under the hood (the envelope, two kinds of API, an agent hands over, what can go wrong), 69 panels, each board as JSON with its bundle and its script, a shelf with covers drawn live, every panel on one page and the model sheet. The kit is api.storyboards.sgit.ai v0.1.0, pinned with the integrity string of every file, and the gate refuses any other reference. The build checks the cast, the vocabulary, every evidence quote word for word against the page it names, and every try-it link; the test runs the kit's own validator and draws every board in Chromium. |
 | **v0.1.3** | 2026-10-20 | docs | **an article records the naming rule for the two kinds of API.** From a conversation with Dinis after the first deploy: api.<site>.sgit.ai is a site's client code, released as files; <service>.api.sgit.ai is a server, one deployment of a service's HTTP contract, with the environment leftmost; the first services are send and vault, split along the route prefixes the current server already has, with send.sgraph.ai becoming a router by prefix. A decision, not a deployment: nothing a page runs changed. |
 | **v0.1.2** | 2026-10-20 | fix | **the pin check leaves articles alone.** v0.1.1 landed with the gate red on one line: the agent's article about the first release names the v0.1.0 address it was written against, and the pin check read that as an unpinned reference. An article is the record of its day, so the check now skips /articles/; nothing a page runs changed. Recorded here rather than hidden, as the release discipline asks. |
 | **v0.1.1** | 2026-10-20 | fix | **the site pins api.send.sgit.ai v0.1.1, whose health check asks the route the hosted service serves.** After the first deploy, Settings reported send.sgraph.ai as not answering: the v0.1.0 release asked /api/health, which the hosted service does not serve (its route is /api/info/health). The API's v0.1.1 fixes that; this version changes the pin and copies its manifest, and nothing else on the site. The same run measured that send.sgraph.ai allows requests from this origin with every header the release sends. |

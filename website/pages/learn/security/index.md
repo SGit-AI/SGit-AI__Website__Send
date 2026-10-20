@@ -5,6 +5,8 @@ description: What the server can see, what it cannot, the two secrets that must 
 
 # Security: what the server sees, and what it cannot
 
+*As storyboards: [The envelope and the fragment](/storyboards/the-envelope/) and [What can go wrong](/storyboards/what-can-go-wrong/).*
+
 ## The server
 
 | It can see | It cannot see |

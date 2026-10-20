@@ -2,7 +2,7 @@
 
 > Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
 
-*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -46,6 +46,8 @@ How to hand it over
 For a vault the link carries the read key; the vault key stays on this device.
 
 Encrypt and send to the server set in [Settings](/settings/)
+
+**Prefer pictures?** [Send, as storyboards](/storyboards/): eight boards drawn in your browser, four for everyone and four for the engineer, from [Send a file. Keep the key.](/storyboards/send-a-file/) to [What can go wrong](/storyboards/what-can-go-wrong/).
 
 ## What happens, in one table
 

@@ -2,7 +2,7 @@
 
 > The code-verified list of what this site implements, generated from website/data/features.json on every build. If it is not listed here, it does not exist.
 
-*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -59,6 +59,18 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 | The API pinned to api.send.sgit.ai v0.1.0 with its manifest copied; the gate refuses an unpinned reference | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tools/api.json`, `tools/api-manifest.json`, `tools/check.py` |
 | A per-browser override of where the API loads from, for development | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `assets/app/api.js`, localStorage `send.sgit.ai.api-base` |
 
+## Storyboards
+
+| Feature | Status | Since | Evidence |
+|---|---|---|---|
+| Eight storyboards as data, two shelves (for everyone, under the hood), a cast of seven; drawn in the browser by api.storyboards.sgit.ai v0.1.0, pinned with integrity strings | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `website/storyboards/`, `tools/storyboards.py`, `tools/storyboards-api.json` |
+| Per board: the page with deck, grid and script; storyboard.json; bundle.json; the script as its markdown twin; an embed snippet | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `www/storyboards/<slug>/` |
+| The shelf with covers drawn live, every panel on one page, the model sheet | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `/storyboards/`, `/storyboards/all/`, `/storyboards/model-sheet/` |
+| Checks: cast, poses, moods, props and kinds against the kit's vocabulary; evidence quotes found word for word in page sources; try-it links exist; the kit's own validate() in the test | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.4 | `tools/storyboards.py` problems(), `tests/test_storyboards.mjs` |
+| Thumbnails and link-preview images rendered at build (as storyboards.sgit.ai does with the kit's render.mjs) | <span class="sg-status sg-status-proposed">proposed</span> |  | covers are drawn live on the shelf; no og.jpg per board |
+| The Send series imported into storyboards.sgit.ai | <span class="sg-status sg-status-proposed">proposed</span> |  | the files are in the format its import_series.py reads; the import is that site's change |
+| Boards in other languages; a storyboard editor on the site | <span class="sg-status sg-status-absent">absent</span> |  | the JSON is the editor |
+
 ## The commercial model
 
 | Feature | Status | Since | Evidence |
@@ -77,4 +89,4 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 | The articles section, in the newsroom's format | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `/articles/`, three articles |
 | A review/ folder with the derived graph and navigator | <span class="sg-status sg-status-proposed">proposed</span> |  | `review/intent/` only |
 
-**Counted, not remembered:** 2 absent, 9 proposed, 21 shipped.
+**Counted, not remembered:** 3 absent, 11 proposed, 25 shipped.

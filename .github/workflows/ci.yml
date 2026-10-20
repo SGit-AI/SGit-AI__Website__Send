@@ -52,6 +52,16 @@ jobs:
           repository: ${{ steps.pin.outputs.repo }}
           ref: ${{ steps.pin.outputs.ref }}
           path: .api
+      - id: sbpin
+        name: Which storyboard-kit checkout the test runs against (tests/storyboards-api.json)
+        run: |
+          echo "repo=$(python3 -c 'import json;print(json.load(open("tests/storyboards-api.json"))["repository"])')" >> "$GITHUB_OUTPUT"
+          echo "ref=$(python3 -c 'import json;print(json.load(open("tests/storyboards-api.json"))["ref"])')" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.sbpin.outputs.repo }}
+          ref: ${{ steps.sbpin.outputs.ref }}
+          path: .storyboards-api
       - name: The app, end to end, in Chromium
         env:
           SEND_API: ${{ github.workspace }}/.api
@@ -61,3 +71,10 @@ jobs:
           npx playwright install --with-deps chromium
           node tests/test_app.mjs | tee /tmp/app.log
           if grep -q '^SKIP' /tmp/app.log; then echo "::error::the app test skipped: $(grep -m1 '^SKIP' /tmp/app.log)"; exit 1; fi
+      - name: The storyboards, validated by the kit and drawn in Chromium
+        env:
+          STORYBOARDS_API: ${{ github.workspace }}/.storyboards-api
+        run: |
+          set -euo pipefail
+          node tests/test_storyboards.mjs | tee /tmp/sb.log
+          if grep -q '^SKIP' /tmp/sb.log; then echo "::error::the storyboards test skipped: $(grep -m1 '^SKIP' /tmp/sb.log)"; exit 1; fi

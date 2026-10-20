@@ -5,6 +5,8 @@ description: What a vault is, the one secret and the keys derived from it, which
 
 # Vaults and keys
 
+*As storyboards: [A folder that remembers](/storyboards/a-folder-that-remembers/) and [Where the keys live](/storyboards/where-the-keys-live/).*
+
 ## What a vault is
 
 A vault is a folder of files, encrypted in your browser, versioned like git: every change is a commit, the history is kept, two devices can work on it and merge, and a laptop can `sgit clone` it. send.sgraph.ai had transfers; what it did not have, and what stopped people, was a place to keep the vault keys and a way to put files into vaults from the page. This site has both.

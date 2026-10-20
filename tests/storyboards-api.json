@@ -1,0 +1,5 @@
+{
+  "repository": "SGit-AI/SGit-AI__Website__Storyboards__API",
+  "ref": "dev",
+  "note": "The checkout of the storyboard kit's repository the browser test routes https://api.storyboards.sgit.ai/<release>/ to. Locally: STORYBOARDS_API=<path>, or a sibling directory named SGit-AI__Website__Storyboards__API. The release is the one tools/storyboards-api.json pins."
+}

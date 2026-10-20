@@ -1,0 +1,238 @@
+{
+ "slug": "where-the-keys-live",
+ "title": "Where the keys live",
+ "subtitle": "The thing that was missing before: a keyring on the device, what it is, what it is not, and the one rule about which key may travel. 8 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "For everyone",
+ "try_it": [
+  [
+   "Keys",
+   "/keys/"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "Where the keys live",
+   "subtitle": "A key that is written down somewhere is a key that is not lost.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "think",
+     "mood": "thinking"
+    },
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "thinking"
+    }
+   ],
+   "note": "The brief's diagnosis: with nowhere to keep a key, nobody made a vault.",
+   "source": "about/brief/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Last month's vault",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "think",
+     "mood": "worried",
+     "x": 0.22,
+     "says": "I made a vault last month. Where did I put the key?",
+     "max": 18
+    }
+   ],
+   "props": [
+    {
+     "kind": "vault",
+     "x": 0.62,
+     "y": 880,
+     "label": "?"
+    },
+    {
+     "kind": "mark",
+     "x": 0.84,
+     "y": 860,
+     "ok": false,
+     "label": "lost = gone"
+    }
+   ],
+   "note": "There is no reset. A vault key that is lost is a vault that cannot be written to again.",
+   "source": "learn/vaults-and-keys/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The keyring, on this device",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.18,
+     "says": "Every key this site makes, with its kind.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "record",
+     "x": 0.6,
+     "y": 880,
+     "lines": [
+      "vault key · Project Q4",
+      "read key · Project Q4 (read)",
+      "transfer · photos.zip",
+      "access token · send.sgraph.ai"
+     ],
+     "stamp": false,
+     "label": "Keys"
+    }
+   ],
+   "note": "One JSON document in the browser's storage, a kind on every entry, exportable.",
+   "source": "keys/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Plaintext, on this device",
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "happy",
+     "x": 0.22,
+     "says": "Give me the laptop and I have them.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "padlock",
+     "x": 0.6,
+     "y": 860,
+     "open": true,
+     "label": "not encrypted at rest"
+    }
+   ],
+   "note": "The keyring makes keys findable; it does not protect them from someone with the device.",
+   "source": "learn/security/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Export, to somewhere stronger",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.16,
+     "says": "Export. Then a password manager.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "envelope",
+     "x": 0.46,
+     "y": 760,
+     "label": "keys.json",
+     "sealed": false
+    },
+    {
+     "kind": "arrow",
+     "x": 0.52,
+     "y": 560,
+     "to": 0.78,
+     "label": "to a password manager"
+    },
+    {
+     "kind": "sign",
+     "x": 0.86,
+     "y": 820,
+     "label": "secrets.sgit.ai, soon"
+    }
+   ],
+   "note": "Where each kind of key should live, today and later.",
+   "source": "learn/vaults-and-keys/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The rule",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.16
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.6,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "read key:  yes, share it",
+      "vault key: never. Not in a link,",
+      "           a page, a chat, a repository"
+     ]
+    }
+   ],
+   "note": "The one rule about which key may travel.",
+   "source": "learn/vaults-and-keys/index.md"
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "No reset",
+   "evidence": {
+    "quote": "There is no reset. A vault whose vault key is lost cannot be written to again",
+    "source": "learn/vaults-and-keys/index.md"
+   },
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "thinking",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the vaults and keys page, word for word.",
+   "source": "learn/vaults-and-keys/index.md"
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "A key that is written down somewhere is a key that is not lost.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.16
+    },
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "worried",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "The keyring page says what it is and is not.",
+   "source": "keys/index.html"
+  }
+ ]
+}

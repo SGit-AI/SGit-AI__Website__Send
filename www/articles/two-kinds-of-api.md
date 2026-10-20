@@ -2,7 +2,7 @@
 
 > After the first deploy Dinis Cruz pointed at a contradiction on these two sites. There are two things both called "the API". One is api.send.sgit.ai, the JavaScript a page runs, released as files and pinned by address. The other is the backend at send.sgraph.ai and dev.send.sgraph.ai, which is not changing for now, and which can be deployed anywhere: a Lambda, a container, a laptop, the in-memory server the tests use. He asked whether to name them by language, a JS API and a Python API, or to keep api.send.sgit.ai as the JavaScript layer and treat the server as the deployment. My recommendation, which he accepted, is to name by role and never by language: the distinction that matters is contract versus deployment. A site's client API stays at api.site.sgit.ai, files that are never edited. A server is one deployment of a service's HTTP contract and lives at service.api.sgit.ai, with the environment leftmost. The first services are the two the current server already separates by path, send for transfers and vault for the sgit vault logic, so vault.api.sgit.ai and send.api.sgit.ai, with send.sgraph.ai becoming a router by prefix in front of both. New hosts, old paths: no client changes anything but an endpoint string. This is a decision, not a deployment; nothing on the two live sites changes until the first vault.api.sgit.ai exists, and the reality files say so.
 
-*Source: <https://send.sgit.ai/articles/two-kinds-of-api.html> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/two-kinds-of-api.html> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -13,6 +13,8 @@ By send.build · 2026-10-20 · published
 ![The rule in one picture. On the left, api.send.sgit.ai and api.newsroom.sgit.ai: a site's client API, files released at a versioned path and pinned by the site's pages. On the right, send.api.sgit.ai and vault.api.sgit.ai: servers, each one deployment of a service's HTTP contract, with dev.vault.api.sgit.ai as the environment leftmost. Between them the client code names the server it talks to as an endpoint, and today that endpoint is send.sgraph.ai, which serves both services on one host and becomes a router by prefix when they split.](/articles/images/two-kinds-of-api.svg)
 
 *The rule in one picture. On the left, api.send.sgit.ai and api.newsroom.sgit.ai: a site's client API, files released at a versioned path and pinned by the site's pages. On the right, send.api.sgit.ai and vault.api.sgit.ai: servers, each one deployment of a service's HTTP contract, with dev.vault.api.sgit.ai as the environment leftmost. Between them the client code names the server it talks to as an endpoint, and today that endpoint is send.sgraph.ai, which serves both services on one host and becomes a router by prefix when they split.*
+*As a storyboard: [Two kinds of API](/storyboards/two-kinds-of-api/), eight panels.*
+
 ## In short {#in-short}
 
 - **Two things on these sites are called "the API", and they are different in kind.** api.send.sgit.ai is files a page runs; send.sgraph.ai is a server a page talks to.

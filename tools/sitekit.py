@@ -8,6 +8,7 @@ footer; tools/version.json the version every page shows. Nothing is fetched at b
 """
 import datetime
 import html
+import sys
 import json
 import re
 import shutil
@@ -16,6 +17,7 @@ from pathlib import Path
 
 
 ROOT  = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 PAGES = ROOT / 'website' / 'pages'
 WWW   = ROOT / 'www'
 
@@ -366,6 +368,8 @@ class Site:
 
     def twin_text(self, page, body_html):
         c, v = self.cfg, self.version
+        if page.get('twin_md'):
+            return (f"*Source: <{c['host']}{page['url']}> · {c['name']} {v['version']} · generated from the same data as the page, so the two cannot drift.*\n\n" + page['twin_md'])
         head = (f"# {page['title']}\n\n"
                 + (f"> {page['description']}\n\n" if page['description'] else '')
                 + f"*Source: <{c['host']}{page['url']}> · {c['name']} {v['version']} · this file is generated from the same content as the page, "
@@ -383,6 +387,16 @@ class Site:
 
     def build(self, out=WWW):
         self.collect()
+        try:
+            from storyboards import Storyboards
+            sbs = Storyboards(self)
+            problems = sbs.problems(self.pages)
+            if problems: raise SystemExit('storyboards:\n  ' + '\n  '.join(problems))
+            extra = sbs.pages()
+        except ImportError:
+            extra = []
+        self.pages += extra
+        self.pages.sort(key=lambda p: p['url'])
         if out.exists(): shutil.rmtree(out)
         out.mkdir(parents=True)
         shutil.copytree(self.root / 'website' / 'assets', out / 'assets')
@@ -393,6 +407,9 @@ class Site:
             body, headings = self.render_body(page)
             (out / page['out']).parent.mkdir(parents=True, exist_ok=True)
             (out / page['out']).write_text(self.chrome(page, body, headings), encoding='utf-8')
+            for rel, data in page.get('files', {}).items():
+                (out / rel).parent.mkdir(parents=True, exist_ok=True)
+                (out / rel).write_text(data, encoding='utf-8')
             twin = self.twin_text(page, body)
             (out / page['twin']).write_text(twin, encoding='utf-8')
             full.append(twin)

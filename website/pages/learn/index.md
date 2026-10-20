@@ -5,6 +5,8 @@ description: What happens to a file between the drop zone and the recipient, ste
 
 # How it works
 
+*As a storyboard: [Send a file. Keep the key.](/storyboards/send-a-file/), nine panels, no cryptography required.*
+
 Four parties: **you**, in your browser; **the recipient**, in theirs; **the server**, which stores ciphertext; and **this site**, which serves pages and code and receives nothing. Here is what each holds at every step.
 
 ## Sending a file as a transfer

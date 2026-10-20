@@ -2,11 +2,13 @@
 
 > What happens to a file between the drop zone and the recipient, step by step, with what each party holds at every step.
 
-*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # How it works
+
+*As a storyboard: [Send a file. Keep the key.](/storyboards/send-a-file/), nine panels, no cryptography required.*
 
 Four parties: **you**, in your browser; **the recipient**, in theirs; **the server**, which stores ciphertext; and **this site**, which serves pages and code and receives nothing. Here is what each holds at every step.
 

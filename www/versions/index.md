@@ -2,7 +2,7 @@
 
 > One line per version, newest first, saying what changed and why. Every change that lands on dev is a version; the deploy tags it.
 
-*Source: <https://send.sgit.ai/versions/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/versions/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -12,6 +12,7 @@ Every change that lands on `dev` is a version, in `tools/version.json`, tagged b
 
 | Version | Date | Kind | What changed, and why |
 |---|---|---|---|
+| **v0.1.4** | 2026-10-20 | feature | **Send, as storyboards: eight boards on two shelves, drawn in the browser by the storyboard kit.** A storyboards section, the technique and the format storyboards.sgit.ai's: a cast of seven (Maya, Hugo, Ravi, Inês, Eve, the Server, Pip), four boards for everyone (send a file, say it aloud, a folder that remembers, where the keys live) and four under the hood (the envelope, two kinds of API, an agent hands over, what can go wrong), 69 panels, each board as JSON with its bundle and its script, a shelf with covers drawn live, every panel on one page and the model sheet. The kit is api.storyboards.sgit.ai v0.1.0, pinned with the integrity string of every file, and the gate refuses any other reference. The build checks the cast, the vocabulary, every evidence quote word for word against the page it names, and every try-it link; the test runs the kit's own validator and draws every board in Chromium. |
 | **v0.1.3** | 2026-10-20 | docs | **an article records the naming rule for the two kinds of API.** From a conversation with Dinis after the first deploy: api.<site>.sgit.ai is a site's client code, released as files; <service>.api.sgit.ai is a server, one deployment of a service's HTTP contract, with the environment leftmost; the first services are send and vault, split along the route prefixes the current server already has, with send.sgraph.ai becoming a router by prefix. A decision, not a deployment: nothing a page runs changed. |
 | **v0.1.2** | 2026-10-20 | fix | **the pin check leaves articles alone.** v0.1.1 landed with the gate red on one line: the agent's article about the first release names the v0.1.0 address it was written against, and the pin check read that as an unpinned reference. An article is the record of its day, so the check now skips /articles/; nothing a page runs changed. Recorded here rather than hidden, as the release discipline asks. |
 | **v0.1.1** | 2026-10-20 | fix | **the site pins api.send.sgit.ai v0.1.1, whose health check asks the route the hosted service serves.** After the first deploy, Settings reported send.sgraph.ai as not answering: the v0.1.0 release asked /api/health, which the hosted service does not serve (its route is /api/info/health). The API's v0.1.1 fixes that; this version changes the pin and copies its manifest, and nothing else on the site. The same run measured that send.sgraph.ai allows requests from this origin with every header the release sends. |

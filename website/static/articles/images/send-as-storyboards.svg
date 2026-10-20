@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="system-ui, sans-serif" font-size="13">
+<rect width="900" height="360" fill="#1A1A2E"/>
+<text x="30" y="32" fill="#4ECDC4" font-size="15" font-weight="700">For everyone</text>
+<g fill="#fbf7ee" stroke="#4ECDC4"><rect x="30" y="44" width="195" height="70" rx="6"/><rect x="240" y="44" width="195" height="70" rx="6"/><rect x="450" y="44" width="195" height="70" rx="6"/><rect x="660" y="44" width="210" height="70" rx="6"/></g>
+<g fill="#23262b" font-weight="700"><text x="42" y="70">Send a file. Keep the key.</text><text x="252" y="70">A token you can say aloud</text><text x="462" y="70">A folder that remembers</text><text x="672" y="70">Where the keys live</text></g>
+<g fill="#6b7280"><text x="42" y="92">9 panels · Maya, Hugo, the Server</text><text x="252" y="92">8 panels · Maya, Hugo, Eve</text><text x="462" y="92">9 panels · Maya, Ravi</text><text x="672" y="92">8 panels · Maya, Eve</text></g>
+<text x="30" y="150" fill="#E0B84E" font-size="15" font-weight="700">Under the hood</text>
+<g fill="#fbf7ee" stroke="#E0B84E"><rect x="30" y="162" width="195" height="70" rx="6"/><rect x="240" y="162" width="195" height="70" rx="6"/><rect x="450" y="162" width="195" height="70" rx="6"/><rect x="660" y="162" width="210" height="70" rx="6"/></g>
+<g fill="#23262b" font-weight="700"><text x="42" y="188">The envelope and the fragment</text><text x="252" y="188">Two kinds of API</text><text x="462" y="188">An agent hands over</text><text x="672" y="188">What can go wrong</text></g>
+<g fill="#6b7280"><text x="42" y="210">9 panels · Inês, Eve, the Server</text><text x="252" y="210">8 panels · Inês, the Server</text><text x="462" y="210">9 panels · Pip, Maya</text><text x="672" y="210">9 panels · Eve, Ravi, Hugo, Inês</text></g>
+<text x="30" y="266" fill="#FFFFFF" font-size="14">The cast: Maya · Hugo · Ravi · Inês · Eve · the Server · Pip</text>
+<rect x="30" y="290" width="840" height="40" rx="6" fill="#16213E" stroke="#2C3E6B"/><text x="42" y="315" fill="#E0E0E0">drawn in the browser by api.storyboards.sgit.ai v0.1.0, 13 files, each pinned with its integrity string; every board is JSON with a bundle and a script</text>
+<text x="30" y="350" fill="#8892A0" font-size="12">send.sgit.ai v0.1.4, 20 October 2026, CC BY 4.0</text>
+</svg>

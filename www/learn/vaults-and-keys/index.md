@@ -2,11 +2,13 @@
 
 > What a vault is, the one secret and the keys derived from it, which may be shared and which never, where each kind of key should live, and what to do when one is lost.
 
-*Source: <https://send.sgit.ai/learn/vaults-and-keys/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/vaults-and-keys/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # Vaults and keys
+
+*As storyboards: [A folder that remembers](/storyboards/a-folder-that-remembers/) and [Where the keys live](/storyboards/where-the-keys-live/).*
 
 ## What a vault is
 

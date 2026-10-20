@@ -1,0 +1,283 @@
+{
+ "slug": "send-a-file",
+ "title": "Send a file. Keep the key.",
+ "subtitle": "Maya sends forty photos to Hugo, who has no account; the server keeps bytes it cannot read; Hugo scans a code on his phone. 9 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "For everyone",
+ "try_it": [
+  [
+   "Send a file",
+   "/"
+  ],
+  [
+   "Open a link",
+   "/open/"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "Send a file. Keep the key.",
+   "subtitle": "Encrypted here. The server gets bytes it cannot read.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy"
+    },
+    {
+     "who": "hugo",
+     "pose": "stand",
+     "mood": "happy"
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm"
+    }
+   ],
+   "note": "The whole site in one line: the file is encrypted in the sender's browser, and the key never reaches a server.",
+   "source": "index.html"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "A file to hand over",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "think",
+     "mood": "thinking",
+     "x": 0.22,
+     "says": "Forty photos for Hugo. He has no account anywhere.",
+     "max": 18
+    }
+   ],
+   "props": [
+    {
+     "kind": "laptop",
+     "x": 0.6,
+     "y": 860,
+     "scale": 1.6
+    }
+   ],
+   "note": "The case the brief led with: a file for a person who did not choose this site.",
+   "source": "index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Encrypted here, before it leaves",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.18,
+     "says": "The name goes inside the envelope too.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "laptop",
+     "x": 0.42,
+     "y": 860,
+     "scale": 1.4
+    },
+    {
+     "kind": "arrow",
+     "x": 0.5,
+     "y": 700,
+     "to": 0.72,
+     "label": "encrypted in the browser"
+    },
+    {
+     "kind": "envelope",
+     "x": 0.84,
+     "y": 760,
+     "label": "photos.zip, inside"
+    }
+   ],
+   "note": "AES-256-GCM under a fresh key, with the file name wrapped inside the plaintext, so the server never learns it.",
+   "source": "learn/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The server keeps bytes",
+   "cast": [
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.3,
+     "says": "I keep the bytes. I cannot read them.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "server",
+     "x": 0.62,
+     "y": 860,
+     "label": "ciphertext, size, time"
+    },
+    {
+     "kind": "envelope",
+     "x": 0.85,
+     "y": 760,
+     "label": "sealed"
+    }
+   ],
+   "note": "What a zero-knowledge store is: it holds ciphertext and compares hashes. It never had the key.",
+   "source": "learn/security/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "A link, and a QR code",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.2,
+     "says": "Scan this.",
+     "max": 12
+    }
+   ],
+   "props": [
+    {
+     "kind": "qr",
+     "x": 0.62,
+     "y": 840,
+     "text": "send.sgit.ai/open/#…"
+    }
+   ],
+   "note": "The key travels after the # in the link, which browsers never send to a server. The code is the link, drawn here.",
+   "source": "learn/qr-codes/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "On Hugo's phone",
+   "cast": [
+    {
+     "who": "hugo",
+     "pose": "think",
+     "mood": "confused",
+     "x": 0.18,
+     "says": "Do I need an account?",
+     "max": 14
+    },
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.84,
+     "says": "No. The key is in the link.",
+     "flip": true,
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "phoneqr",
+     "x": 0.5,
+     "y": 860,
+     "text": "send.sgit.ai/open/#…"
+    }
+   ],
+   "note": "Opening needs nothing: no token, no account. The key is the gate.",
+   "source": "open/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Decrypted on his phone",
+   "cast": [
+    {
+     "who": "hugo",
+     "pose": "arms-up",
+     "mood": "happy",
+     "x": 0.3,
+     "says": "There they are.",
+     "max": 12
+    }
+   ],
+   "props": [
+    {
+     "kind": "phone",
+     "x": 0.6,
+     "y": 860,
+     "scale": 1.8
+    },
+    {
+     "kind": "mark",
+     "x": 0.8,
+     "y": 860,
+     "ok": true,
+     "label": "decrypted here"
+    }
+   ],
+   "note": "Download, decrypt, unwrap: the file and its name come back in Hugo's browser, byte for byte.",
+   "source": "open/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "What the server is",
+   "evidence": {
+    "quote": "The server is a capability-checked ciphertext store: every access decision it makes is a hash comparison, and it never holds a raw key.",
+    "source": "learn/security/index.md"
+   },
+   "cast": [
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the security page, word for word.",
+   "source": "learn/security/index.md"
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "Whoever has the link has the file. Nobody else does, the server included.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.14
+    },
+    {
+     "who": "hugo",
+     "pose": "arms-up",
+     "mood": "happy",
+     "x": 0.32
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "Send, open: built and driven end to end by the browser test.",
+   "source": "tests/test_app.mjs"
+  }
+ ]
+}

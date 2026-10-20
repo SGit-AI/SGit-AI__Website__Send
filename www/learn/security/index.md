@@ -2,11 +2,13 @@
 
 > What the server can see, what it cannot, the two secrets that must not be confused, what a friendly token costs, and what this site does not claim.
 
-*Source: <https://send.sgit.ai/learn/security/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/security/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
 # Security: what the server sees, and what it cannot
+
+*As storyboards: [The envelope and the fragment](/storyboards/the-envelope/) and [What can go wrong](/storyboards/what-can-go-wrong/).*
 
 ## The server
 

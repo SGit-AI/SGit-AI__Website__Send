@@ -1,0 +1,243 @@
+{
+ "slug": "two-kinds-of-api",
+ "title": "Two kinds of API",
+ "subtitle": "The code a page runs is a release that never changes; the server it talks to is a deployment. Inês pins one and runs the other. 8 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "Under the hood",
+ "try_it": [
+  [
+   "api.send.sgit.ai",
+   "https://api.send.sgit.ai/"
+  ],
+  [
+   "The article",
+   "/articles/two-kinds-of-api.html"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "Two kinds of API",
+   "subtitle": "Files a page runs, and a server it talks to.",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined"
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm"
+    }
+   ],
+   "note": "The contradiction Dinis found after the first deploy, and the rule that came out of it.",
+   "source": "articles/two-kinds-of-api.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Which release?",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "think",
+     "mood": "thinking",
+     "x": 0.18,
+     "says": "Which release is this page running?",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "laptop",
+     "x": 0.46,
+     "y": 860,
+     "scale": 1.4
+    },
+    {
+     "kind": "board",
+     "x": 0.78,
+     "y": 900,
+     "scale": 0.85,
+     "lines": [
+      "import * as send from",
+      "'https://api.send.sgit.ai/",
+      "  v0.1.1/send/send-api.js'"
+     ]
+    }
+   ],
+   "note": "A page names one release by its full address and copies its manifest.",
+   "source": "use/embed/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "A release is a folder that never changes",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.16
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.62,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "/v0.1.0/   36 files, every hash listed",
+      "/v0.1.1/   one fix, a whole copy",
+      "a change is the next folder,",
+      "never an edit of this one"
+     ]
+    }
+   ],
+   "note": "Every minor release is a complete, independent copy; the gate fails a hash that moved.",
+   "source": "learn/from-sgraph/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The server is a deployment",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.16,
+     "says": "Same contract, any host.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "server",
+     "x": 0.46,
+     "y": 860,
+     "label": "send.sgraph.ai"
+    },
+    {
+     "kind": "sign",
+     "x": 0.68,
+     "y": 820,
+     "label": "dev.send.sgraph.ai"
+    },
+    {
+     "kind": "sign",
+     "x": 0.88,
+     "y": 820,
+     "label": "localhost:8787"
+    }
+   ],
+   "note": "One HTTP contract, many deployments; the page names the one it talks to as an endpoint.",
+   "source": "settings/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Her own server",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.16,
+     "says": "Mine. On my laptop. Nothing leaves it.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "terminal",
+     "x": 0.62,
+     "y": 880,
+     "lines": [
+      "$ node tests/server.mjs 8787 local-dev-token",
+      "in-memory SG/Send API at",
+      "http://localhost:8787"
+     ]
+    }
+   ],
+   "note": "The in-memory server in every API release: the same routes, for tests and for a laptop.",
+   "source": "use/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The rule",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 0.14
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.6,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "api.<site>.sgit.ai      files a page runs",
+      "<service>.api.sgit.ai   a server",
+      "dev.vault.api.sgit.ai   environment leftmost"
+     ]
+    }
+   ],
+   "note": "The order of the labels does the work; one sentence to explain.",
+   "source": "articles/two-kinds-of-api.md"
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "Contract versus deployment",
+   "evidence": {
+    "quote": "The distinction is contract versus deployment, not JavaScript versus Python.",
+    "source": "articles/two-kinds-of-api.md"
+   },
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the article, word for word.",
+   "source": "articles/two-kinds-of-api.md"
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "Pin the files. Name the server. Never confuse the two.",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.16
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "Decided on 20 October 2026; not yet deployed as new hosts.",
+   "source": "articles/two-kinds-of-api.md"
+  }
+ ]
+}

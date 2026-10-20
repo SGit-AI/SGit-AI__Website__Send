@@ -2,7 +2,7 @@
 
 > Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.
 
-*Source: <https://send.sgit.ai/use/embed/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/embed/> · send.sgit.ai v0.1.4 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

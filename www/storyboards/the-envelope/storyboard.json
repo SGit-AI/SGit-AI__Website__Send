@@ -1,0 +1,291 @@
+{
+ "slug": "the-envelope",
+ "title": "The envelope and the fragment",
+ "subtitle": "What the bytes look like, which of them the server sees, and where each of the two secrets goes. 9 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "Under the hood",
+ "try_it": [
+  [
+   "The contracts, on the API site",
+   "https://api.send.sgit.ai/docs/contracts/"
+  ],
+  [
+   "Security: what the server sees",
+   "/learn/security/"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "The envelope and the fragment",
+   "subtitle": "Bytes the server sees, and bytes it never does.",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined"
+    },
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "thinking"
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm"
+    }
+   ],
+   "note": "The technical half of the first board: the exact layout, and the two places a secret may be.",
+   "source": "learn/security/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "The name goes inside",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.16,
+     "says": "Wrapped before encrypting. Get the order wrong and the download has no name.",
+     "max": 20
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.62,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "SGMETA\\0           7 bytes",
+      "meta_len           4 bytes, big-endian",
+      "{\"filename\": \"report.pdf\"}",
+      "file bytes         the rest"
+     ]
+    }
+   ],
+   "note": "The SGMETA envelope, the layout send.sgraph.ai has used since its first version.",
+   "source": "learn/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Then AES-256-GCM",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 0.16
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.62,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "IV            12 bytes, fresh every time",
+      "ciphertext",
+      "tag           16 bytes",
+      "= plaintext + 28 bytes, exactly"
+     ]
+    }
+   ],
+   "note": "The ciphertext is 28 bytes longer than the plaintext: the tests hold that number.",
+   "source": "learn/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Two secrets, two places",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.14,
+     "says": "Never the other way round.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "key",
+     "x": 0.48,
+     "y": 640,
+     "label": "access token: a request header",
+     "colour": "#b91c1c"
+    },
+    {
+     "kind": "key",
+     "x": 0.82,
+     "y": 640,
+     "label": "decryption key: the # fragment",
+     "colour": "#2563eb"
+    }
+   ],
+   "note": "The token says who may upload; the key says who may read. Confusing them does not throw.",
+   "source": "learn/security/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "What the server sees",
+   "cast": [
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.18,
+     "says": "Bytes, a size, a time, a hint you chose.",
+     "max": 18
+    }
+   ],
+   "props": [
+    {
+     "kind": "server",
+     "x": 0.5,
+     "y": 860,
+     "label": "send.sgraph.ai"
+    },
+    {
+     "kind": "board",
+     "x": 0.8,
+     "y": 900,
+     "scale": 0.8,
+     "lines": [
+      "ciphertext, size, time",
+      "a hashed IP",
+      "content_type_hint",
+      "not: name, key, plaintext"
+     ]
+    }
+   ],
+   "note": "The full list, both columns, is on the security page.",
+   "source": "learn/security/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Eve on the wire",
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "thinking",
+     "x": 0.2,
+     "says": "Everything after the # is yours, not mine.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "arrow",
+     "x": 0.46,
+     "y": 560,
+     "to": 0.84,
+     "label": "#id/key never leaves the browser",
+     "dashed": true
+    },
+    {
+     "kind": "padlock",
+     "x": 0.84,
+     "y": 860,
+     "label": "fragment"
+    }
+   ],
+   "note": "A browser never sends the fragment of a URL to the server that serves the page.",
+   "source": "learn/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "The token, in one place",
+   "evidence": {
+    "quote": "The access token says who may upload. It goes in a request header to the server you chose and nowhere else: never a URL, never a log.",
+    "source": "learn/security/index.md"
+   },
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the security page, word for word.",
+   "source": "learn/security/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Held by tests, not by promises",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.16,
+     "says": "Held by tests, not by promises.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "terminal",
+     "x": 0.62,
+     "y": 880,
+     "lines": [
+      "$ node --test 'tests/*.test.mjs'",
+      "ok  send then receive: byte for byte",
+      "ok  the name in no request",
+      "ok  the token in no request path",
+      "# pass 44"
+     ]
+    }
+   ],
+   "note": "The API release's tests run against the server in memory; the browser test drives this site.",
+   "source": "use/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "The server gets bytes it cannot read, a size, and a hint you chose.",
+   "cast": [
+    {
+     "who": "ines",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.14
+    },
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.5
+    },
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "worried",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "The claim the whole site rests on, and what it does not claim is on the security page too.",
+   "source": "learn/security/index.md"
+  }
+ ]
+}

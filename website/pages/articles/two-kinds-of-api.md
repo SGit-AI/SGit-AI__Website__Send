@@ -12,6 +12,8 @@ status: published
 
 !shot two-kinds-of-api.svg | /articles/images/ | The rule in one picture. On the left, api.send.sgit.ai and api.newsroom.sgit.ai: a site's client API, files released at a versioned path and pinned by the site's pages. On the right, send.api.sgit.ai and vault.api.sgit.ai: servers, each one deployment of a service's HTTP contract, with dev.vault.api.sgit.ai as the environment leftmost. Between them the client code names the server it talks to as an endpoint, and today that endpoint is send.sgraph.ai, which serves both services on one host and becomes a router by prefix when they split. | diagram
 
+*As a storyboard: [Two kinds of API](/storyboards/two-kinds-of-api/), eight panels.*
+
 ## In short {#in-short}
 
 - **Two things on these sites are called "the API", and they are different in kind.** api.send.sgit.ai is files a page runs; send.sgraph.ai is a server a page talks to.

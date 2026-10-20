@@ -1,0 +1,248 @@
+{
+ "slug": "say-it-aloud",
+ "title": "A token you can say aloud",
+ "subtitle": "river-cloud-3847 is the whole key: Maya says it on a call, Hugo types it, Eve hears it a week too late. 8 panels.",
+ "status": "built",
+ "by": "send.build, 20 October 2026",
+ "shelf": "For everyone",
+ "try_it": [
+  [
+   "Send with a friendly token",
+   "/"
+  ]
+ ],
+ "rule": "Every line a character says is the storyboard's, not a quote, and is marked not_a_quote; evidence panels quote this site's pages word for word, which the build checks.",
+ "scenes": [
+  {
+   "kind": "cover",
+   "title": "A token you can say aloud",
+   "subtitle": "Two words and four digits. Then let it expire.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy"
+    },
+    {
+     "who": "hugo",
+     "pose": "stand",
+     "mood": "happy"
+    },
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "thinking"
+    }
+   ],
+   "note": "The friendly token: one short string that is the whole credential for one transfer.",
+   "source": "learn/qr-codes/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "office",
+   "caption": "On the phone",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.2,
+     "says": "It's three words, Hugo. river, cloud, three eight four seven.",
+     "max": 20
+    },
+    {
+     "who": "hugo",
+     "pose": "stand",
+     "mood": "thinking",
+     "x": 0.82,
+     "flip": true
+    }
+   ],
+   "props": [
+    {
+     "kind": "phone",
+     "x": 0.5,
+     "y": 860,
+     "scale": 1.8
+    }
+   ],
+   "note": "The moment a friendly token is for: two people, one call, no screen to scan.",
+   "source": "learn/qr-codes/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Two words and four digits",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "think",
+     "mood": "thinking",
+     "x": 0.16
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.6,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "river-cloud-3847",
+      "",
+      "320 words x 320 words x 10,000",
+      "= 1,024,000,000 tokens"
+     ]
+    }
+   ],
+   "note": "The word list is send.sgraph.ai's own, so a token made on either site opens on the other.",
+   "source": "learn/qr-codes/index.md"
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Both sides derive the same two things",
+   "cast": [
+    {
+     "who": "server",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 0.16,
+     "says": "I never see the token.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "board",
+     "x": 0.62,
+     "y": 900,
+     "scale": 1.0,
+     "lines": [
+      "token  ->  SHA-256  ->  transfer id",
+      "",
+      "token  ->  PBKDF2, 600,000 rounds",
+      "          ->  the key"
+     ]
+    }
+   ],
+   "note": "The transfer id and the key both come from the token, in both browsers; the server maps nothing.",
+   "source": "learn/qr-codes/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Hugo types it",
+   "cast": [
+    {
+     "who": "hugo",
+     "pose": "point",
+     "mood": "determined",
+     "x": 0.22,
+     "says": "river… cloud… three eight four seven.",
+     "max": 16
+    }
+   ],
+   "props": [
+    {
+     "kind": "phone",
+     "x": 0.56,
+     "y": 860,
+     "scale": 1.8
+    },
+    {
+     "kind": "mark",
+     "x": 0.8,
+     "y": 860,
+     "ok": true,
+     "label": "opens"
+    }
+   ],
+   "note": "The open page accepts a token typed in, or the link that carries it.",
+   "source": "open/index.html",
+   "not_a_quote": true
+  },
+  {
+   "kind": "scene",
+   "setting": "none",
+   "caption": "Eve was listening",
+   "cast": [
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "thinking",
+     "x": 0.22,
+     "says": "I heard it. A week later.",
+     "max": 14
+    }
+   ],
+   "props": [
+    {
+     "kind": "calendar",
+     "x": 0.56,
+     "y": 820,
+     "label": "expired"
+    },
+    {
+     "kind": "mark",
+     "x": 0.82,
+     "y": 860,
+     "ok": false,
+     "label": "410: gone"
+    }
+   ],
+   "note": "A token can be guessed offline by anyone holding the ciphertext, so it suits a link that expires. This one did.",
+   "source": "learn/security/index.md",
+   "not_a_quote": true
+  },
+  {
+   "kind": "evidence",
+   "setting": "none",
+   "caption": "What a friendly token is for",
+   "evidence": {
+    "quote": "a friendly token is for a link that expires, a file that is not worth that effort, and a moment when speaking it is the point; a random key is for everything else.",
+    "source": "learn/qr-codes/index.md"
+   },
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "point",
+     "mood": "happy",
+     "x": 0.14
+    }
+   ],
+   "note": "Quoted from the QR codes page, word for word.",
+   "source": "learn/qr-codes/index.md"
+  },
+  {
+   "kind": "punchline",
+   "setting": "none",
+   "punchline": "Say it, type it, scan it. Then let it expire.",
+   "cast": [
+    {
+     "who": "maya",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 0.14
+    },
+    {
+     "who": "hugo",
+     "pose": "arms-up",
+     "mood": "happy",
+     "x": 0.34
+    },
+    {
+     "who": "eve",
+     "pose": "shrug",
+     "mood": "worried",
+     "x": 0.86,
+     "flip": true
+    }
+   ],
+   "note": "The trade, stated on the send page where the choice is made.",
+   "source": "index.html"
+  }
+ ]
+}
