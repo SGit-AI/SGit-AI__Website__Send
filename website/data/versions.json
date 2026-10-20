@@ -1,6 +1,13 @@
 {
   "versions": [
     {
+      "version": "v0.1.2",
+      "date": "2026-10-20",
+      "kind": "fix",
+      "title": "the pin check leaves articles alone",
+      "notes": "v0.1.1 landed with the gate red on one line: the agent's article about the first release names the v0.1.0 address it was written against, and the pin check read that as an unpinned reference. An article is the record of its day, so the check now skips /articles/; nothing a page runs changed. Recorded here rather than hidden, as the release discipline asks."
+    },
+    {
       "version": "v0.1.1",
       "date": "2026-10-20",
       "kind": "fix",

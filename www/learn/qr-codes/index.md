@@ -2,7 +2,7 @@
 
 > Why the link is drawn as a QR code, what the code carries and does not, and the trade a friendly token makes against a random key.
 
-*Source: <https://send.sgit.ai/learn/qr-codes/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/qr-codes/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

@@ -2,7 +2,7 @@
 
 > The four voice memos of 20 October 2026 that started this site and api.send.sgit.ai, published as spoken, with the status of each and what was done from it.
 
-*Source: <https://send.sgit.ai/about/brief/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/brief/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

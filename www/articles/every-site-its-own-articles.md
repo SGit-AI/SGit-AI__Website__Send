@@ -2,7 +2,7 @@
 
 > A lot of the websites we now create need their own articles, because the pattern I am using works. It has two halves. Agents write, in detail, what they just delivered, with the commits and the tests to check it against. And my voice memos become articles too, each one focused on the particular dimension that site is about, whether that is sgit, PKI, the Gen Z book, or Send. It started on sgit.ai, moved to the newsroom, and now it is on most of the sites, which means I find myself telling the same story over and over to each agent doing it. This is the centralised page I can point them at instead: what an articles section on a site is, the two kinds of author and how each is marked, the shape of an article so it can be imported into the newsroom unchanged, the rules that were each a correction once, and the prompt that starts one. It is written as a brief, so the newsroom can publish it and sgit.ai's guidance can import it, and so the next site gets it for free.
 
-*Source: <https://send.sgit.ai/articles/every-site-its-own-articles.html> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/every-site-its-own-articles.html> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

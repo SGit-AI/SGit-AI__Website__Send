@@ -2,7 +2,7 @@
 
 > The vaults this browser holds keys for. Create one, add files as commits, see the history, and share it read-only with a link and a QR code; clone it anywhere with sgit.
 
-*Source: <https://send.sgit.ai/vaults/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/vaults/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

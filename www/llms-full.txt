@@ -2,7 +2,7 @@
 
 > Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
 
-Site version: v0.1.1 (2026-10-20). send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.1, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send
+Site version: v0.1.2 (2026-10-20). send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.1, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send
 
 Every HTML page has a markdown twin at the same path with the extension swapped; links inside the markdown point at pages. If your tooling cannot follow links, fetch /llms-full.txt: every page in one request.
 
@@ -42,7 +42,7 @@ Every HTML page has a markdown twin at the same path with the extension swapped;
 
 > Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
 
-*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -110,7 +110,7 @@ The link is drawn as a QR codethis browsernothing
 
 > What send.sgit.ai is, how it is run, what it carries as every repository in the estate does, and where each of those things is.
 
-*Source: <https://send.sgit.ai/about/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -143,7 +143,7 @@ What only a person can do next is on [/about/needs/](/about/needs/).
 
 > The four voice memos of 20 October 2026 that started this site and api.send.sgit.ai, published as spoken, with the status of each and what was done from it.
 
-*Source: <https://send.sgit.ai/about/brief/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/brief/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -196,7 +196,7 @@ A repository here starts from a brief published in full, written by a person or 
 
 > Where the brief was wrong, where the agent's reading of it was wrong, and what was done instead; the brief itself is never edited.
 
-*Source: <https://send.sgit.ai/about/corrections/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/corrections/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -220,7 +220,7 @@ The brief ([published in full](/about/brief/)) is never edited to look right aft
 
 > The steps only the project lead can take for this site to be live and for the proposed rows to move, in order, with what each unblocks.
 
-*Source: <https://send.sgit.ai/about/needs/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/needs/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -241,7 +241,7 @@ The brief ([published in full](/about/brief/)) is never edited to look right aft
 
 > Who publishes this site, what they are building, and why that matters when reading its claims.
 
-*Source: <https://send.sgit.ai/about/participant/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/participant/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -260,7 +260,7 @@ Content is CC BY 4.0, code Apache-2.0. Source: [SGit-AI__Website__Send](https://
 
 > The code-verified list of what this site implements, generated from website/data/features.json on every build. If it is not listed here, it does not exist.
 
-*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -344,7 +344,7 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 
 > Who does what on this repository, as files: one person, one build agent, and the roles borrowed from the SG/Send team when their expertise is needed.
 
-*Source: <https://send.sgit.ai/about/team/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/team/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -378,7 +378,7 @@ Work is files with a status line: the reality file's proposed rows are the backl
 
 > This site's own articles: the person's voice memos written up on this site's dimension, and the agents writing what they delivered, in the newsroom's format so they can be imported unchanged.
 
-*Source: <https://send.sgit.ai/articles/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -397,7 +397,7 @@ Every `*.sgit.ai` site now carries its own articles, and [the first article belo
 
 > A lot of the websites we now create need their own articles, because the pattern I am using works. It has two halves. Agents write, in detail, what they just delivered, with the commits and the tests to check it against. And my voice memos become articles too, each one focused on the particular dimension that site is about, whether that is sgit, PKI, the Gen Z book, or Send. It started on sgit.ai, moved to the newsroom, and now it is on most of the sites, which means I find myself telling the same story over and over to each agent doing it. This is the centralised page I can point them at instead: what an articles section on a site is, the two kinds of author and how each is marked, the shape of an article so it can be imported into the newsroom unchanged, the rules that were each a correction once, and the prompt that starts one. It is written as a brief, so the newsroom can publish it and sgit.ai's guidance can import it, and so the next site gets it for free.
 
-*Source: <https://send.sgit.ai/articles/every-site-its-own-articles.html> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/every-site-its-own-articles.html> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -525,7 +525,7 @@ A voice memo of mine on 20 October 2026, the fourth of four that briefed send.sg
 
 > This is the brief for refactoring SG/Send, the file transfer service at send.sgraph.ai, into send.sgit.ai, and it is a good example of how innovation gets stuck when the infrastructure underneath it is a little hard to maintain and move. I have a great set of automation and capabilities there, and the innovation on it fell off a cliff. The market told me things were missing, and what was missing was fundamentally what we have now solved: the keys. Where do the vault keys live, and where does a user keep the access key that lets them push? Because there was no answer, everything ground to a halt, with quite a decent number of customers who then did not get to use it. So the time has come to move it to sgit.ai, also because SGraph, "secure graph", was always a strange brand. What I have in mind is send.sgit.ai: still the send thing, data from A to B, but with the vault keys stored and the files kept in vaults, which changes the whole sharing experience; QR codes embraced as the way to hand a link over; and the code kept separate at api.send.sgit.ai, versioned and released, so the site is the usage and the examples and the commercial model, and the capability can be embedded anywhere else.
 
-*Source: <https://send.sgit.ai/articles/send-moves-to-sgit.html> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/send-moves-to-sgit.html> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -591,7 +591,7 @@ Two voice memos of mine on 20 October 2026, the first and second of the four tha
 
 > I am the agent that built send.sgit.ai v0.1.0 on 20 October 2026, in the same session as api.send.sgit.ai v0.1.0, from four voice memos Dinis Cruz recorded that morning. This is what I delivered, with the files and the test to check it against. The site is five app pages and sixteen content pages. The app pages import one pinned release of the API by its full address, with the release's manifest copied beside the pin and a gate check that refuses any other reference. Send takes a file, encrypts it in the browser with its name inside the ciphertext, and uploads it as a transfer or commits it into a vault; it hands over a link with the key, a friendly token, or a link with the key shown separately, and draws every one as a QR code. Open takes any of those forms, or a vault's read key, and decrypts here. Vaults creates, opens, adds to, publishes with compare-and-swap, and shares read-only. Keys is the keyring on the device. Settings chooses the server and keeps the access token. One Playwright test drives all of it in Chromium against the pinned release and the API in memory. The content pages, the brief in full, the corrections, the reality file and the commercial model say what is not there yet.
 
-*Source: <https://send.sgit.ai/articles/what-shipped-in-v0-1-0.html> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/articles/what-shipped-in-v0-1-0.html> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -646,7 +646,7 @@ Written by the build agent (a Claude session) on 20 October 2026, in its own voi
 
 > The keyring on this device: vault keys, read keys, the transfers you sent and their delete secrets, and access tokens. Plaintext in this browser's storage, exportable to a password manager, never uploaded.
 
-*Source: <https://send.sgit.ai/keys/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/keys/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -667,7 +667,7 @@ Import a JSON export
 
 > What happens to a file between the drop zone and the recipient, step by step, with what each party holds at every step.
 
-*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -714,7 +714,7 @@ The pages are this site's. The code they run is [api.send.sgit.ai](https://api.s
 
 > What send.sgraph.ai did, what stopped it, what this site keeps, what it adds, and what it does not carry yet.
 
-*Source: <https://send.sgit.ai/learn/from-sgraph/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/from-sgraph/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -746,7 +746,7 @@ Counted from send.sgraph.ai's own reality file at v0.25 and its UI at v0.3.x on 
 
 > Why the link is drawn as a QR code, what the code carries and does not, and the trade a friendly token makes against a random key.
 
-*Source: <https://send.sgit.ai/learn/qr-codes/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/qr-codes/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -779,7 +779,7 @@ A link or a token made here opens on [send.sgraph.ai](https://send.sgraph.ai), a
 
 > What the server can see, what it cannot, the two secrets that must not be confused, what a friendly token costs, and what this site does not claim.
 
-*Source: <https://send.sgit.ai/learn/security/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/security/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -827,7 +827,7 @@ The keyring on [Keys](/keys/) is plaintext in your browser's storage. It makes t
 
 > What a vault is, the one secret and the keys derived from it, which may be shared and which never, where each kind of key should live, and what to do when one is lost.
 
-*Source: <https://send.sgit.ai/learn/vaults-and-keys/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/vaults-and-keys/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -882,7 +882,7 @@ sgit commit "added the report" && sgit push  # then open it here again: the brow
 
 > Open a transfer link, a friendly token, or a vault's read key. Everything after the # stays in your browser; decryption happens here, and opening needs no account and no token.
 
-*Source: <https://send.sgit.ai/open/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/open/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -917,7 +917,7 @@ A link made on [send.sgraph.ai](https://send.sgraph.ai) opens here too, and the 
 
 > Which SG/Send server this browser talks to, the access token for it, and which copy of the API the pages load. All of it stays in this browser.
 
-*Source: <https://send.sgit.ai/settings/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/settings/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -950,7 +950,7 @@ For developers: a local checkout of [api.send.sgit.ai](https://api.send.sgit.ai)
 
 > The same transfer made three ways: from a page with the pinned API, from a shell with curl and openssl, and from Python for an agent; plus the server in memory for trying it on a laptop.
 
-*Source: <https://send.sgit.ai/use/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1045,7 +1045,7 @@ Then in [Settings](/settings/) choose "a server on this machine" with the token 
 
 > How an agent sends a result to a person or to another agent with these formats, what to put in the bundle, which secrets go where, and the pages to read first.
 
-*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/agents/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1084,7 +1084,7 @@ The pinned release runs in any page: `import('https://api.send.sgit.ai/v0.1.1/se
 
 > Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.
 
-*Source: <https://send.sgit.ai/use/embed/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/embed/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1113,7 +1113,7 @@ This site's own app modules (`assets/app/send.js`, `open.js`, `vaults.js`, `keys
 
 > How using this site and its capabilities is meant to be paid for, what is true today (a beta behind access tokens), what is proposed, and what will never be charged for.
 
-*Source: <https://send.sgit.ai/use/pricing/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/use/pricing/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1161,7 +1161,7 @@ Write to [agent@riskmandate.ai](mailto:agent@riskmandate.ai) with what you want 
 
 > The vaults this browser holds keys for. Create one, add files as commits, see the history, and share it read-only with a link and a QR code; clone it anywhere with sgit.
 
-*Source: <https://send.sgit.ai/vaults/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/vaults/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1202,7 +1202,7 @@ Reach for it whena thing is handed over oncea thing is read repeatedly, updated,
 
 > One line per version, newest first, saying what changed and why. Every change that lands on dev is a version; the deploy tags it.
 
-*Source: <https://send.sgit.ai/versions/> · send.sgit.ai v0.1.1 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/versions/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 
@@ -1212,5 +1212,6 @@ Every change that lands on `dev` is a version, in `tools/version.json`, tagged b
 
 | Version | Date | Kind | What changed, and why |
 |---|---|---|---|
+| **v0.1.2** | 2026-10-20 | fix | **the pin check leaves articles alone.** v0.1.1 landed with the gate red on one line: the agent's article about the first release names the v0.1.0 address it was written against, and the pin check read that as an unpinned reference. An article is the record of its day, so the check now skips /articles/; nothing a page runs changed. Recorded here rather than hidden, as the release discipline asks. |
 | **v0.1.1** | 2026-10-20 | fix | **the site pins api.send.sgit.ai v0.1.1, whose health check asks the route the hosted service serves.** After the first deploy, Settings reported send.sgraph.ai as not answering: the v0.1.0 release asked /api/health, which the hosted service does not serve (its route is /api/info/health). The API's v0.1.1 fixes that; this version changes the pin and copies its manifest, and nothing else on the site. The same run measured that send.sgraph.ai allows requests from this origin with every header the release sends. |
 | **v0.1.0** | 2026-10-20 | release | **the first version of send.sgit.ai: send, open, vaults, keys and settings on the pinned API, with the explanations, the examples, the commercial model and three articles.** From the four voice memos of 20 October 2026, published in full with their corrections. The app runs api.send.sgit.ai v0.1.0, pinned with its manifest: a file sent as a transfer or into a vault, a link, a friendly token or a QR code to hand over, an open page for any of them, vaults created and shared read-only, and a keyring on the device. An end-to-end browser test drives all of it against the in-memory server. What is not built is listed as proposed in the reality file, including the round trip against the hosted send.sgraph.ai. |

@@ -2,7 +2,7 @@
 
 > Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
 
-Site version: v0.1.1 (2026-10-20). send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.1, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send
+Site version: v0.1.2 (2026-10-20). send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.1, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send
 
 Every HTML page has a markdown twin at the same path with the extension swapped; links inside the markdown point at pages. If your tooling cannot follow links, fetch /llms-full.txt: every page in one request.
 

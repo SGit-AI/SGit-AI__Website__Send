@@ -145,7 +145,7 @@ class Gate:
         if manifest.get('release') != pin['release']: self.fail(f"tools/api-manifest.json is for {manifest.get('release')}, the pin says {pin['release']}")
         if pin['entry'][len(prefix):] not in manifest.get('entries', {}): self.fail(f"the entry {pin['entry'][len(prefix):]} is not in the manifest")
         for f in tracked():
-            if f.suffix in ('.js', '.html', '.md') and 'www' not in f.parts and 'vendor' not in f.parts:
+            if f.suffix in ('.js', '.html', '.md') and 'www' not in f.parts and 'vendor' not in f.parts and 'articles' not in f.parts:   # an article is the record of its day and may name the release it was written against
                 for hit in re.findall(r'https://api\.send\.sgit\.ai/v\d+\.\d+\.\d+/send/[\w./-]+\.js', f.read_text(encoding='utf-8')):
                     if not hit.startswith(prefix): self.fail(f'{f.relative_to(ROOT)}: references a release other than the pinned one: {hit}')
 
