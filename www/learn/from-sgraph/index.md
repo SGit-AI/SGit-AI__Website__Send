@@ -2,7 +2,7 @@
 
 > What send.sgraph.ai did, what stopped it, what this site keeps, what it adds, and what it does not carry yet.
 
-*Source: <https://send.sgit.ai/learn/from-sgraph/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/learn/from-sgraph/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

@@ -1,6 +1,13 @@
 {
   "versions": [
     {
+      "version": "v0.1.3",
+      "date": "2026-10-20",
+      "kind": "docs",
+      "title": "an article records the naming rule for the two kinds of API",
+      "notes": "From a conversation with Dinis after the first deploy: api.<site>.sgit.ai is a site's client code, released as files; <service>.api.sgit.ai is a server, one deployment of a service's HTTP contract, with the environment leftmost; the first services are send and vault, split along the route prefixes the current server already has, with send.sgraph.ai becoming a router by prefix. A decision, not a deployment: nothing a page runs changed."
+    },
+    {
       "version": "v0.1.2",
       "date": "2026-10-20",
       "kind": "fix",

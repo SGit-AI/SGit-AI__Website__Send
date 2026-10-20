@@ -2,7 +2,7 @@
 
 > The code-verified list of what this site implements, generated from website/data/features.json on every build. If it is not listed here, it does not exist.
 
-*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.2 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
+*Source: <https://send.sgit.ai/about/reality/> · send.sgit.ai v0.1.3 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
 ---
 

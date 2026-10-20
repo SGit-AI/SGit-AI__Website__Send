@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="system-ui, sans-serif" font-size="14">
+<rect width="900" height="360" fill="#1A1A2E"/>
+<text x="30" y="36" fill="#FFFFFF" font-size="18" font-weight="700">api.&lt;site&gt;.sgit.ai: files a page runs</text>
+<rect x="30" y="56" width="170" height="110" rx="8" fill="#16213E" stroke="#4ECDC4"/><text x="45" y="82" fill="#4ECDC4" font-weight="700">api.send.sgit.ai</text><text x="45" y="106" fill="#E0E0E0">/v0.1.1/ released</text><text x="45" y="128" fill="#E0E0E0">never edited</text><text x="45" y="150" fill="#8892A0">pinned by send.sgit.ai</text>
+<rect x="215" y="56" width="170" height="110" rx="8" fill="#16213E" stroke="#4ECDC4"/><text x="230" y="82" fill="#4ECDC4" font-weight="700">api.newsroom.sgit.ai</text><text x="230" y="106" fill="#E0E0E0">/v0.2.5/ released</text><text x="230" y="128" fill="#E0E0E0">never edited</text><text x="230" y="150" fill="#8892A0">pinned by the newsroom</text>
+<text x="30" y="200" fill="#8892A0">one contract, many releases; a versioned path</text>
+<text x="500" y="36" fill="#FFFFFF" font-size="18" font-weight="700">&lt;service&gt;.api.sgit.ai: a server</text>
+<rect x="500" y="56" width="180" height="110" rx="8" fill="#16213E" stroke="#E0B84E"/><text x="515" y="82" fill="#E0B84E" font-weight="700">send.api.sgit.ai</text><text x="515" y="106" fill="#E0E0E0">/api/transfers/*</text><text x="515" y="128" fill="#E0E0E0">/api/presigned/*</text><text x="515" y="150" fill="#8892A0">redeployed in place</text>
+<rect x="695" y="56" width="180" height="110" rx="8" fill="#16213E" stroke="#E0B84E"/><text x="710" y="82" fill="#E0B84E" font-weight="700">vault.api.sgit.ai</text><text x="710" y="106" fill="#E0E0E0">/api/vault/*</text><text x="710" y="128" fill="#E0E0E0">append, zip, presigned</text><text x="710" y="150" fill="#8892A0">dev.vault.api.sgit.ai</text>
+<text x="500" y="200" fill="#8892A0">one contract, many deployments; a hostname each</text>
+<rect x="500" y="230" width="375" height="60" rx="8" fill="#16213E" stroke="#8892A0" stroke-dasharray="4 3"/><text x="515" y="255" fill="#E0E0E0">today: send.sgraph.ai serves both on one host</text><text x="515" y="277" fill="#8892A0">later: a router by prefix in front of the two; old paths, new hosts</text>
+<path d="M385 110 H495" stroke="#8892A0" stroke-width="2"/><path d="M487 104 l10 6 l-10 6" fill="none" stroke="#8892A0" stroke-width="2"/><text x="400" y="100" fill="#8892A0" font-size="12">endpoint</text>
+<text x="30" y="340" fill="#8892A0" font-size="12">send.sgit.ai v0.1.3, 20 October 2026, CC BY 4.0. Decided, not deployed.</text>
+</svg>
