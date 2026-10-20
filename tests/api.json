@@ -1,5 +1,5 @@
 {
   "repository": "SGit-AI/SGit-AI__Website__Send__API",
-  "ref": "claude/wonderful-ride-c8qicn",
-  "note": "The checkout of the API repository the browser test routes https://api.send.sgit.ai/<release>/ to. Locally: SEND_API=<path>, or a sibling directory named SGit-AI__Website__Send__API. The release is the one tools/api.json pins. The ref is the branch that carries v0.1.0 until it is merged; move it to main then."
+  "ref": "dev",
+  "note": "The checkout of the API repository the browser test routes https://api.send.sgit.ai/<release>/ to. Locally: SEND_API=<path>, or a sibling directory named SGit-AI__Website__Send__API. The release is the one tools/api.json pins."
 }

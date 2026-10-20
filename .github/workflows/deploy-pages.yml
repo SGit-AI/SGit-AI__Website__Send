@@ -1,10 +1,10 @@
-# main, the default branch, is the release branch: gate, tag the version, publish send.sgit.ai (www/), then poll the
+# dev is the release branch: gate, tag the version, publish send.sgit.ai (www/), then poll the
 # live site until it serves the version. Pages for this repository deploys from GitHub Actions (configure-pages enables
 # it). Green does not mean live: the last job fails the run if the site does not serve the version.
 name: deploy-pages
 on:
   push:
-    branches: [main]
+    branches: [dev]
   workflow_dispatch:
 permissions:
   contents: write

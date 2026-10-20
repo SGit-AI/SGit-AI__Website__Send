@@ -43,7 +43,7 @@
       { "feature": "Every page with a markdown twin, llms.txt, llms-full.txt, sitemap; chrome injected at build; two themes", "status": "shipped", "since": "v0.1.0", "evidence": "`tools/sitekit.py`, `www/`" },
       { "feature": "The gate: build committed, links, twins, origins, the pin, tripwire, prose, version", "status": "shipped", "since": "v0.1.0", "evidence": "`tools/check.py`, `.github/workflows/ci.yml`" },
       { "feature": "An end-to-end browser test: send, open, vault, against the pinned release and the in-memory server", "status": "shipped", "since": "v0.1.0", "evidence": "`tests/test_app.mjs`" },
-      { "feature": "Deploy to GitHub Pages on main, tag, verify the live site", "status": "shipped", "since": "v0.1.0", "evidence": "`.github/workflows/deploy-pages.yml`; the first run waits on Pages and DNS" },
+      { "feature": "Deploy to GitHub Pages on dev, tag, verify the live site", "status": "shipped", "since": "v0.1.0", "evidence": "`.github/workflows/deploy-pages.yml`; the first run waits on Pages and DNS" },
       { "feature": "The articles section, in the newsroom's format", "status": "shipped", "since": "v0.1.0", "evidence": "`/articles/`, three articles" },
       { "feature": "A review/ folder with the derived graph and navigator", "status": "proposed", "since": "", "evidence": "`review/intent/` only" }
     ]}

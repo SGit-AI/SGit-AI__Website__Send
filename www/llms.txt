@@ -33,6 +33,6 @@ Every HTML page has a markdown twin at the same path with the extension swapped;
 - [Embed it in your site](/use/embed/index.md): Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.
 - [The commercial model](/use/pricing/index.md): How using this site and its capabilities is meant to be paid for, what is true today (a beta behind access tokens), what is proposed, and what will never be charged for.
 - [Vaults](/vaults/index.md): The vaults this browser holds keys for. Create one, add files as commits, see the history, and share it read-only with a link and a QR code; clone it anywhere with sgit.
-- [Version history](/versions/index.md): One line per version, newest first, saying what changed and why. Every change that lands on main is a version; the deploy tags it.
+- [Version history](/versions/index.md): One line per version, newest first, saying what changed and why. Every change that lands on dev is a version; the deploy tags it.
 - [The API this site runs, for agents](https://api.send.sgit.ai/agents/index.md)
 - [The pinned release's README](https://api.send.sgit.ai/v0.1.0/README.md)

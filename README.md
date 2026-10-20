@@ -26,5 +26,5 @@ node tests/test_app.mjs                # the app in Chromium, against ../SGit-AI
 python3 -m http.server -d www 8000     # serve the built site; in Settings choose "a server on this machine" for the API
 ```
 
-Every change that lands on `main` is a version (`tools/version.json`); the deploy tags it, publishes `www/`, and then
+Every change that lands on `dev` is a version (`tools/version.json`); the deploy tags it, publishes `www/`, and then
 polls the live site for the version. Code Apache-2.0 (see [LICENSE](LICENSE)); content CC BY 4.0.

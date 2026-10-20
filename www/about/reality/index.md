@@ -73,7 +73,7 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 | Every page with a markdown twin, llms.txt, llms-full.txt, sitemap; chrome injected at build; two themes | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tools/sitekit.py`, `www/` |
 | The gate: build committed, links, twins, origins, the pin, tripwire, prose, version | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tools/check.py`, `.github/workflows/ci.yml` |
 | An end-to-end browser test: send, open, vault, against the pinned release and the in-memory server | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tests/test_app.mjs` |
-| Deploy to GitHub Pages on main, tag, verify the live site | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `.github/workflows/deploy-pages.yml`; the first run waits on Pages and DNS |
+| Deploy to GitHub Pages on dev, tag, verify the live site | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `.github/workflows/deploy-pages.yml`; the first run waits on Pages and DNS |
 | The articles section, in the newsroom's format | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `/articles/`, three articles |
 | A review/ folder with the derived graph and navigator | <span class="sg-status sg-status-proposed">proposed</span> |  | `review/intent/` only |
 

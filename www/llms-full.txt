@@ -33,7 +33,7 @@ Every HTML page has a markdown twin at the same path with the extension swapped;
 - [Embed it in your site](/use/embed/index.md): Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.
 - [The commercial model](/use/pricing/index.md): How using this site and its capabilities is meant to be paid for, what is true today (a beta behind access tokens), what is proposed, and what will never be charged for.
 - [Vaults](/vaults/index.md): The vaults this browser holds keys for. Create one, add files as commits, see the history, and share it read-only with a link and a QR code; clone it anywhere with sgit.
-- [Version history](/versions/index.md): One line per version, newest first, saying what changed and why. Every change that lands on main is a version; the deploy tags it.
+- [Version history](/versions/index.md): One line per version, newest first, saying what changed and why. Every change that lands on dev is a version; the deploy tags it.
 - [The API this site runs, for agents](https://api.send.sgit.ai/agents/index.md)
 - [The pinned release's README](https://api.send.sgit.ai/v0.1.0/README.md)
 
@@ -226,7 +226,7 @@ The brief ([published in full](/about/brief/)) is never edited to look right aft
 
 # What needs a human
 
-1. **Merge the branch to `main`** in both repositories. The deploy workflow runs on `main`; the branch `claude/wonderful-ride-c8qicn` carries v0.1.0 of both. Then set `ref` in `tests/api.json` to `main`, so the browser test checks out the merged API.
+1. **Merge the branch to `dev`** in both repositories. The deploy workflow runs on `dev`; the branch `claude/wonderful-ride-c8qicn` carries v0.1.0 of both. Then keep `ref` in `tests/api.json` at `dev`, so the browser test checks out the merged API.
 2. **api.send.sgit.ai first.** This site loads its code from that host; until [its DNS and Pages](https://api.send.sgit.ai/about/needs/) are live, the app pages load nothing. (A developer can point one browser at a local checkout from [Settings](/settings/).)
 3. **Enable GitHub Pages for this repository** with the source set to GitHub Actions, and a `CNAME` record for `send.sgit.ai` pointing at `sgit-ai.github.io`.
 4. **CORS on the hosted server.** The API's tests measured `dev.send.sgraph.ai` allowing any origin; confirm `send.sgraph.ai` does too, or the send page on this origin will fail at the first request.
@@ -331,7 +331,7 @@ Generated from `website/data/features.json` on every build; audited 2026-10-20, 
 | Every page with a markdown twin, llms.txt, llms-full.txt, sitemap; chrome injected at build; two themes | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tools/sitekit.py`, `www/` |
 | The gate: build committed, links, twins, origins, the pin, tripwire, prose, version | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tools/check.py`, `.github/workflows/ci.yml` |
 | An end-to-end browser test: send, open, vault, against the pinned release and the in-memory server | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `tests/test_app.mjs` |
-| Deploy to GitHub Pages on main, tag, verify the live site | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `.github/workflows/deploy-pages.yml`; the first run waits on Pages and DNS |
+| Deploy to GitHub Pages on dev, tag, verify the live site | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `.github/workflows/deploy-pages.yml`; the first run waits on Pages and DNS |
 | The articles section, in the newsroom's format | <span class="sg-status sg-status-shipped">shipped</span> | v0.1.0 | `/articles/`, three articles |
 | A review/ folder with the derived graph and navigator | <span class="sg-status sg-status-proposed">proposed</span> |  | `review/intent/` only |
 
@@ -365,7 +365,7 @@ Work is files with a status line: the reality file's proposed rows are the backl
 
 ## The rules the roles enforce
 
-- **A release is never edited after it is on `main`.** Mistake behind it: a reader pinned to a release that changed under them.
+- **A release is never edited after it is on `dev`.** Mistake behind it: a reader pinned to a release that changed under them.
 - **A vendored file is never edited.** Mistake: two drifting ports of the vault writer, each needing its own fix.
 - **A number on a page is counted.** Mistake: a word count that was remembered, and wrong.
 - **A claim carries a status.** Mistake: a feature described in the present tense that a brief had only proposed.
@@ -1200,7 +1200,7 @@ Reach for it whena thing is handed over oncea thing is read repeatedly, updated,
 
 # Version history
 
-> One line per version, newest first, saying what changed and why. Every change that lands on main is a version; the deploy tags it.
+> One line per version, newest first, saying what changed and why. Every change that lands on dev is a version; the deploy tags it.
 
 *Source: <https://send.sgit.ai/versions/> · send.sgit.ai v0.1.0 · this file is generated from the same content as the page, so the two cannot drift. Every page on this site has a `.md` twin; internal links below point at pages, swap `.html` for `.md` to read the twin.*
 
@@ -1208,7 +1208,7 @@ Reach for it whena thing is handed over oncea thing is read repeatedly, updated,
 
 # Version history
 
-Every change that lands on `main` is a version, in `tools/version.json`, tagged by the deploy and shown in the header of every page. The code the app runs has [a history of its own](https://api.send.sgit.ai/versions/).
+Every change that lands on `dev` is a version, in `tools/version.json`, tagged by the deploy and shown in the header of every page. The code the app runs has [a history of its own](https://api.send.sgit.ai/versions/).
 
 | Version | Date | Kind | What changed, and why |
 |---|---|---|---|

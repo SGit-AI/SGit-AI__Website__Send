@@ -8,7 +8,7 @@
 
 # What needs a human
 
-1. **Merge the branch to `main`** in both repositories. The deploy workflow runs on `main`; the branch `claude/wonderful-ride-c8qicn` carries v0.1.0 of both. Then set `ref` in `tests/api.json` to `main`, so the browser test checks out the merged API.
+1. **Merge the branch to `dev`** in both repositories. The deploy workflow runs on `dev`; the branch `claude/wonderful-ride-c8qicn` carries v0.1.0 of both. Then keep `ref` in `tests/api.json` at `dev`, so the browser test checks out the merged API.
 2. **api.send.sgit.ai first.** This site loads its code from that host; until [its DNS and Pages](https://api.send.sgit.ai/about/needs/) are live, the app pages load nothing. (A developer can point one browser at a local checkout from [Settings](/settings/).)
 3. **Enable GitHub Pages for this repository** with the source set to GitHub Actions, and a `CNAME` record for `send.sgit.ai` pointing at `sgit-ai.github.io`.
 4. **CORS on the hosted server.** The API's tests measured `dev.send.sgraph.ai` allowing any origin; confirm `send.sgraph.ai` does too, or the send page on this origin will fail at the first request.
