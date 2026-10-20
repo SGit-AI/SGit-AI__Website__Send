@@ -1,0 +1,13 @@
+{
+  "schema": "review-intent/v1",
+  "brief": "briefs/2026-10-20__0{1,2,3,4}__*__transcript.txt",
+  "accepted": "2026-10-20",
+  "sections": [
+    { "id": "memo-01.move",     "memo": "01", "intent": "send.sgraph.ai's job on send.sgit.ai", "answered_by": ["website/pages/index.html", "website/assets/app/send.js", "website/assets/app/open.js"], "status": "shipped" },
+    { "id": "memo-01.keys",     "memo": "01", "intent": "vault keys stored, files in vaults", "answered_by": ["website/assets/app/vaults.js", "website/assets/app/keys.js", "website/pages/learn/vaults-and-keys/index.md"], "status": "shipped" },
+    { "id": "memo-01.qr",       "memo": "01", "intent": "QR codes as the hand-over", "answered_by": ["website/assets/app/send.js", "website/pages/learn/qr-codes/index.md"], "status": "shipped" },
+    { "id": "memo-02.usage",    "memo": "02", "intent": "the site as the usage, the examples and the commercial model of the API", "answered_by": ["website/pages/use/index.md", "website/pages/use/embed/index.md", "website/pages/use/pricing/index.md", "tools/api.json"], "status": "shipped; the model itself proposed" },
+    { "id": "memo-03.article",  "memo": "03", "intent": "the api.<site> article", "answered_by": ["https://api.send.sgit.ai/articles/independent-releases.html"], "status": "shipped-elsewhere" },
+    { "id": "memo-04.articles", "memo": "04", "intent": "the centralised guidance for every site's own /articles/", "answered_by": ["website/pages/articles/every-site-its-own-articles.md", "website/pages/articles/index.md"], "status": "shipped; the move to the newsroom needs a human" }
+  ]
+}

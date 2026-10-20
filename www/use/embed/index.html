@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embed it in your site, send.sgit.ai</title>
+<meta name="description" content="Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.">
+<link rel="canonical" href="https://send.sgit.ai/use/embed/">
+<link rel="alternate" type="text/markdown" href="/use/embed/index.md">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="send.sgit.ai">
+<meta property="og:title" content="Embed it in your site, send.sgit.ai">
+<meta property="og:description" content="Put a send box, an open page, or a QR hand-over on your own site by pinning the same release this site runs; what to pin, what to check, what stays on your origin.">
+<meta property="og:url" content="https://send.sgit.ai/use/embed/">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/themes.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js" defer></script>
+
+</head>
+<body data-page="/use/embed/">
+<header class="sg-header">
+<nav class="site" aria-label="Site">
+<div class="row">
+<a class="brand" href="/">send<span>.sgit.ai</span></a>
+<a class="parent" href="https://sgit.ai" title="sgit.ai: the parent project, git for encrypted vaults">&#8599; part of <b>sgit.ai</b></a>
+<span class="stage-pill">v0.1.0, beta</span>
+<a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+<div class="nav-items"><div class="ni ni-has"><a class="nl" href="/">Send<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/">Send a file</a><a class="sl" href="/open/">Open a link</a><a class="sl" href="/vaults/">Vaults</a><a class="sl" href="/keys/">Keys</a><a class="sl" href="/settings/">Settings</a></div></div><div class="ni ni-has"><a class="nl" href="/learn/">Learn<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/learn/">How it works</a><a class="sl" href="/learn/security/">Security: what the server sees</a><a class="sl" href="/learn/vaults-and-keys/">Vaults and keys</a><a class="sl" href="/learn/qr-codes/">QR codes and friendly tokens</a><a class="sl" href="/learn/from-sgraph/">From send.sgraph.ai to here</a></div></div><div class="ni ni-has"><a class="nl here" href="/use/">Use it<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/use/">Examples: a page, curl, Python</a><a class="sl here" href="/use/embed/">Embed it in your site</a><a class="sl" href="/use/agents/">For agents</a><a class="sl" href="/use/pricing/">The commercial model</a></div></div><div class="ni"><a class="nl" href="/articles/">Articles</a></div><div class="ni ni-has"><a class="nl" href="/about/">About<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/about/">About this site</a><a class="sl" href="/about/brief/">The brief, in full</a><a class="sl" href="/about/corrections/">Brief corrections</a><a class="sl" href="/about/reality/">Reality: what exists</a><a class="sl" href="/versions/">Version history</a><a class="sl" href="/about/team/">The team</a><a class="sl" href="/about/needs/">What needs a human</a><a class="sl" href="/about/participant/">Participant disclosure</a></div></div><div class="ni ni-has ni-theme"><button class="nl" type="button" aria-haspopup="true">Theme<span class="caret">&#9662;</span></button><div class="sub" role="group" aria-label="Theme"><button class="sl" type="button" data-theme-pick="night" aria-pressed="false"><b>Night</b><small>Dark, teal</small></button><button class="sl" type="button" data-theme-pick="day" aria-pressed="false"><b>Day</b><small>Light, teal</small></button><small class="sub-note">Kept in this browser only, as <code>sgit.send.ui.theme</code>; nothing else is stored.</small></div></div></div>
+</div>
+</nav>
+</header>
+<nav class="sg-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/use/">Examples, a page, curl, Python</a> / Embed it in your site</nav>
+<div class="sg-page">
+<main id="main">
+<h1 id="embed-it-in-your-site">Embed it in your site</h1>
+<p>The code this site runs is not this site's. It is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, and any page on any origin can import it the same way:</p>
+<pre><code class="language-html">&lt;script type=&quot;module&quot;&gt;
+  import * as send from &#x27;https://api.send.sgit.ai/v0.1.0/send/send-api.js&#x27;
+&lt;/script&gt;</code></pre>
+<p>A script loaded from that host runs on <strong>your</strong> page's origin, so the keyring, the clone branch and everything the modules store stay in your site's storage; the API host has no way to receive anything. The three things to get right:</p>
+<ol><li><strong>Pin the release</strong> in one file and copy its <a href="https://api.send.sgit.ai/v0.1.0/manifest.json">manifest</a> beside it; make your build refuse a reference to the host that is not that release. This site does it in <code>tools/api.json</code> and <code>tools/check.py</code>.</li><li><strong>Keep the access token out of the page.</strong> It belongs to whoever uploads, in their browser, pasted once into something like <a href="/settings/">Settings</a>. A token in page source is a token everyone has.</li><li><strong>Build the link on your open page.</strong> <code>send.link.transferLink({ openUrl: 'https://your.site/open/', ... })</code>, and parse it there with <code>send.link.parseFragment(location.hash)</code>. Or point at <code>https://send.sgit.ai/open/</code>, which opens anything made with these formats.</li></ol>
+<p>This site's own app modules (<code>assets/app/send.js</code>, <code>open.js</code>, <code>vaults.js</code>, <code>keys.js</code>, <code>settings.js</code>) are small, plain ES modules with no framework; copy the ones you want from <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">the repository</a> and keep the import of the pinned release. <a href="https://api.send.sgit.ai/for-developers/">For developers</a> on the API's site has the per-module notes and what runs in Node.</p>
+</main>
+
+</div>
+<footer class="sg-footer">
+<p>send.sgit.ai · <a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a> · released 2026-10-20 · <a href="/versions/">releases</a> · <a href="/use/embed/index.md">markdown twin of this page</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">source</a> · <a href="https://sgit.ai">part of sgit.ai</a> · <a href="/about/participant/">who publishes this</a></p>
+<p>Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href="/about/reality/">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.</p>
+<p class="network">Part of the sgit.ai network: <a href="https://sgit.ai">sgit.ai</a> · <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> (the code this site runs) · <a href="https://send.sgraph.ai">send.sgraph.ai</a> (the service this one grew from) · <a href="https://secrets.sgit.ai">secrets.sgit.ai</a> · <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> · <a href="https://sgit.ai/network/">the full network</a></p>
+</footer>
+</body>
+</html>

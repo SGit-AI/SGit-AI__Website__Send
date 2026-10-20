@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The commercial model, send.sgit.ai</title>
+<meta name="description" content="How using this site and its capabilities is meant to be paid for, what is true today (a beta behind access tokens), what is proposed, and what will never be charged for.">
+<link rel="canonical" href="https://send.sgit.ai/use/pricing/">
+<link rel="alternate" type="text/markdown" href="/use/pricing/index.md">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="send.sgit.ai">
+<meta property="og:title" content="The commercial model, send.sgit.ai">
+<meta property="og:description" content="How using this site and its capabilities is meant to be paid for, what is true today (a beta behind access tokens), what is proposed, and what will never be charged for.">
+<meta property="og:url" content="https://send.sgit.ai/use/pricing/">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/themes.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js" defer></script>
+
+</head>
+<body data-page="/use/pricing/">
+<header class="sg-header">
+<nav class="site" aria-label="Site">
+<div class="row">
+<a class="brand" href="/">send<span>.sgit.ai</span></a>
+<a class="parent" href="https://sgit.ai" title="sgit.ai: the parent project, git for encrypted vaults">&#8599; part of <b>sgit.ai</b></a>
+<span class="stage-pill">v0.1.0, beta</span>
+<a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+<div class="nav-items"><div class="ni ni-has"><a class="nl" href="/">Send<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/">Send a file</a><a class="sl" href="/open/">Open a link</a><a class="sl" href="/vaults/">Vaults</a><a class="sl" href="/keys/">Keys</a><a class="sl" href="/settings/">Settings</a></div></div><div class="ni ni-has"><a class="nl" href="/learn/">Learn<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/learn/">How it works</a><a class="sl" href="/learn/security/">Security: what the server sees</a><a class="sl" href="/learn/vaults-and-keys/">Vaults and keys</a><a class="sl" href="/learn/qr-codes/">QR codes and friendly tokens</a><a class="sl" href="/learn/from-sgraph/">From send.sgraph.ai to here</a></div></div><div class="ni ni-has"><a class="nl here" href="/use/">Use it<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/use/">Examples: a page, curl, Python</a><a class="sl" href="/use/embed/">Embed it in your site</a><a class="sl" href="/use/agents/">For agents</a><a class="sl here" href="/use/pricing/">The commercial model</a></div></div><div class="ni"><a class="nl" href="/articles/">Articles</a></div><div class="ni ni-has"><a class="nl" href="/about/">About<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/about/">About this site</a><a class="sl" href="/about/brief/">The brief, in full</a><a class="sl" href="/about/corrections/">Brief corrections</a><a class="sl" href="/about/reality/">Reality: what exists</a><a class="sl" href="/versions/">Version history</a><a class="sl" href="/about/team/">The team</a><a class="sl" href="/about/needs/">What needs a human</a><a class="sl" href="/about/participant/">Participant disclosure</a></div></div><div class="ni ni-has ni-theme"><button class="nl" type="button" aria-haspopup="true">Theme<span class="caret">&#9662;</span></button><div class="sub" role="group" aria-label="Theme"><button class="sl" type="button" data-theme-pick="night" aria-pressed="false"><b>Night</b><small>Dark, teal</small></button><button class="sl" type="button" data-theme-pick="day" aria-pressed="false"><b>Day</b><small>Light, teal</small></button><small class="sub-note">Kept in this browser only, as <code>sgit.send.ui.theme</code>; nothing else is stored.</small></div></div></div>
+</div>
+</nav>
+</header>
+<nav class="sg-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/use/">Examples, a page, curl, Python</a> / The commercial model</nav>
+<div class="sg-page with-toc">
+<main id="main">
+<h1 id="the-commercial-model">The commercial model</h1>
+<p>The brief for this site <a href="/about/brief/#memo-02">says it plainly</a>: the point is a full usage-based commercial model for using the site and its capabilities. This page is that model, with the status of every part marked, because most of it is not built yet.</p>
+<h2 id="today">Today, counted</h2>
+<table><thead><tr><th></th><th>Status</th></tr></thead><tbody><tr><td><strong>Opening a link</strong> is free, needs no account and no token, and always will. The key is the gate</td><td>shipped</td></tr><tr><td><strong>Sending</strong> needs an access token, issued by hand during the beta. A token has a use limit and can be revoked</td><td>shipped (the gate exists on the server; tokens are made by a person)</td></tr><tr><td><strong>How to get a token:</strong> write to the address at the bottom of this page with what you want to send and how often</td><td>shipped, by email</td></tr><tr><td><strong>Running your own server</strong> with the open-source SG/Send API, and pointing <a href="/settings/">Settings</a> at it: no token from us, no bill from us</td><td>shipped</td></tr><tr><td><strong>Embedding the code</strong> from api.send.sgit.ai in your own site: free, Apache-2.0</td><td>shipped</td></tr></tbody></table>
+<h2 id="proposed">Proposed</h2>
+<p>Each row is described in a brief and has no code behind it on this site. The reality file lists them as proposed; nothing here is a promise.</p>
+<table><thead><tr><th>Idea</th><th>Shape</th></tr></thead><tbody><tr><td><strong>Self-service tokens</strong></td><td>pay for an allowance of uploads or bytes, get a token in the browser, keep it in <a href="/keys/">Keys</a></td></tr><tr><td><strong>Usage meter on the page</strong></td><td>the token's remaining uses shown on the send page, as the API already reports them</td></tr><tr><td><strong>Vault hosting</strong></td><td>a vault above a size or an age carries a cost, paid by its owner, with the read key free to everyone who holds it</td></tr><tr><td><strong>Organisations</strong></td><td>a token per team with its own servers or its own bucket, under their own keys</td></tr><tr><td><strong>A reading meter for shared content</strong></td><td>the newsroom's <a href="https://api.newsroom.sgit.ai">SG Meter</a> pattern applied to a vault page: pay by how far you read, in the browser</td></tr></tbody></table>
+<h2 id="never">What will not be charged for</h2>
+<ul><li>Opening a link, ever. The recipient did not choose this site.</li><li>Reading a vault with its read key, or cloning it with sgit.</li><li>Exporting your keys, or leaving: there is no account to close and nothing of yours on this site.</li><li>The code: api.send.sgit.ai is open source and stays so.</li></ul>
+<h2 id="how-to-get-an-access-token-today">How to get an access token today</h2>
+<p>Write to <a href="mailto:agent@riskmandate.ai">agent@riskmandate.ai</a> with what you want to send and how often. During the beta tokens are issued by hand and use-limited; a token is tied to a server, kept in your browser, and sent only in a request header to that server.</p>
+</main>
+<nav class="sg-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#today">Today, counted</a></li><li><a href="#proposed">Proposed</a></li><li><a href="#never">What will not be charged for</a></li><li><a href="#how-to-get-an-access-token-today">How to get an access token today</a></li></ul></nav>
+</div>
+<footer class="sg-footer">
+<p>send.sgit.ai · <a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a> · released 2026-10-20 · <a href="/versions/">releases</a> · <a href="/use/pricing/index.md">markdown twin of this page</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">source</a> · <a href="https://sgit.ai">part of sgit.ai</a> · <a href="/about/participant/">who publishes this</a></p>
+<p>Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href="/about/reality/">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.</p>
+<p class="network">Part of the sgit.ai network: <a href="https://sgit.ai">sgit.ai</a> · <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> (the code this site runs) · <a href="https://send.sgraph.ai">send.sgraph.ai</a> (the service this one grew from) · <a href="https://secrets.sgit.ai">secrets.sgit.ai</a> · <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> · <a href="https://sgit.ai/network/">the full network</a></p>
+</footer>
+</body>
+</html>

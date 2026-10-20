@@ -1,0 +1,62 @@
+---
+title: send.sgit.ai, send a file, keep the key
+description: Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.
+---
+<h1>Send a file. Keep the key.</h1>
+<p class="sg-lead">The file is encrypted here, in your browser, with its name inside the ciphertext. The server gets bytes it cannot read. You get a link, a QR code, or a token you can say aloud; whoever has it gets the file, and nobody else does, the server included.</p>
+
+<div id="token-notice" class="sg-warn hidden"><strong>Beta:</strong> uploading needs an access token. <a href="/settings/">Set one in Settings</a>, or <a href="/use/pricing/">read how to get one</a>. Opening a link needs nothing.</div>
+
+<form id="send-form" class="sg-form">
+  <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose a file">
+    <input id="file" type="file" multiple>
+    <span class="big">Drop a file here, or click to choose</span>
+    <span class="hint">Encrypted in this browser before upload · under 4 MB for a one-off transfer · any size into a vault</span>
+  </div>
+  <ul id="picked" class="list hidden"></ul>
+  <p id="many-note" class="muted hidden">Several files go into a vault, as one commit.</p>
+
+  <label>Where it lives</label>
+  <div class="choice">
+    <label><input type="radio" name="where" value="transfer" checked> One transfer: uploaded once, handed over once, expires</label>
+    <label><input type="radio" name="where" value="vault"> Into a vault: versioned, updatable, clonable with sgit</label>
+  </div>
+
+  <div id="transfer-options" class="two">
+    <div><label for="expires">Expires</label>
+      <select id="expires"><option value="1">in 1 day</option><option value="7" selected>in 7 days</option><option value="30">in 30 days</option><option value="0">never</option></select></div>
+    <div><label for="downloads">Downloads</label>
+      <select id="downloads"><option value="0" selected>unlimited</option><option value="1">once</option><option value="5">five times</option></select></div>
+  </div>
+  <div id="vault-options" class="two hidden">
+    <div><label for="vault-pick">Which vault</label><select id="vault-pick"></select></div>
+    <div id="vault-name-row"><label for="vault-name">Name for the new vault</label><input id="vault-name" type="text" placeholder="Project files"></div>
+  </div>
+
+  <label>How to hand it over</label>
+  <div class="choice">
+    <label><input type="radio" name="how" value="link" checked> A link with the key in it (and a QR code)</label>
+    <label><input type="radio" name="how" value="friendly"> A friendly token you can say aloud, river-cloud-3847</label>
+    <label><input type="radio" name="how" value="link-only"> A link, with the key sent separately</label>
+  </div>
+  <p class="muted">For a vault the link carries the read key; the vault key stays on this device.</p>
+
+  <p class="row-actions"><button id="go" class="btn" type="submit" disabled>Encrypt and send</button> <span class="muted">to <span id="endpoint-label">the server</span> set in <a href="/settings/">Settings</a></span></p>
+  <p id="progress" class="progress"></p>
+</form>
+
+<div id="result" class="result hidden"></div>
+
+<h2>What happens, in one table</h2>
+<table>
+<thead><tr><th>Step</th><th>Where</th><th>What the server gets</th></tr></thead>
+<tbody>
+<tr><td>The name goes inside an envelope in front of the file</td><td>this browser</td><td>nothing</td></tr>
+<tr><td>The whole thing is encrypted with AES-256-GCM under a fresh key</td><td>this browser</td><td>nothing</td></tr>
+<tr><td>The ciphertext is uploaded as one transfer, or committed into a vault</td><td>the server you chose</td><td>ciphertext, its size, a hashed sender IP, a content type hint you choose</td></tr>
+<tr><td>The link is built with the key after the <code>#</code></td><td>this browser</td><td>nothing: browsers never send the fragment</td></tr>
+<tr><td>The link is drawn as a QR code</td><td>this browser</td><td>nothing</td></tr>
+</tbody>
+</table>
+<p><a href="/learn/">How it works</a> · <a href="/learn/security/">What the server sees</a> · <a href="/learn/vaults-and-keys/">Vaults and keys</a> · the code this page runs is <a href="https://api.send.sgit.ai/v0.1.0/README.md">api.send.sgit.ai v0.1.0</a>, pinned.</p>
+<script type="module" src="/assets/app/send.js"></script>

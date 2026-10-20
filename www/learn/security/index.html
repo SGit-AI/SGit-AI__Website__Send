@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security, what the server sees, send.sgit.ai</title>
+<meta name="description" content="What the server can see, what it cannot, the two secrets that must not be confused, what a friendly token costs, and what this site does not claim.">
+<link rel="canonical" href="https://send.sgit.ai/learn/security/">
+<link rel="alternate" type="text/markdown" href="/learn/security/index.md">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="send.sgit.ai">
+<meta property="og:title" content="Security, what the server sees, send.sgit.ai">
+<meta property="og:description" content="What the server can see, what it cannot, the two secrets that must not be confused, what a friendly token costs, and what this site does not claim.">
+<meta property="og:url" content="https://send.sgit.ai/learn/security/">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/themes.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js" defer></script>
+
+</head>
+<body data-page="/learn/security/">
+<header class="sg-header">
+<nav class="site" aria-label="Site">
+<div class="row">
+<a class="brand" href="/">send<span>.sgit.ai</span></a>
+<a class="parent" href="https://sgit.ai" title="sgit.ai: the parent project, git for encrypted vaults">&#8599; part of <b>sgit.ai</b></a>
+<span class="stage-pill">v0.1.0, beta</span>
+<a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+<div class="nav-items"><div class="ni ni-has"><a class="nl" href="/">Send<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/">Send a file</a><a class="sl" href="/open/">Open a link</a><a class="sl" href="/vaults/">Vaults</a><a class="sl" href="/keys/">Keys</a><a class="sl" href="/settings/">Settings</a></div></div><div class="ni ni-has"><a class="nl here" href="/learn/">Learn<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/learn/">How it works</a><a class="sl here" href="/learn/security/">Security: what the server sees</a><a class="sl" href="/learn/vaults-and-keys/">Vaults and keys</a><a class="sl" href="/learn/qr-codes/">QR codes and friendly tokens</a><a class="sl" href="/learn/from-sgraph/">From send.sgraph.ai to here</a></div></div><div class="ni ni-has"><a class="nl" href="/use/">Use it<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/use/">Examples: a page, curl, Python</a><a class="sl" href="/use/embed/">Embed it in your site</a><a class="sl" href="/use/agents/">For agents</a><a class="sl" href="/use/pricing/">The commercial model</a></div></div><div class="ni"><a class="nl" href="/articles/">Articles</a></div><div class="ni ni-has"><a class="nl" href="/about/">About<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/about/">About this site</a><a class="sl" href="/about/brief/">The brief, in full</a><a class="sl" href="/about/corrections/">Brief corrections</a><a class="sl" href="/about/reality/">Reality: what exists</a><a class="sl" href="/versions/">Version history</a><a class="sl" href="/about/team/">The team</a><a class="sl" href="/about/needs/">What needs a human</a><a class="sl" href="/about/participant/">Participant disclosure</a></div></div><div class="ni ni-has ni-theme"><button class="nl" type="button" aria-haspopup="true">Theme<span class="caret">&#9662;</span></button><div class="sub" role="group" aria-label="Theme"><button class="sl" type="button" data-theme-pick="night" aria-pressed="false"><b>Night</b><small>Dark, teal</small></button><button class="sl" type="button" data-theme-pick="day" aria-pressed="false"><b>Day</b><small>Light, teal</small></button><small class="sub-note">Kept in this browser only, as <code>sgit.send.ui.theme</code>; nothing else is stored.</small></div></div></div>
+</div>
+</nav>
+</header>
+<nav class="sg-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/learn/">How it works</a> / Security, what the server sees</nav>
+<div class="sg-page with-toc">
+<main id="main">
+<h1 id="security-what-the-server-sees-and-what-it-cannot">Security: what the server sees, and what it cannot</h1>
+<h2 id="the-server">The server</h2>
+<table><thead><tr><th>It can see</th><th>It cannot see</th></tr></thead><tbody><tr><td>The ciphertext, and its size (the plaintext plus 28 bytes for a transfer)</td><td>The plaintext</td></tr><tr><td>When it was uploaded, and how many times it was downloaded</td><td>The file name: it is inside the ciphertext</td></tr><tr><td>A hash of the sender's IP, salted daily</td><td>The decryption key: it is in the link's fragment</td></tr><tr><td>The <code>content_type_hint</code> the sender chose</td><td>The vault key or the passphrase; it stores a hash of the write key and compares</td></tr><tr><td>Your access token, hashed, to decide whether you may upload</td><td>Who you sent the link to</td></tr></tbody></table>
+<p>The server is a capability-checked ciphertext store: every access decision it makes is a hash comparison, and it never holds a raw key. A full compromise of it yields ciphertext and hashes. That property is the whole product rather than a feature of it, and <a href="https://sgit.ai/security/">sgit.ai's security page</a> covers it from the server's side.</p>
+<h2 id="this-site">This site</h2>
+<p>This site is static files on GitHub Pages: it has no way to receive a request body. The code the pages run comes from <a href="https://api.send.sgit.ai">api.send.sgit.ai</a>, pinned to one release whose every file is hashed in <a href="https://api.send.sgit.ai/v0.1.0/manifest.json">the manifest</a> and checked by this repository's gate. No script, style or font is loaded from any other origin. Nothing is stored except what you can see on <a href="/keys/">Keys</a> and the theme you picked.</p>
+<h2 id="two-secrets-that-must-not-be-confused">Two secrets that must not be confused</h2>
+<p>The <strong>access token</strong> says who may upload. It goes in a request header to the server you chose and nowhere else: never a URL, never a log. The <strong>decryption key</strong> says who may read. It goes in the link after <code>#</code> or by a second channel, and never reaches any server. They are unrelated values. Confusing them does not throw an error, which is why it is the first thing on <a href="https://api.send.sgit.ai/start/">the quick start</a>.</p>
+<h2 id="what-a-friendly-token-costs">What a friendly token costs</h2>
+<p>A friendly token is two words from a list of 320 and four digits: 1,024,000,000 possibilities. Anyone holding the ciphertext can try them offline, at 600,000 PBKDF2 rounds each. That is a real cost, and it is not the cost of a random 256-bit key. A friendly token is for a link that expires and a file that is not worth that effort; a random key is for the rest. The send page says which you chose.</p>
+<h2 id="the-keyring">The keyring</h2>
+<p>The keyring on <a href="/keys/">Keys</a> is plaintext in your browser's storage. It makes the keys findable, which is what was missing before; it does not make them safe from someone with your device. Export it to a password manager for the keys that matter. <a href="/learn/vaults-and-keys/">Vaults and keys</a> says where each kind of key should live.</p>
+<h2 id="what-this-site-does-not-claim">What this site does not claim</h2>
+<ul><li><strong>Not proved against the hosted server yet.</strong> The formats match send.sgraph.ai's published contracts and the code is tested against an in-memory implementation of its API; a round trip against <code>send.sgraph.ai</code> itself is marked proposed in <a href="/about/reality/">the reality file</a> until it is recorded.</li><li><strong>Not audited.</strong> The crypto is the browser's Web Crypto API, used the same way send.sgraph.ai has since its first version; nobody outside the project has reviewed this site's use of it.</li><li><strong>Not metadata-free.</strong> Sizes, timing and counts are visible to the server, and the link is as private as the channel it travels by.</li><li><strong>A beta.</strong> Do not upload confidential or illegal content.</li></ul>
+</main>
+<nav class="sg-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#the-server">The server</a></li><li><a href="#this-site">This site</a></li><li><a href="#two-secrets-that-must-not-be-confused">Two secrets that must not be confused</a></li><li><a href="#what-a-friendly-token-costs">What a friendly token costs</a></li><li><a href="#the-keyring">The keyring</a></li><li><a href="#what-this-site-does-not-claim">What this site does not claim</a></li></ul></nav>
+</div>
+<footer class="sg-footer">
+<p>send.sgit.ai · <a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a> · released 2026-10-20 · <a href="/versions/">releases</a> · <a href="/learn/security/index.md">markdown twin of this page</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">source</a> · <a href="https://sgit.ai">part of sgit.ai</a> · <a href="/about/participant/">who publishes this</a></p>
+<p>Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href="/about/reality/">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.</p>
+<p class="network">Part of the sgit.ai network: <a href="https://sgit.ai">sgit.ai</a> · <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> (the code this site runs) · <a href="https://send.sgraph.ai">send.sgraph.ai</a> (the service this one grew from) · <a href="https://secrets.sgit.ai">secrets.sgit.ai</a> · <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> · <a href="https://sgit.ai/network/">the full network</a></p>
+</footer>
+</body>
+</html>

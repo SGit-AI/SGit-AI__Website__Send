@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="system-ui, sans-serif" font-size="14">
+<rect width="900" height="360" fill="#1A1A2E"/>
+<rect x="30" y="60" width="230" height="120" rx="8" fill="#16213E" stroke="#4ECDC4"/><text x="45" y="88" fill="#4ECDC4" font-weight="700">A voice memo</text><text x="45" y="112" fill="#E0E0E0">on this site's dimension</text><text x="45" y="134" fill="#E0E0E0">written up in Dinis's voice</text><text x="45" y="156" fill="#8892A0">author: Dinis Cruz</text>
+<rect x="640" y="60" width="230" height="120" rx="8" fill="#16213E" stroke="#E0B84E"/><text x="655" y="88" fill="#E0B84E" font-weight="700">An agent's account</text><text x="655" y="112" fill="#E0E0E0">of what it delivered</text><text x="655" y="134" fill="#E0E0E0">commits and tests to check</text><text x="655" y="156" fill="#8892A0">author: site.role</text>
+<rect x="320" y="40" width="260" height="160" rx="8" fill="#16213E" stroke="#FFFFFF"/><text x="335" y="68" fill="#FFFFFF" font-weight="700">site.sgit.ai/articles/</text><text x="335" y="95" fill="#E0E0E0">front matter, a lead figure</text><text x="335" y="117" fill="#E0E0E0">In short, sections, limits, sources</text><text x="335" y="139" fill="#E0E0E0">a .md twin, in llms.txt</text><text x="335" y="161" fill="#E0E0E0">the newsroom's format</text><text x="335" y="186" fill="#8892A0">one slug, never changed</text>
+<path d="M260 120 h55" stroke="#4ECDC4" stroke-width="2" marker-end="url(#a)"/><path d="M640 120 h-55" stroke="#E0B84E" stroke-width="2" marker-end="url(#a)"/>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#8892A0"/></marker></defs>
+<rect x="320" y="240" width="260" height="70" rx="8" fill="#16213E" stroke="#2C3E6B"/><text x="335" y="266" fill="#E0E0E0">imported unchanged by</text><text x="335" y="290" fill="#4ECDC4">newsroom.sgit.ai · pointed at by sgit.ai</text>
+<path d="M450 200 v35" stroke="#8892A0" stroke-width="2" marker-end="url(#a)"/>
+<text x="30" y="345" fill="#8892A0" font-size="12">send.sgit.ai v0.1.0, 20 October 2026, CC BY 4.0</text>
+</svg>

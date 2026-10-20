@@ -1,0 +1,29 @@
+---
+title: Vaults
+description: The vaults this browser holds keys for. Create one, add files as commits, see the history, and share it read-only with a link and a QR code; clone it anywhere with sgit.
+---
+<h1>Vaults</h1>
+<p class="sg-lead">A vault is a folder of files, encrypted here, versioned like git, that you can open again, add to, and share read-only. The vault key stays on this device; the read key is the one you hand out. Anyone with the read key can also <code>sgit clone</code> it on a laptop.</p>
+<div id="token-notice" class="sg-warn hidden"><strong>Beta:</strong> creating and writing to a vault needs an access token; <a href="/settings/">set one in Settings</a>. Opening a read key needs nothing.</div>
+<h2>On this device</h2>
+<ul id="vault-list" class="list"></ul>
+<form id="create-form" class="sg-form">
+  <label for="new-name">Create a vault</label>
+  <p class="row-actions"><input id="new-name" type="text" placeholder="Project files" style="max-width:24rem"> <button id="create" class="btn" type="submit">Create</button></p>
+</form>
+<p id="progress" class="progress"></p>
+<div id="vault-box"></div>
+<h2>How a vault differs from a transfer</h2>
+<table>
+<thead><tr><th></th><th>Transfer</th><th>Vault</th></tr></thead>
+<tbody>
+<tr><td>Shape</td><td>one file, uploaded once</td><td>a versioned tree of files</td></tr>
+<tr><td>History</td><td>none; there is no second version</td><td>commits, with messages</td></tr>
+<tr><td>The reader gets</td><td>the whole file, or nothing</td><td>any single file, without the rest</td></tr>
+<tr><td>Lifecycle</td><td>expires, caps downloads, can be revoked</td><td>lives until deleted</td></tr>
+<tr><td>The credential</td><td>a key in the link</td><td>a read key, derived one way from the vault key</td></tr>
+<tr><td>Reach for it when</td><td>a thing is handed over once</td><td>a thing is read repeatedly, updated, or browsed</td></tr>
+</tbody>
+</table>
+<p><a href="/learn/vaults-and-keys/">Vaults and keys</a>, in full.</p>
+<script type="module" src="/assets/app/vaults.js"></script>

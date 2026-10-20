@@ -1,0 +1,51 @@
+{
+  "name": "send.sgit.ai",
+  "brand": ["send", ".sgit.ai"],
+  "host": "https://send.sgit.ai",
+  "cname": "send.sgit.ai",
+  "description": "Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.",
+  "stage": "v0.1.0, beta",
+  "source": "https://github.com/SGit-AI/SGit-AI__Website__Send",
+  "parent": { "name": "sgit.ai", "href": "https://sgit.ai", "title": "sgit.ai: the parent project, git for encrypted vaults" },
+  "theme_key": "sgit.send.ui.theme",
+  "footer": "Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href=\"https://api.send.sgit.ai\">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href=\"/about/reality/\">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.",
+  "network": "Part of the sgit.ai network: <a href=\"https://sgit.ai\">sgit.ai</a> · <a href=\"https://api.send.sgit.ai\">api.send.sgit.ai</a> (the code this site runs) · <a href=\"https://send.sgraph.ai\">send.sgraph.ai</a> (the service this one grew from) · <a href=\"https://secrets.sgit.ai\">secrets.sgit.ai</a> · <a href=\"https://newsroom.sgit.ai\">newsroom.sgit.ai</a> · <a href=\"https://sgit.ai/network/\">the full network</a>",
+  "llms_intro": "send.sgit.ai is the product site: the app (send, open, vaults, keys), the explanations, the examples and the commercial model. The code it runs is api.send.sgit.ai v0.1.0, pinned in tools/api.json. Source: https://github.com/SGit-AI/SGit-AI__Website__Send",
+  "llms_extra": [
+    "[The API this site runs, for agents](https://api.send.sgit.ai/agents/index.md)",
+    "[The pinned release's README](https://api.send.sgit.ai/v0.1.0/README.md)"
+  ],
+  "nav": [
+    { "title": "Send", "href": "/", "items": [
+      { "title": "Send a file", "href": "/" },
+      { "title": "Open a link", "href": "/open/" },
+      { "title": "Vaults", "href": "/vaults/" },
+      { "title": "Keys", "href": "/keys/" },
+      { "title": "Settings", "href": "/settings/" }
+    ]},
+    { "title": "Learn", "href": "/learn/", "items": [
+      { "title": "How it works", "href": "/learn/" },
+      { "title": "Security: what the server sees", "href": "/learn/security/" },
+      { "title": "Vaults and keys", "href": "/learn/vaults-and-keys/" },
+      { "title": "QR codes and friendly tokens", "href": "/learn/qr-codes/" },
+      { "title": "From send.sgraph.ai to here", "href": "/learn/from-sgraph/" }
+    ]},
+    { "title": "Use it", "href": "/use/", "items": [
+      { "title": "Examples: a page, curl, Python", "href": "/use/" },
+      { "title": "Embed it in your site", "href": "/use/embed/" },
+      { "title": "For agents", "href": "/use/agents/" },
+      { "title": "The commercial model", "href": "/use/pricing/" }
+    ]},
+    { "title": "Articles", "href": "/articles/" },
+    { "title": "About", "href": "/about/", "items": [
+      { "title": "About this site", "href": "/about/" },
+      { "title": "The brief, in full", "href": "/about/brief/" },
+      { "title": "Brief corrections", "href": "/about/corrections/" },
+      { "title": "Reality: what exists", "href": "/about/reality/" },
+      { "title": "Version history", "href": "/versions/" },
+      { "title": "The team", "href": "/about/team/" },
+      { "title": "What needs a human", "href": "/about/needs/" },
+      { "title": "Participant disclosure", "href": "/about/participant/" }
+    ]}
+  ]
+}

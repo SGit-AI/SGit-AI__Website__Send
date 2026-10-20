@@ -1,0 +1,26 @@
+---
+title: Open a link
+description: Open a transfer link, a friendly token, or a vault's read key. Everything after the # stays in your browser; decryption happens here, and opening needs no account and no token.
+---
+<h1>Open</h1>
+<p class="sg-lead">Everything that unlocks a file is after the <code>#</code> in the link, which your browser never sends to any server. Paste a link, a friendly token, or a read key; the file is decrypted here.</p>
+<form id="manual-form" class="sg-form">
+  <label for="manual">A link, a token, or a key</label>
+  <input id="manual" type="text" class="mono" placeholder="https://send.sgit.ai/open/#…   or   river-cloud-3847   or   sgit_public_read_…:vaultid" autocomplete="off">
+  <p class="row-actions"><button class="btn" type="submit">Open</button> <span class="muted">Nothing you paste here is uploaded.</span></p>
+</form>
+<p id="progress" class="progress"></p>
+<div id="open-box"></div>
+<h2>What this page can open</h2>
+<table>
+<thead><tr><th>Looks like</th><th>It is</th><th>What happens</th></tr></thead>
+<tbody>
+<tr><td><code>#abc123def456/</code>43 characters</td><td>a transfer with its key</td><td>downloaded, decrypted here, saved with the name that was inside the ciphertext</td></tr>
+<tr><td><code>#abc123def456</code></td><td>a transfer, link only</td><td>this page asks for the key that travelled separately</td></tr>
+<tr><td><code>#river-cloud-3847</code></td><td>a friendly token</td><td>the transfer id and the key are both derived from the token, here</td></tr>
+<tr><td><code>#sgit_public_read_…:vaultid</code></td><td>a vault's read key</td><td>every file and every version, read only, decrypted here; also <code>sgit clone</code>-able</td></tr>
+<tr><td><code>#sgit_private_vault_…:vaultid</code></td><td>a vault key</td><td>opens too, with a warning: it is write access and should not have travelled in a link</td></tr>
+</tbody>
+</table>
+<p>A link made on <a href="https://send.sgraph.ai">send.sgraph.ai</a> opens here too, and the other way round: the formats are the same. <a href="/learn/qr-codes/">QR codes and friendly tokens</a>.</p>
+<script type="module" src="/assets/app/open.js"></script>

@@ -1,0 +1,26 @@
+---
+title: About this site
+description: What send.sgit.ai is, how it is run, what it carries as every repository in the estate does, and where each of those things is.
+---
+
+# About this site
+
+send.sgit.ai is the product site for sending files with the key kept by the people, not the server: the app ([send](/), [open](/open/), [vaults](/vaults/), [keys](/keys/), [settings](/settings/)), the explanations, the examples, the commercial model and the articles. The code it runs is [api.send.sgit.ai](https://api.send.sgit.ai), pinned. The repository is [SGit-AI__Website__Send](https://github.com/SGit-AI/SGit-AI__Website__Send); it grew from [send.sgraph.ai](https://send.sgraph.ai), and [from send.sgraph.ai to here](/learn/from-sgraph/) says what changed.
+
+It follows [what every sgit repository carries](https://sgit.ai/docs/guidance/repositories.html):
+
+| Thing | Where |
+|---|---|
+| The brief, in full | [/about/brief/](/about/brief/), from `briefs/` |
+| The reality file | [/about/reality/](/about/reality/), from `website/data/features.json` |
+| The corrections file | [/about/corrections/](/about/corrections/), `BRIEF-CORRECTIONS.md` |
+| One version, going up on every push | `tools/version.json`, in every header, [the history](/versions/) |
+| The gate | `tools/check.py`: the build is committed, links, twins, origins, the API pin, the tripwire, prose, the version |
+| Tests against real things | `tests/test_app.mjs`: the pages in Chromium against the pinned release and the API in memory |
+| The review folder | `review/intent/`: the brief as sections; the derived graph is proposed |
+| Roles and a board, as files | [/about/team/](/about/team/), `team/` |
+| A credentials tier that is never committed | nothing in this repository needs a credential; the tripwire scans every tracked file anyway |
+| Machine-readable twins | a `.md` beside every page, [/llms.txt](/llms.txt), [/llms-full.txt](/llms-full.txt) |
+| Licences and the disclosure | code Apache-2.0, content CC BY 4.0, [the participant disclosure](/about/participant/) |
+
+What only a person can do next is on [/about/needs/](/about/needs/).

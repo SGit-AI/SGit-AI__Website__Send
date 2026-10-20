@@ -1,0 +1,51 @@
+{
+  "audited": "2026-10-20, v0.1.0, by reading website/ and running tests/test_app.mjs against the pinned release and the in-memory server",
+  "sections": [
+    { "title": "Sending", "features": [
+      { "feature": "Send one file as a transfer: envelope, encrypt here, upload; a link with the key, a QR code", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/send.js`, `tests/test_app.mjs`" },
+      { "feature": "Friendly token instead of a random key; link-only with the key shown separately", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/send.js`" },
+      { "feature": "Expiry (1, 7, 30 days, never) and download caps (unlimited, 1, 5); every transfer revocable from Keys", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/send.js`, `assets/app/keys.js`" },
+      { "feature": "Several files, or any size, into a vault as one commit", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/send.js` sendVault" },
+      { "feature": "Transfers over 4 MB (presigned multipart)", "status": "proposed", "since": "", "evidence": "the API refuses with ETOOLARGE; the server route exists" },
+      { "feature": "Folder transfers, text and secret transfers, as send.sgraph.ai has them", "status": "proposed", "since": "", "evidence": "not in the pinned release" },
+      { "feature": "Locales other than en-GB", "status": "absent", "since": "", "evidence": "one language; send.sgraph.ai has seventeen" }
+    ]},
+    { "title": "Opening", "features": [
+      { "feature": "Open a transfer link with its key, link-only with the key pasted, or a friendly token; decrypt here; save with the name from the envelope", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/open.js`, `tests/test_app.mjs`" },
+      { "feature": "Open a read key: list every file of a vault, decrypt and save each; keep the key", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/open.js`" },
+      { "feature": "A vault key in a link opens, with a warning that it is write access", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/open.js`" },
+      { "feature": "Links made on send.sgraph.ai open here, proved against the hosted site", "status": "proposed", "since": "", "evidence": "the formats are the same, held by the API's tests; no live run recorded" },
+      { "feature": "Preview of images, text or markdown in the page", "status": "proposed", "since": "", "evidence": "files are saved, not shown" }
+    ]},
+    { "title": "Vaults", "features": [
+      { "feature": "Create a vault; the vault key and the read key go into the keyring", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/vaults.js`" },
+      { "feature": "Open a vault from the keyring, list files, add files as one commit, publish with compare-and-swap, see the history", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/vaults.js`, `tests/test_app.mjs`" },
+      { "feature": "Share read-only: the read-key link and its QR code; the sgit clone line", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/vaults.js`" },
+      { "feature": "Folders, rename, delete, move inside a vault from this site", "status": "proposed", "since": "", "evidence": "the library has them; the page writes to the root only" },
+      { "feature": "Browsing a vault with pages, markdown and galleries", "status": "absent", "since": "", "evidence": "that is vault.sgraph.ai's job, and this site links to sgit instead" }
+    ]},
+    { "title": "Keys", "features": [
+      { "feature": "The keyring: vault keys, read keys, transfers sent, access tokens; reveal, copy, forget, export, import", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/keys.js`" },
+      { "feature": "Revoke a transfer sent from this device", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/keys.js`, the delete secret kept with the entry" },
+      { "feature": "Keys encrypted at rest, unlocked by a passkey", "status": "proposed", "since": "", "evidence": "secrets.sgit.ai's design; the page says the keyring is plaintext" },
+      { "feature": "Sending a vault key to a registry over an append lane", "status": "proposed", "since": "", "evidence": "sgit.ai/docs/send-a-vault-key; not built here" }
+    ]},
+    { "title": "Settings and the code", "features": [
+      { "feature": "Choose the server (hosted, dev, local, custom); the access token per server; a health check", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/settings.js`" },
+      { "feature": "The API pinned to api.send.sgit.ai v0.1.0 with its manifest copied; the gate refuses an unpinned reference", "status": "shipped", "since": "v0.1.0", "evidence": "`tools/api.json`, `tools/api-manifest.json`, `tools/check.py`" },
+      { "feature": "A per-browser override of where the API loads from, for development", "status": "shipped", "since": "v0.1.0", "evidence": "`assets/app/api.js`, localStorage `send.sgit.ai.api-base`" }
+    ]},
+    { "title": "The commercial model", "features": [
+      { "feature": "Opening is free; sending needs a hand-issued, use-limited access token", "status": "shipped", "since": "v0.1.0", "evidence": "the server's gate; `/use/pricing/`" },
+      { "feature": "Self-service tokens, a usage meter on the page, vault hosting fees, organisations, a reading meter", "status": "proposed", "since": "", "evidence": "`/use/pricing/`, each row marked" }
+    ]},
+    { "title": "The site and the pipeline", "features": [
+      { "feature": "Every page with a markdown twin, llms.txt, llms-full.txt, sitemap; chrome injected at build; two themes", "status": "shipped", "since": "v0.1.0", "evidence": "`tools/sitekit.py`, `www/`" },
+      { "feature": "The gate: build committed, links, twins, origins, the pin, tripwire, prose, version", "status": "shipped", "since": "v0.1.0", "evidence": "`tools/check.py`, `.github/workflows/ci.yml`" },
+      { "feature": "An end-to-end browser test: send, open, vault, against the pinned release and the in-memory server", "status": "shipped", "since": "v0.1.0", "evidence": "`tests/test_app.mjs`" },
+      { "feature": "Deploy to GitHub Pages on main, tag, verify the live site", "status": "shipped", "since": "v0.1.0", "evidence": "`.github/workflows/deploy-pages.yml`; the first run waits on Pages and DNS" },
+      { "feature": "The articles section, in the newsroom's format", "status": "shipped", "since": "v0.1.0", "evidence": "`/articles/`, three articles" },
+      { "feature": "A review/ folder with the derived graph and navigator", "status": "proposed", "since": "", "evidence": "`review/intent/` only" }
+    ]}
+  ]
+}

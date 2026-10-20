@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>send.sgit.ai, send a file, keep the key</title>
+<meta name="description" content="Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.">
+<link rel="canonical" href="https://send.sgit.ai/">
+<link rel="alternate" type="text/markdown" href="/index.md">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="send.sgit.ai">
+<meta property="og:title" content="send.sgit.ai, send a file, keep the key">
+<meta property="og:description" content="Send a file to anyone, encrypted in your browser before it leaves. The server never sees the file, its name or the key. Hand over the link as a QR code, or keep the files in a vault you can open again, update, and clone with sgit.">
+<meta property="og:url" content="https://send.sgit.ai/">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/themes.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js" defer></script>
+
+</head>
+<body data-page="/">
+<header class="sg-header">
+<nav class="site" aria-label="Site">
+<div class="row">
+<a class="brand" href="/">send<span>.sgit.ai</span></a>
+<a class="parent" href="https://sgit.ai" title="sgit.ai: the parent project, git for encrypted vaults">&#8599; part of <b>sgit.ai</b></a>
+<span class="stage-pill">v0.1.0, beta</span>
+<a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+<div class="nav-items"><div class="ni ni-has"><a class="nl" href="/">Send<span class="caret">&#9662;</span></a><div class="sub"><a class="sl here" href="/">Send a file</a><a class="sl" href="/open/">Open a link</a><a class="sl" href="/vaults/">Vaults</a><a class="sl" href="/keys/">Keys</a><a class="sl" href="/settings/">Settings</a></div></div><div class="ni ni-has"><a class="nl" href="/learn/">Learn<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/learn/">How it works</a><a class="sl" href="/learn/security/">Security: what the server sees</a><a class="sl" href="/learn/vaults-and-keys/">Vaults and keys</a><a class="sl" href="/learn/qr-codes/">QR codes and friendly tokens</a><a class="sl" href="/learn/from-sgraph/">From send.sgraph.ai to here</a></div></div><div class="ni ni-has"><a class="nl" href="/use/">Use it<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/use/">Examples: a page, curl, Python</a><a class="sl" href="/use/embed/">Embed it in your site</a><a class="sl" href="/use/agents/">For agents</a><a class="sl" href="/use/pricing/">The commercial model</a></div></div><div class="ni"><a class="nl" href="/articles/">Articles</a></div><div class="ni ni-has"><a class="nl" href="/about/">About<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/about/">About this site</a><a class="sl" href="/about/brief/">The brief, in full</a><a class="sl" href="/about/corrections/">Brief corrections</a><a class="sl" href="/about/reality/">Reality: what exists</a><a class="sl" href="/versions/">Version history</a><a class="sl" href="/about/team/">The team</a><a class="sl" href="/about/needs/">What needs a human</a><a class="sl" href="/about/participant/">Participant disclosure</a></div></div><div class="ni ni-has ni-theme"><button class="nl" type="button" aria-haspopup="true">Theme<span class="caret">&#9662;</span></button><div class="sub" role="group" aria-label="Theme"><button class="sl" type="button" data-theme-pick="night" aria-pressed="false"><b>Night</b><small>Dark, teal</small></button><button class="sl" type="button" data-theme-pick="day" aria-pressed="false"><b>Day</b><small>Light, teal</small></button><small class="sub-note">Kept in this browser only, as <code>sgit.send.ui.theme</code>; nothing else is stored.</small></div></div></div>
+</div>
+</nav>
+</header>
+
+<div class="sg-page">
+<main id="main">
+<h1>Send a file. Keep the key.</h1>
+<p class="sg-lead">The file is encrypted here, in your browser, with its name inside the ciphertext. The server gets bytes it cannot read. You get a link, a QR code, or a token you can say aloud; whoever has it gets the file, and nobody else does, the server included.</p>
+
+<div id="token-notice" class="sg-warn hidden"><strong>Beta:</strong> uploading needs an access token. <a href="/settings/">Set one in Settings</a>, or <a href="/use/pricing/">read how to get one</a>. Opening a link needs nothing.</div>
+
+<form id="send-form" class="sg-form">
+  <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose a file">
+    <input id="file" type="file" multiple>
+    <span class="big">Drop a file here, or click to choose</span>
+    <span class="hint">Encrypted in this browser before upload · under 4 MB for a one-off transfer · any size into a vault</span>
+  </div>
+  <ul id="picked" class="list hidden"></ul>
+  <p id="many-note" class="muted hidden">Several files go into a vault, as one commit.</p>
+
+  <label>Where it lives</label>
+  <div class="choice">
+    <label><input type="radio" name="where" value="transfer" checked> One transfer: uploaded once, handed over once, expires</label>
+    <label><input type="radio" name="where" value="vault"> Into a vault: versioned, updatable, clonable with sgit</label>
+  </div>
+
+  <div id="transfer-options" class="two">
+    <div><label for="expires">Expires</label>
+      <select id="expires"><option value="1">in 1 day</option><option value="7" selected>in 7 days</option><option value="30">in 30 days</option><option value="0">never</option></select></div>
+    <div><label for="downloads">Downloads</label>
+      <select id="downloads"><option value="0" selected>unlimited</option><option value="1">once</option><option value="5">five times</option></select></div>
+  </div>
+  <div id="vault-options" class="two hidden">
+    <div><label for="vault-pick">Which vault</label><select id="vault-pick"></select></div>
+    <div id="vault-name-row"><label for="vault-name">Name for the new vault</label><input id="vault-name" type="text" placeholder="Project files"></div>
+  </div>
+
+  <label>How to hand it over</label>
+  <div class="choice">
+    <label><input type="radio" name="how" value="link" checked> A link with the key in it (and a QR code)</label>
+    <label><input type="radio" name="how" value="friendly"> A friendly token you can say aloud, river-cloud-3847</label>
+    <label><input type="radio" name="how" value="link-only"> A link, with the key sent separately</label>
+  </div>
+  <p class="muted">For a vault the link carries the read key; the vault key stays on this device.</p>
+
+  <p class="row-actions"><button id="go" class="btn" type="submit" disabled>Encrypt and send</button> <span class="muted">to <span id="endpoint-label">the server</span> set in <a href="/settings/">Settings</a></span></p>
+  <p id="progress" class="progress"></p>
+</form>
+
+<div id="result" class="result hidden"></div>
+
+<h2>What happens, in one table</h2>
+<table>
+<thead><tr><th>Step</th><th>Where</th><th>What the server gets</th></tr></thead>
+<tbody>
+<tr><td>The name goes inside an envelope in front of the file</td><td>this browser</td><td>nothing</td></tr>
+<tr><td>The whole thing is encrypted with AES-256-GCM under a fresh key</td><td>this browser</td><td>nothing</td></tr>
+<tr><td>The ciphertext is uploaded as one transfer, or committed into a vault</td><td>the server you chose</td><td>ciphertext, its size, a hashed sender IP, a content type hint you choose</td></tr>
+<tr><td>The link is built with the key after the <code>#</code></td><td>this browser</td><td>nothing: browsers never send the fragment</td></tr>
+<tr><td>The link is drawn as a QR code</td><td>this browser</td><td>nothing</td></tr>
+</tbody>
+</table>
+<p><a href="/learn/">How it works</a> · <a href="/learn/security/">What the server sees</a> · <a href="/learn/vaults-and-keys/">Vaults and keys</a> · the code this page runs is <a href="https://api.send.sgit.ai/v0.1.0/README.md">api.send.sgit.ai v0.1.0</a>, pinned.</p>
+<script type="module" src="/assets/app/send.js"></script>
+
+</main>
+
+</div>
+<footer class="sg-footer">
+<p>send.sgit.ai · <a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a> · released 2026-10-20 · <a href="/versions/">releases</a> · <a href="/index.md">markdown twin of this page</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">source</a> · <a href="https://sgit.ai">part of sgit.ai</a> · <a href="/about/participant/">who publishes this</a></p>
+<p>Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href="/about/reality/">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.</p>
+<p class="network">Part of the sgit.ai network: <a href="https://sgit.ai">sgit.ai</a> · <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> (the code this site runs) · <a href="https://send.sgraph.ai">send.sgraph.ai</a> (the service this one grew from) · <a href="https://secrets.sgit.ai">secrets.sgit.ai</a> · <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> · <a href="https://sgit.ai/network/">the full network</a></p>
+</footer>
+</body>
+</html>

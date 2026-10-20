@@ -1,0 +1,11 @@
+{
+  "versions": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-10-20",
+      "kind": "release",
+      "title": "the first version of send.sgit.ai: send, open, vaults, keys and settings on the pinned API, with the explanations, the examples, the commercial model and three articles",
+      "notes": "From the four voice memos of 20 October 2026, published in full with their corrections. The app runs api.send.sgit.ai v0.1.0, pinned with its manifest: a file sent as a transfer or into a vault, a link, a friendly token or a QR code to hand over, an open page for any of them, vaults created and shared read-only, and a keyring on the device. An end-to-end browser test drives all of it against the in-memory server. What is not built is listed as proposed in the reality file, including the round trip against the hosted send.sgraph.ai."
+    }
+  ]
+}

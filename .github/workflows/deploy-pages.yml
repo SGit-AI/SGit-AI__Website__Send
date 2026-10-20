@@ -1,0 +1,78 @@
+# main, the default branch, is the release branch: gate, tag the version, publish send.sgit.ai (www/), then poll the
+# live site until it serves the version. Pages for this repository deploys from GitHub Actions (configure-pages enables
+# it). Green does not mean live: the last job fails the run if the site does not serve the version.
+name: deploy-pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 tools/check.py
+  tag:
+    needs: gate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Tag the version, once
+        run: |
+          set -euo pipefail
+          v=$(python3 -c 'import json;print(json.load(open("tools/version.json"))["version"])')
+          if git rev-parse -q --verify "refs/tags/$v" >/dev/null; then
+            if [ "$(git rev-list -n1 $v)" != "$GITHUB_SHA" ]; then echo "::error::$v is already tagged on another commit: bump the version"; exit 1; fi
+            echo "$v already tags this commit"
+          else
+            git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git tag -a "$v" -m "send.sgit.ai $v" && git push origin "$v"
+          fi
+  deploy:
+    needs: [gate, tag]
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: www
+      - id: deployment
+        uses: actions/deploy-pages@v4
+  verify-live:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: The live site serves the version
+        run: |
+          set -euo pipefail
+          v=$(python3 -c 'import json;print(json.load(open("tools/version.json"))["version"])')
+          for i in $(seq 1 30); do
+            live=$(curl -sf https://send.sgit.ai/version.json | python3 -c 'import json,sys;print(json.load(sys.stdin)["version"])' 2>/dev/null || echo none)
+            if [ "$live" = "$v" ]; then echo "live: $v"; exit 0; fi
+            echo "live says $live, waiting for $v"; sleep 20
+          done
+          echo "::error::the live site never served $v"; exit 1

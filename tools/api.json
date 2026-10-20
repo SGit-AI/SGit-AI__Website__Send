@@ -1,0 +1,6 @@
+{
+  "host": "https://api.send.sgit.ai",
+  "release": "v0.1.0",
+  "entry": "https://api.send.sgit.ai/v0.1.0/send/send-api.js",
+  "note": "The one line that names the release of api.send.sgit.ai this site runs. tools/api-manifest.json beside this file is that release's manifest, copied; the gate refuses a reference to the host that is not pinned to this release or not a path in the manifest."
+}

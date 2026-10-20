@@ -1,0 +1,22 @@
+---
+title: Settings
+description: Which SG/Send server this browser talks to, the access token for it, and which copy of the API the pages load. All of it stays in this browser.
+---
+<h1>Settings</h1>
+<form id="settings-form" class="sg-form">
+  <label for="endpoint">The server</label>
+  <select id="endpoint"></select>
+  <p class="muted">The SG/Send API host that stores ciphertext. The hosted one is <code>send.sgraph.ai</code>; <a href="https://sgit.ai/deploy/">you can run your own</a>, or <a href="/use/#local">one on this machine</a> for trying things out.</p>
+  <div class="hidden"><label for="custom">Host</label><input id="custom" type="url" placeholder="https://send.example.org"></div>
+  <label for="token">Access token for that server</label>
+  <input id="token" type="password" autocomplete="off" placeholder="needed to send; not needed to open">
+  <p class="muted">Sent as a request header to that host only, never in a URL, kept in <a href="/keys/">your keys</a>. This is the beta gate: <a href="/use/pricing/">how to get one</a>.</p>
+  <p class="row-actions"><button class="btn" type="submit">Save and check</button></p>
+  <p id="progress" class="progress"></p>
+  <h2>The code these pages run</h2>
+  <dl class="kv"><dt>Pinned release</dt><dd class="mono" id="pinned"></dd><dt>Loaded</dt><dd class="mono" id="loaded"></dd></dl>
+  <label for="api-base">Load the API from another copy (this browser only)</label>
+  <input id="api-base" type="url" placeholder="leave empty to use the pinned release">
+  <p class="muted">For developers: a local checkout of <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> served at a URL ending in the release directory, for example <code>http://localhost:8788/v0.1.0</code>. Other readers are not affected.</p>
+</form>
+<script type="module" src="/assets/app/settings.js"></script>

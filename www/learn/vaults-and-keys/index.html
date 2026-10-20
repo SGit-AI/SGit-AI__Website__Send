@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaults and keys, send.sgit.ai</title>
+<meta name="description" content="What a vault is, the one secret and the keys derived from it, which may be shared and which never, where each kind of key should live, and what to do when one is lost.">
+<link rel="canonical" href="https://send.sgit.ai/learn/vaults-and-keys/">
+<link rel="alternate" type="text/markdown" href="/learn/vaults-and-keys/index.md">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="send.sgit.ai">
+<meta property="og:title" content="Vaults and keys, send.sgit.ai">
+<meta property="og:description" content="What a vault is, the one secret and the keys derived from it, which may be shared and which never, where each kind of key should live, and what to do when one is lost.">
+<meta property="og:url" content="https://send.sgit.ai/learn/vaults-and-keys/">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/themes.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js" defer></script>
+
+</head>
+<body data-page="/learn/vaults-and-keys/">
+<header class="sg-header">
+<nav class="site" aria-label="Site">
+<div class="row">
+<a class="brand" href="/">send<span>.sgit.ai</span></a>
+<a class="parent" href="https://sgit.ai" title="sgit.ai: the parent project, git for encrypted vaults">&#8599; part of <b>sgit.ai</b></a>
+<span class="stage-pill">v0.1.0, beta</span>
+<a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+<div class="nav-items"><div class="ni ni-has"><a class="nl" href="/">Send<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/">Send a file</a><a class="sl" href="/open/">Open a link</a><a class="sl" href="/vaults/">Vaults</a><a class="sl" href="/keys/">Keys</a><a class="sl" href="/settings/">Settings</a></div></div><div class="ni ni-has"><a class="nl here" href="/learn/">Learn<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/learn/">How it works</a><a class="sl" href="/learn/security/">Security: what the server sees</a><a class="sl here" href="/learn/vaults-and-keys/">Vaults and keys</a><a class="sl" href="/learn/qr-codes/">QR codes and friendly tokens</a><a class="sl" href="/learn/from-sgraph/">From send.sgraph.ai to here</a></div></div><div class="ni ni-has"><a class="nl" href="/use/">Use it<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/use/">Examples: a page, curl, Python</a><a class="sl" href="/use/embed/">Embed it in your site</a><a class="sl" href="/use/agents/">For agents</a><a class="sl" href="/use/pricing/">The commercial model</a></div></div><div class="ni"><a class="nl" href="/articles/">Articles</a></div><div class="ni ni-has"><a class="nl" href="/about/">About<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/about/">About this site</a><a class="sl" href="/about/brief/">The brief, in full</a><a class="sl" href="/about/corrections/">Brief corrections</a><a class="sl" href="/about/reality/">Reality: what exists</a><a class="sl" href="/versions/">Version history</a><a class="sl" href="/about/team/">The team</a><a class="sl" href="/about/needs/">What needs a human</a><a class="sl" href="/about/participant/">Participant disclosure</a></div></div><div class="ni ni-has ni-theme"><button class="nl" type="button" aria-haspopup="true">Theme<span class="caret">&#9662;</span></button><div class="sub" role="group" aria-label="Theme"><button class="sl" type="button" data-theme-pick="night" aria-pressed="false"><b>Night</b><small>Dark, teal</small></button><button class="sl" type="button" data-theme-pick="day" aria-pressed="false"><b>Day</b><small>Light, teal</small></button><small class="sub-note">Kept in this browser only, as <code>sgit.send.ui.theme</code>; nothing else is stored.</small></div></div></div>
+</div>
+</nav>
+</header>
+<nav class="sg-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/learn/">How it works</a> / Vaults and keys</nav>
+<div class="sg-page with-toc">
+<main id="main">
+<h1 id="vaults-and-keys">Vaults and keys</h1>
+<h2 id="what-a-vault-is">What a vault is</h2>
+<p>A vault is a folder of files, encrypted in your browser, versioned like git: every change is a commit, the history is kept, two devices can work on it and merge, and a laptop can <code>sgit clone</code> it. send.sgraph.ai had transfers; what it did not have, and what stopped people, was a place to keep the vault keys and a way to put files into vaults from the page. This site has both.</p>
+<h2 id="one-secret-and-the-keys-derived-from-it">One secret, and the keys derived from it</h2>
+<table><thead><tr><th>Key</th><th>What it carries</th><th>Looks like</th><th>May be shared</th></tr></thead><tbody><tr><td><strong>The vault key</strong></td><td>read and write</td><td><code>sgit_private_vault_&lt;passphrase&gt;:&lt;vault id&gt;</code></td><td><strong>never</strong>: not in a link, a page, a chat, a repository</td></tr><tr><td><strong>The read key</strong></td><td>read only, every file, every version</td><td><code>sgit_public_read_&lt;64 hex&gt;:&lt;vault id&gt;</code></td><td>yes: this is what a share link carries</td></tr><tr><td><strong>The write key</strong></td><td>what the server checks before accepting a push</td><td>never shown; derived from the passphrase, sent as a header, stored as a hash</td><td>no</td></tr></tbody></table>
+<p>The read key is derived from the vault key one way, so a read key can never be turned back into write access. The vault id after the colon is the address, and it is public. <a href="https://sgit.ai/docs/credentials.html">sgit.ai's credentials page</a> has the prefixes and why the word in them matters.</p>
+<h2 id="where-each-kind-of-key-should-live">Where each kind of key should live</h2>
+<table><thead><tr><th>Key</th><th>Today, on this site</th><th>The better home</th></tr></thead><tbody><tr><td>Vault keys</td><td><a href="/keys/">Keys</a>, plaintext, per device; export to move</td><td>a password manager; <a href="https://secrets.sgit.ai">secrets.sgit.ai</a>'s passkey-unlocked keyring when it ships; a registry vault fed over an append lane, as <a href="https://sgit.ai/docs/key-management.html">sgit.ai's key management page</a> describes</td></tr><tr><td>Read keys</td><td>Keys, and in the links you hand out</td><td>anywhere; they are publishable</td></tr><tr><td>Transfer keys</td><td>Keys, with the delete secret</td><td>the same; they expire with the transfer</td></tr><tr><td>Access tokens</td><td>Keys, per server</td><td>a password manager</td></tr></tbody></table>
+<h2 id="when-a-key-is-lost">When a key is lost</h2>
+<p>There is no reset. A vault whose vault key is lost cannot be written to again; if a read key survives it can still be read and cloned, and its contents copied into a new vault. A transfer whose key is lost is gone. This is the price of the server never holding a key, and it is why the keyring exists: a key that is written down somewhere is a key that is not lost.</p>
+<h2 id="when-a-key-leaks">When a key leaks</h2>
+<p>A read key that leaks means the vault's contents are as public as wherever it went; revocation is not retroactive, because anyone who fetched the objects keeps them. A vault key that leaks means rotating: make a new vault, copy the files, re-share the new read key, and stop using the old one. <a href="/keys/">Keys</a> can revoke a transfer, which deletes it on the server, if the transfer was sent from this device.</p>
+<h2 id="sgit-on-a-laptop">sgit, on a laptop</h2>
+<pre><code>pip install sgit-ai
+sgit clone sgit_public_read_…:vaultid        # read-only, every file and every commit
+sgit clone sgit_private_vault_…:vaultid      # read and write
+sgit commit &quot;added the report&quot; &amp;&amp; sgit push  # then open it here again: the browser and the CLI are two clones of one vault</code></pre>
+<p><a href="https://sgit.ai">sgit.ai</a> is the documentation for the CLI and the vault format.</p>
+</main>
+<nav class="sg-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#what-a-vault-is">What a vault is</a></li><li><a href="#one-secret-and-the-keys-derived-from-it">One secret, and the keys derived from it</a></li><li><a href="#where-each-kind-of-key-should-live">Where each kind of key should live</a></li><li><a href="#when-a-key-is-lost">When a key is lost</a></li><li><a href="#when-a-key-leaks">When a key leaks</a></li><li><a href="#sgit-on-a-laptop">sgit, on a laptop</a></li></ul></nav>
+</div>
+<footer class="sg-footer">
+<p>send.sgit.ai · <a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a> · released 2026-10-20 · <a href="/versions/">releases</a> · <a href="/learn/vaults-and-keys/index.md">markdown twin of this page</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">source</a> · <a href="https://sgit.ai">part of sgit.ai</a> · <a href="/about/participant/">who publishes this</a></p>
+<p>Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href="/about/reality/">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.</p>
+<p class="network">Part of the sgit.ai network: <a href="https://sgit.ai">sgit.ai</a> · <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> (the code this site runs) · <a href="https://send.sgraph.ai">send.sgraph.ai</a> (the service this one grew from) · <a href="https://secrets.sgit.ai">secrets.sgit.ai</a> · <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> · <a href="https://sgit.ai/network/">the full network</a></p>
+</footer>
+</body>
+</html>

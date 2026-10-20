@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Examples, a page, curl, Python, send.sgit.ai</title>
+<meta name="description" content="The same transfer made three ways: from a page with the pinned API, from a shell with curl and openssl, and from Python for an agent; plus the server in memory for trying it on a laptop.">
+<link rel="canonical" href="https://send.sgit.ai/use/">
+<link rel="alternate" type="text/markdown" href="/use/index.md">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="send.sgit.ai">
+<meta property="og:title" content="Examples, a page, curl, Python, send.sgit.ai">
+<meta property="og:description" content="The same transfer made three ways: from a page with the pinned API, from a shell with curl and openssl, and from Python for an agent; plus the server in memory for trying it on a laptop.">
+<meta property="og:url" content="https://send.sgit.ai/use/">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/themes.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js" defer></script>
+
+</head>
+<body data-page="/use/">
+<header class="sg-header">
+<nav class="site" aria-label="Site">
+<div class="row">
+<a class="brand" href="/">send<span>.sgit.ai</span></a>
+<a class="parent" href="https://sgit.ai" title="sgit.ai: the parent project, git for encrypted vaults">&#8599; part of <b>sgit.ai</b></a>
+<span class="stage-pill">v0.1.0, beta</span>
+<a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+<div class="nav-items"><div class="ni ni-has"><a class="nl" href="/">Send<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/">Send a file</a><a class="sl" href="/open/">Open a link</a><a class="sl" href="/vaults/">Vaults</a><a class="sl" href="/keys/">Keys</a><a class="sl" href="/settings/">Settings</a></div></div><div class="ni ni-has"><a class="nl" href="/learn/">Learn<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/learn/">How it works</a><a class="sl" href="/learn/security/">Security: what the server sees</a><a class="sl" href="/learn/vaults-and-keys/">Vaults and keys</a><a class="sl" href="/learn/qr-codes/">QR codes and friendly tokens</a><a class="sl" href="/learn/from-sgraph/">From send.sgraph.ai to here</a></div></div><div class="ni ni-has"><a class="nl here" href="/use/">Use it<span class="caret">&#9662;</span></a><div class="sub"><a class="sl here" href="/use/">Examples: a page, curl, Python</a><a class="sl" href="/use/embed/">Embed it in your site</a><a class="sl" href="/use/agents/">For agents</a><a class="sl" href="/use/pricing/">The commercial model</a></div></div><div class="ni"><a class="nl" href="/articles/">Articles</a></div><div class="ni ni-has"><a class="nl" href="/about/">About<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/about/">About this site</a><a class="sl" href="/about/brief/">The brief, in full</a><a class="sl" href="/about/corrections/">Brief corrections</a><a class="sl" href="/about/reality/">Reality: what exists</a><a class="sl" href="/versions/">Version history</a><a class="sl" href="/about/team/">The team</a><a class="sl" href="/about/needs/">What needs a human</a><a class="sl" href="/about/participant/">Participant disclosure</a></div></div><div class="ni ni-has ni-theme"><button class="nl" type="button" aria-haspopup="true">Theme<span class="caret">&#9662;</span></button><div class="sub" role="group" aria-label="Theme"><button class="sl" type="button" data-theme-pick="night" aria-pressed="false"><b>Night</b><small>Dark, teal</small></button><button class="sl" type="button" data-theme-pick="day" aria-pressed="false"><b>Day</b><small>Light, teal</small></button><small class="sub-note">Kept in this browser only, as <code>sgit.send.ui.theme</code>; nothing else is stored.</small></div></div></div>
+</div>
+</nav>
+</header>
+<nav class="sg-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Examples, a page, curl, Python</nav>
+<div class="sg-page with-toc">
+<main id="main">
+<h1 id="use-it-examples">Use it: examples</h1>
+<p>Everything here talks to the same server with the same formats, so a file sent one way opens every other way, including on <a href="/open/">the open page</a>.</p>
+<h2 id="page">From a page</h2>
+<pre><code class="language-html">&lt;script type=&quot;module&quot;&gt;
+  import * as send from &#x27;https://api.send.sgit.ai/v0.1.0/send/send-api.js&#x27;
+  const api = new send.SendTransfers({ endpoint: &#x27;https://send.sgraph.ai&#x27;, accessToken })
+  const r   = await api.send({ bytes, filename: &#x27;report.pdf&#x27;, expiresAt: Date.now() + 7 * 86400e3 })
+  const url = send.link.transferLink({ openUrl: &#x27;https://send.sgit.ai/open/&#x27;, transferId: r.transferId, key: r.keyString })
+  qr.innerHTML = send.qr.toSvg(url)
+&lt;/script&gt;</code></pre>
+<p>Full walk-through, including a friendly token and a vault: <a href="https://api.send.sgit.ai/start/">the quick start</a>.</p>
+<h2 id="curl">From a shell, with curl and openssl</h2>
+<p>The layout is simple enough to do by hand: envelope, encrypt, three calls.</p>
+<pre><code class="language-bash">TOKEN=...; HOST=https://send.sgraph.ai; FILE=report.pdf
+KEY=$(openssl rand -hex 32); IV=$(openssl rand -hex 12)
+META=$(printf &#x27;{&quot;filename&quot;:&quot;%s&quot;}&#x27; &quot;$FILE&quot;); LEN=$(printf &#x27;%s&#x27; &quot;$META&quot; | wc -c)
+{ printf &#x27;SGMETA\0&#x27;; printf &quot;$(printf &#x27;\\x%02x\\x%02x\\x%02x\\x%02x&#x27; $((LEN&gt;&gt;24&amp;255)) $((LEN&gt;&gt;16&amp;255)) $((LEN&gt;&gt;8&amp;255)) $((LEN&amp;255)))&quot;; printf &#x27;%s&#x27; &quot;$META&quot;; cat &quot;$FILE&quot;; } &gt; plain.bin
+# AES-256-GCM: openssl&#x27;s CLI cannot emit the GCM tag; use the Python example below for GCM, or sgit&#x27;s transfer command when it ships.</code></pre>
+<p>A GCM tag is required, and OpenSSL's command line does not produce one, so the honest shell example stops here: the three HTTP calls are below in Python, and they are the same from curl.</p>
+<pre><code class="language-bash">ID=$(curl -s -H &quot;x-sgraph-access-token: $TOKEN&quot; -H &#x27;content-type: application/json&#x27; -d &#x27;{&quot;file_size_bytes&quot;:1234,&quot;content_type_hint&quot;:&quot;application/octet-stream&quot;}&#x27; $HOST/api/transfers/create | python3 -c &#x27;import json,sys;print(json.load(sys.stdin)[&quot;transfer_id&quot;])&#x27;)
+curl -s -H &quot;x-sgraph-access-token: $TOKEN&quot; -H &#x27;content-type: application/octet-stream&#x27; --data-binary @cipher.bin $HOST/api/transfers/upload/$ID
+curl -s -X POST -H &quot;x-sgraph-access-token: $TOKEN&quot; $HOST/api/transfers/complete/$ID
+echo &quot;https://send.sgit.ai/open/#$ID/$KEY_BASE64URL&quot;</code></pre>
+<h2 id="python">From Python, for an agent</h2>
+<p>An agent that finishes a job and hands the result over once. Standard library plus <code>cryptography</code>; no account for the recipient.</p>
+<pre><code class="language-python">import base64, json, os, struct, urllib.request
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+HOST, TOKEN = &#x27;https://send.sgraph.ai&#x27;, os.environ[&#x27;SGRAPH_ACCESS_TOKEN&#x27;]   # the token: an env var, a header, never a URL
+
+def send_file(path, expires_ms=0, max_downloads=0):
+    data = open(path, &#x27;rb&#x27;).read()
+    meta = json.dumps({&#x27;filename&#x27;: os.path.basename(path)}).encode()
+    plain = b&#x27;SGMETA\0&#x27; + struct.pack(&#x27;&gt;I&#x27;, len(meta)) + meta + data          # the name inside the ciphertext
+    key, iv = AESGCM.generate_key(256), os.urandom(12)
+    cipher = iv + AESGCM(key).encrypt(iv, plain, None)                        # IV || ciphertext || tag
+    def call(method, p, body=None, ctype=&#x27;application/json&#x27;):
+        req = urllib.request.Request(HOST + p, data=body, method=method, headers={&#x27;x-sgraph-access-token&#x27;: TOKEN, &#x27;content-type&#x27;: ctype})
+        with urllib.request.urlopen(req) as r: return r.read()
+    tid = json.loads(call(&#x27;POST&#x27;, &#x27;/api/transfers/create&#x27;, json.dumps({&#x27;file_size_bytes&#x27;: len(data), &#x27;content_type_hint&#x27;: &#x27;application/octet-stream&#x27;, &#x27;max_downloads&#x27;: max_downloads, &#x27;expires_at&#x27;: expires_ms}).encode()))[&#x27;transfer_id&#x27;]
+    call(&#x27;POST&#x27;, f&#x27;/api/transfers/upload/{tid}&#x27;, cipher, &#x27;application/octet-stream&#x27;)
+    call(&#x27;POST&#x27;, f&#x27;/api/transfers/complete/{tid}&#x27;)
+    k = base64.urlsafe_b64encode(key).decode().rstrip(&#x27;=&#x27;)
+    return f&#x27;https://send.sgit.ai/open/#{tid}/{k}&#x27;                             # the key: in the fragment, never logged
+
+def receive(link):
+    frag = link.split(&#x27;#&#x27;, 1)[1].split(&#x27;|&#x27;)[0]; tid, k = frag.split(&#x27;/&#x27;, 1)
+    key = base64.urlsafe_b64decode(k + &#x27;=&#x27; * (-len(k) % 4))
+    with urllib.request.urlopen(f&#x27;{HOST}/api/transfers/download/{tid}&#x27;) as r: cipher = r.read()   # public: the key is the gate
+    plain = AESGCM(key).decrypt(cipher[:12], cipher[12:], None)
+    assert plain[:7] == b&#x27;SGMETA\0&#x27;; n = struct.unpack(&#x27;&gt;I&#x27;, plain[7:11])[0]
+    return json.loads(plain[11:11 + n])[&#x27;filename&#x27;], plain[11 + n:]</code></pre>
+<p>For an agent-facing link prefer <code>max_downloads=0</code> with a short <code>expires_ms</code>: a retry is not a reader, and a cap burns the allowance. <a href="/use/agents/">For agents</a> has the rest of that guidance.</p>
+<h2 id="local">On a laptop, with the server in memory</h2>
+<pre><code>git clone https://github.com/SGit-AI/SGit-AI__Website__Send__API
+node SGit-AI__Website__Send__API/releases/v0.1.0/tests/server.mjs 8787 local-dev-token</code></pre>
+<p>Then in <a href="/settings/">Settings</a> choose "a server on this machine" with the token <code>local-dev-token</code>. Every feature works, nothing leaves the machine, and it forgets everything when it stops. It is the same server the API's 43 tests run against.</p>
+</main>
+<nav class="sg-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#page">From a page</a></li><li><a href="#curl">From a shell, with curl and openssl</a></li><li><a href="#python">From Python, for an agent</a></li><li><a href="#local">On a laptop, with the server in memory</a></li></ul></nav>
+</div>
+<footer class="sg-footer">
+<p>send.sgit.ai · <a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a> · released 2026-10-20 · <a href="/versions/">releases</a> · <a href="/use/index.md">markdown twin of this page</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">source</a> · <a href="https://sgit.ai">part of sgit.ai</a> · <a href="/about/participant/">who publishes this</a></p>
+<p>Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href="/about/reality/">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.</p>
+<p class="network">Part of the sgit.ai network: <a href="https://sgit.ai">sgit.ai</a> · <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> (the code this site runs) · <a href="https://send.sgraph.ai">send.sgraph.ai</a> (the service this one grew from) · <a href="https://secrets.sgit.ai">secrets.sgit.ai</a> · <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> · <a href="https://sgit.ai/network/">the full network</a></p>
+</footer>
+</body>
+</html>

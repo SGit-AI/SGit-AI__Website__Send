@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="system-ui, sans-serif" font-size="14">
+<rect width="900" height="360" fill="#1A1A2E"/>
+<g fill="#16213E" stroke="#4ECDC4"><rect x="30" y="40" width="150" height="60" rx="8"/><rect x="200" y="40" width="150" height="60" rx="8"/><rect x="370" y="40" width="150" height="60" rx="8"/><rect x="540" y="40" width="150" height="60" rx="8"/><rect x="710" y="40" width="150" height="60" rx="8"/></g>
+<g fill="#FFFFFF" font-weight="700"><text x="45" y="65">Send</text><text x="215" y="65">Open</text><text x="385" y="65">Vaults</text><text x="555" y="65">Keys</text><text x="725" y="65">Settings</text></g>
+<g fill="#8892A0" font-size="12"><text x="45" y="88">send.js</text><text x="215" y="88">open.js</text><text x="385" y="88">vaults.js</text><text x="555" y="88">keys.js</text><text x="725" y="88">settings.js</text></g>
+<g stroke="#8892A0" stroke-width="2"><path d="M105 100 v30"/><path d="M275 100 v30"/><path d="M445 100 v30"/><path d="M615 100 v30"/><path d="M785 100 v30"/></g>
+<rect x="30" y="130" width="830" height="50" rx="8" fill="#16213E" stroke="#FFFFFF"/><text x="45" y="160" fill="#FFFFFF">api.js imports one pinned release: https://api.send.sgit.ai/v0.1.0/send/send-api.js  (manifest copied, gate checks the pin)</text>
+<path d="M445 180 v30" stroke="#8892A0" stroke-width="2"/>
+<rect x="300" y="210" width="290" height="44" rx="8" fill="#16213E" stroke="#E0B84E"/><text x="315" y="237" fill="#E0E0E0">the SG/Send server Settings names</text>
+<rect x="30" y="280" width="830" height="50" rx="8" fill="#16213E" stroke="#2C3E6B"/><text x="45" y="310" fill="#E0E0E0">tests/test_app.mjs: Chromium drives the five pages against the release checkout and the server in memory</text>
+<text x="30" y="350" fill="#8892A0" font-size="12">send.sgit.ai v0.1.0, 20 October 2026, CC BY 4.0</text>
+</svg>

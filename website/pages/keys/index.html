@@ -1,0 +1,11 @@
+---
+title: Keys
+description: The keyring on this device: vault keys, read keys, the transfers you sent and their delete secrets, and access tokens. Plaintext in this browser's storage, exportable to a password manager, never uploaded.
+---
+<h1>Keys</h1>
+<p class="sg-lead">Every key this site made or was given, on this device, in this browser. This is what was missing before: a vault key that is not written down is a vault that is lost, and a key pasted into a chat is a key that is kept by someone else.</p>
+<div class="sg-warn"><strong>What this keyring is, and is not.</strong> It is one JSON document in this browser's storage, in plaintext: anyone with this device and this profile can read it, and clearing site data deletes it. It is not synced and not uploaded. For keys that matter, export the document to a password manager, or to <a href="https://secrets.sgit.ai">secrets.sgit.ai</a>'s passkey-unlocked keyring once it ships. <a href="/learn/vaults-and-keys/">Vaults and keys</a> says where each kind of key should live.</div>
+<p class="row-actions"><button id="export" class="btn secondary">Export as JSON</button> <label class="btn secondary" for="import">Import a JSON export</label><input id="import" type="file" accept="application/json" class="hidden"> <button id="clear" class="btn danger">Forget everything</button></p>
+<p id="progress" class="progress"></p>
+<div id="keys"></div>
+<script type="module" src="/assets/app/keys.js"></script>

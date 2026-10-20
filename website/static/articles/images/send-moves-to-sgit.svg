@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="system-ui, sans-serif" font-size="14">
+<rect width="900" height="360" fill="#1A1A2E"/>
+<text x="30" y="36" fill="#FFFFFF" font-size="18" font-weight="700">send.sgraph.ai</text>
+<rect x="30" y="56" width="380" height="110" rx="8" fill="#16213E" stroke="#4ECDC4"/><text x="45" y="82" fill="#E0E0E0">a transfer, encrypted in the browser</text><text x="45" y="104" fill="#E0E0E0">a link with the key after #</text><text x="45" y="126" fill="#E0E0E0">the server blind</text><text x="45" y="152" fill="#8892A0">friendly tokens, folders, text, 17 locales</text>
+<rect x="30" y="186" width="380" height="100" rx="8" fill="#16213E" stroke="#E94560"/><text x="45" y="212" fill="#E94560" font-weight="700">the two gaps</text><text x="45" y="236" fill="#E0E0E0">nowhere to keep the vault key</text><text x="45" y="258" fill="#E0E0E0">nowhere to keep the access key</text><text x="45" y="278" fill="#8892A0">so: no vaults, and people stopped</text>
+<text x="490" y="36" fill="#FFFFFF" font-size="18" font-weight="700">send.sgit.ai</text>
+<rect x="490" y="56" width="380" height="110" rx="8" fill="#16213E" stroke="#4ECDC4"/><text x="505" y="82" fill="#E0E0E0">the same transfer, the same formats</text><text x="505" y="104" fill="#E0E0E0">+ files into a vault, shared by read key</text><text x="505" y="126" fill="#E0E0E0">+ a QR code on every share</text><text x="505" y="152" fill="#8892A0">links open on either site</text>
+<rect x="490" y="186" width="380" height="100" rx="8" fill="#16213E" stroke="#4ECDC4"/><text x="505" y="212" fill="#4ECDC4" font-weight="700">the two gaps, closed</text><text x="505" y="236" fill="#E0E0E0">a keyring on the device: vault keys, read keys,</text><text x="505" y="258" fill="#E0E0E0">transfers, access tokens; exportable</text><text x="505" y="278" fill="#8892A0">code lifted out: api.send.sgit.ai v0.1.0, pinned</text>
+<path d="M415 170 h70" stroke="#8892A0" stroke-width="2"/><path d="M478 164 l10 6 l-10 6" fill="none" stroke="#8892A0" stroke-width="2"/>
+<text x="30" y="340" fill="#8892A0" font-size="12">send.sgit.ai v0.1.0, 20 October 2026, CC BY 4.0</text>
+</svg>

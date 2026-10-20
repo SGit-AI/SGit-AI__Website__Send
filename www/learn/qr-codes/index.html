@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR codes and friendly tokens, send.sgit.ai</title>
+<meta name="description" content="Why the link is drawn as a QR code, what the code carries and does not, and the trade a friendly token makes against a random key.">
+<link rel="canonical" href="https://send.sgit.ai/learn/qr-codes/">
+<link rel="alternate" type="text/markdown" href="/learn/qr-codes/index.md">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="send.sgit.ai">
+<meta property="og:title" content="QR codes and friendly tokens, send.sgit.ai">
+<meta property="og:description" content="Why the link is drawn as a QR code, what the code carries and does not, and the trade a friendly token makes against a random key.">
+<meta property="og:url" content="https://send.sgit.ai/learn/qr-codes/">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/themes.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js" defer></script>
+
+</head>
+<body data-page="/learn/qr-codes/">
+<header class="sg-header">
+<nav class="site" aria-label="Site">
+<div class="row">
+<a class="brand" href="/">send<span>.sgit.ai</span></a>
+<a class="parent" href="https://sgit.ai" title="sgit.ai: the parent project, git for encrypted vaults">&#8599; part of <b>sgit.ai</b></a>
+<span class="stage-pill">v0.1.0, beta</span>
+<a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+<div class="nav-items"><div class="ni ni-has"><a class="nl" href="/">Send<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/">Send a file</a><a class="sl" href="/open/">Open a link</a><a class="sl" href="/vaults/">Vaults</a><a class="sl" href="/keys/">Keys</a><a class="sl" href="/settings/">Settings</a></div></div><div class="ni ni-has"><a class="nl here" href="/learn/">Learn<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/learn/">How it works</a><a class="sl" href="/learn/security/">Security: what the server sees</a><a class="sl" href="/learn/vaults-and-keys/">Vaults and keys</a><a class="sl here" href="/learn/qr-codes/">QR codes and friendly tokens</a><a class="sl" href="/learn/from-sgraph/">From send.sgraph.ai to here</a></div></div><div class="ni ni-has"><a class="nl" href="/use/">Use it<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/use/">Examples: a page, curl, Python</a><a class="sl" href="/use/embed/">Embed it in your site</a><a class="sl" href="/use/agents/">For agents</a><a class="sl" href="/use/pricing/">The commercial model</a></div></div><div class="ni"><a class="nl" href="/articles/">Articles</a></div><div class="ni ni-has"><a class="nl" href="/about/">About<span class="caret">&#9662;</span></a><div class="sub"><a class="sl" href="/about/">About this site</a><a class="sl" href="/about/brief/">The brief, in full</a><a class="sl" href="/about/corrections/">Brief corrections</a><a class="sl" href="/about/reality/">Reality: what exists</a><a class="sl" href="/versions/">Version history</a><a class="sl" href="/about/team/">The team</a><a class="sl" href="/about/needs/">What needs a human</a><a class="sl" href="/about/participant/">Participant disclosure</a></div></div><div class="ni ni-has ni-theme"><button class="nl" type="button" aria-haspopup="true">Theme<span class="caret">&#9662;</span></button><div class="sub" role="group" aria-label="Theme"><button class="sl" type="button" data-theme-pick="night" aria-pressed="false"><b>Night</b><small>Dark, teal</small></button><button class="sl" type="button" data-theme-pick="day" aria-pressed="false"><b>Day</b><small>Light, teal</small></button><small class="sub-note">Kept in this browser only, as <code>sgit.send.ui.theme</code>; nothing else is stored.</small></div></div></div>
+</div>
+</nav>
+</header>
+<nav class="sg-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/learn/">How it works</a> / QR codes and friendly tokens</nav>
+<div class="sg-page with-toc">
+<main id="main">
+<h1 id="qr-codes-and-friendly-tokens">QR codes and friendly tokens</h1>
+<h2 id="the-qr-code-is-the-link">The QR code is the link</h2>
+<p>Every share on this site comes with a QR code, drawn in your browser by the pinned release's QR module from the link itself. Nothing is sent to make it; it is an SVG of the same characters you can copy. A phone's camera opens the link, and the key in the fragment reaches the phone's browser and no server.</p>
+<p>That makes the QR code the first way to hand a link over when the two people are in the same room, on a call with a screen, or when one of them is on a phone and the other is not. It replaces the step that broke most hand-overs before: reading out or pasting a long key. The code carries everything the link carries, so it is as secret as the link: do not put it on a slide you will publish.</p>
+<h2 id="a-friendly-token-fits-in-a-smaller-square">A friendly token fits in a smaller square</h2>
+<p><code>river-cloud-3847</code> is sixteen characters where a link with a random key is ninety. The QR code is smaller and scans from further away, and the token can also be said aloud or typed. The transfer id and the key are both derived from the token in both browsers, so the server never maps a token to anything and never sees it.</p>
+<p>The trade: there are 1,024,000,000 tokens, and anyone holding the ciphertext can try them offline at 600,000 PBKDF2 rounds each. A random 256-bit key cannot be tried. So a friendly token is for a link that expires, a file that is not worth that effort, and a moment when speaking it is the point; a random key is for everything else. The send page shows which you chose and the expiry you set.</p>
+<h2 id="scanning">Scanning</h2>
+<p>This release draws codes; it does not scan them. A phone's camera app opens a scanned link in the browser, which is the common case. Scanning with the page's own camera is proposed and listed as such in <a href="/about/reality/">the reality file</a>.</p>
+<h2 id="compatibility">Compatibility</h2>
+<p>A link or a token made here opens on <a href="https://send.sgraph.ai">send.sgraph.ai</a>, and one made there opens on <a href="/open/">the open page</a> here: the fragment grammar, the token derivations and the word list are the same, copied from the SG/Send repository and held by tests. <a href="https://api.send.sgit.ai/docs/contracts/">The contracts</a> are written down on the API's site.</p>
+</main>
+<nav class="sg-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#the-qr-code-is-the-link">The QR code is the link</a></li><li><a href="#a-friendly-token-fits-in-a-smaller-square">A friendly token fits in a smaller square</a></li><li><a href="#scanning">Scanning</a></li><li><a href="#compatibility">Compatibility</a></li></ul></nav>
+</div>
+<footer class="sg-footer">
+<p>send.sgit.ai · <a class="sg-badge ver" href="/versions/" data-version="v0.1.0" title="released 2026-10-20">v0.1.0</a> · released 2026-10-20 · <a href="/versions/">releases</a> · <a href="/learn/qr-codes/index.md">markdown twin of this page</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__Send">source</a> · <a href="https://sgit.ai">part of sgit.ai</a> · <a href="/about/participant/">who publishes this</a></p>
+<p>Everything in the repository is public; nothing in it is secret, and a leak tripwire in the gate checks that on every push. The code this site runs is <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> v0.1.0, pinned. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code Apache-2.0. What is shipped, proposed or absent is in <a href="/about/reality/">the reality file</a>; if it is not listed there, it does not exist. This is a beta service: do not upload confidential or illegal content.</p>
+<p class="network">Part of the sgit.ai network: <a href="https://sgit.ai">sgit.ai</a> · <a href="https://api.send.sgit.ai">api.send.sgit.ai</a> (the code this site runs) · <a href="https://send.sgraph.ai">send.sgraph.ai</a> (the service this one grew from) · <a href="https://secrets.sgit.ai">secrets.sgit.ai</a> · <a href="https://newsroom.sgit.ai">newsroom.sgit.ai</a> · <a href="https://sgit.ai/network/">the full network</a></p>
+</footer>
+</body>
+</html>
